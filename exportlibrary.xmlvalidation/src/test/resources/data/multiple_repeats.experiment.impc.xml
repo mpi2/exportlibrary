@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet
+    xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+    
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="J" pipeline="IMPC_001" project="pp">
+        <experiment experimentID="eer" dateOfExperiment="2012-10-23">
+            <specimenID>erear</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>120.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>114.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>122.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>125.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>4.97</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>6.47</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>190.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>142.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>138.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>156.67</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>24.2</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59470</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>74.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>67.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>82.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>74.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.08</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>5.93</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>144.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>146.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>139.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>143.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>24.1</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59471</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>61.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>62.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>58.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>63.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>2.58</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>5.85</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>116.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>169.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>129.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>138.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>23.6</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59472</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>76.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>74.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>71.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>84.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.36</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>7.09</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>175.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>159.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>149.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>161.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>22.7</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59473</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>70.67</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>64.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>80.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>68.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.35</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>7.06</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>158.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>148.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>141.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>149.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>21.1</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59474</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>68.67</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>57.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>69.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>80.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>4.35</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>7.91</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>118.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>127.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>130.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>125.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>15.8</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59475</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>63.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>63.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>62.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>65.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.82</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>7.41</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>132.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>119.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>118.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>123.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>16.6</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59476</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>55.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>57.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>56.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>52.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.85</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>6.81</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>96.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>103.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>93.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>97.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>14.3</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59477</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>69.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>67.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>74.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>67.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>4.28</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>7.67</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>130.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>126.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>117.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>124.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>16.2</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59478</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>58.67</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>58.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>54.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>64.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.26</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>6.13</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>101.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>114.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>116.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>110.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>18.0</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59479</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>63.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>64.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>59.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>66.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.48</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>6.8</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>116.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>126.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>127.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>123.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>18.1</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59480</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>78.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>70.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>78.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>87.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>4.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>7.26</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>158.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>150.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>119.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>142.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>19.6</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59481</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>65.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>70.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>70.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>56.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>3.55</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>6.72</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>120.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>132.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>119.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>123.67</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>18.4</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+        <experiment experimentID="26469" dateOfExperiment="2012-10-23">
+            <specimenID>59482</specimenID>
+            <procedure procedureID="IMPC_GRS_001">
+                <simpleParameter parameterID="IMPC_GRS_004_001">
+                    <value></value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_008_001">
+                    <value>66.67</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>72.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>64.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_001_001">
+                    <value>64.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_010_001">
+                    <value>4.63</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_011_001">
+                    <value>8.68</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>107.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>158.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_002_001">
+                    <value>110.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_009_001">
+                    <value>125.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_GRS_003_001">
+                    <value>14.4</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_GRS_006_001">
+                    <value incrementValue="2">BIO - GS2</value>
+                    <value incrementValue="3">Bioseb</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_GRS_007_001">
+                    <value>HMGU plate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_013_001">
+                    <value>Bio-GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_012_001">
+                    <value>27</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_005_001">
+                    <value>BIO - GS2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_GRS_006_001">
+                    <value>Bioseb</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

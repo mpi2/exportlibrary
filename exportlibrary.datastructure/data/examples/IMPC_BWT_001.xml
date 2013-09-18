@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-01-01" sequenceID="1">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>25.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-01-08" sequenceID="2">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>26.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-01-15" sequenceID="3">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-01-21" sequenceID="4">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-01-28" sequenceID="5">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-04" sequenceID="6">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-11" sequenceID="7">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-18" sequenceID="8">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-25" sequenceID="9">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-03-04" sequenceID="10">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-03-11" sequenceID="11">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g" >
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-03-18" sequenceID="12">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g">
+                    <value>30.76</value>
+                </simpleParameter>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+               xmlns:orm="http://java.sun.com/xml/ns/persistence/orm"
+               xmlns:annox="http://annox.dev.java.net"
+               jaxb:extensionBindingPrefixes="hj orm annox"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               version="2.1">
+                   
+                   
+    <jaxb:globalBindings localScoping="toplevel"  generateIsSetMethod="true" >
+        <jaxb:serializable/>
+        
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:date" parseMethod="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter.parseDate" 
+                                      printMethod="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter.printDate" />
+                   
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:time" parseMethod="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter.parseTime" 
+                                      printMethod="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter.printTime" />
+                   
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime" parseMethod="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter.parseDateTime" 
+                                  printMethod="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter.printDateTime" />
+                   
+    </jaxb:globalBindings>
+    
+
+   
+    <jaxb:bindings schemaLocation="imits.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits"/>            
+        </jaxb:schemaBindings>
+        <!-- http://pastebin.com/G07DVm1V-->
+        <jaxb:bindings node="xs:element[@name='phenotypeAttempts']//xs:element[@name='phenotypeAttempt']">
+            <hj:one-to-many orphan-removal="true"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+   
+    
+    <jaxb:bindings schemaLocation="impress.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress"/>
+        </jaxb:schemaBindings>
+        
+         <jaxb:bindings node="xs:complexType[@name='ImpressProcedure']//xs:attribute[@name='description']">
+            <hj:basic>
+                <orm:lob/>
+                <orm:column length="10000"/>
+            </hj:basic>
+        </jaxb:bindings>
+        <jaxb:bindings node="xs:complexType[@name='ImpressParameter']//xs:attribute[@name='description']">
+            <hj:basic>
+                <orm:lob/>
+                <orm:column length="10000"/>
+            </hj:basic>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    
+    <jaxb:bindings schemaLocation="mgi.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.mgi"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+ <jaxb:bindings schemaLocation="statuscodes.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.statuscodes"/>
+        </jaxb:schemaBindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='StatusCode']//xs:attribute[@name='explanation']">
+            <hj:basic>
+                <orm:column length="1024"/>
+            </hj:basic>
+        </jaxb:bindings>
+    </jaxb:bindings>
+<!-- 
+ <jaxb:bindings schemaLocation="support.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.support"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+    
+    -->
+</jaxb:bindings>

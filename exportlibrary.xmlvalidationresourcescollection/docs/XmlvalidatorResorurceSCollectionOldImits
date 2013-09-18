@@ -1,0 +1,27 @@
+this.imitsLoader = new ImitsLoader(username, password);
+        this.imitsLoader.run(this.now);
+        //
+        logger.info("persisting imits");
+        logger.info("persisting MIPlans");
+        this.hibernateManager.persist(this.imitsLoader.getMiPlans());
+        logger.info("persisting microinjection attempts");
+        this.hibernateManager.persist(this.imitsLoader.getMicroinjectionAttempts());
+        logger.info("persisting phenotype attempts");
+        this.hibernateManager.persist(this.imitsLoader.getPhenotypeAttempts());
+        //
+        logger.info("generating imits derived genotypic information");
+        this.derivedGenotypicInformationGenerator = new DerivedGenotypicInformationGenerator();
+        this.derivedGenotypicInformationGenerator.setMicroinjectionAttempts(this.imitsLoader.getMicroinjectionAttempts());
+        this.derivedGenotypicInformationGenerator.setPhenotypeAttempts(this.imitsLoader.getPhenotypeAttempts());
+        this.derivedGenotypicInformationGenerator.setMiPlans(this.imitsLoader.getMiPlans());
+        this.derivedGenotypicInformationGenerator.setMgiStrains(this.mGIResource.getStrains());
+        this.derivedGenotypicInformationGenerator.run();
+        this.hibernateManager.alter();
+        //
+        logger.info("generating imits reports");
+        this.imitsReporter = new ImitsReporter(this.hibernateManager);
+        this.imitsReporter.setMicroinjectionAttempts(this.imitsLoader.getMicroinjectionAttempts());
+        this.imitsReporter.setPhenotypeAttempts(this.imitsLoader.getPhenotypeAttempts());
+        Long phenotype_hjid = hibernateManager.count("select max(hjid) from org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.PhenotypeAttempts", null).longValue();
+        Long microinjection_hjid = hibernateManager.count("select max(hjid) from org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.MicroinjectionAttempts", null).longValue();
+        this.imitsReporter.run(microinjection_hjid, phenotype_hjid);

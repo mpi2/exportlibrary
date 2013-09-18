@@ -1,0 +1,134 @@
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation_report" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ps="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen"
+           xmlns:pp="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+           xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+           xmlns:vv="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation"
+           xmlns:vs="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/submission"
+           targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation_report" elementFormDefault="qualified" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" schemaLocation="../core/specimen_definition.xsd"/>
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" schemaLocation="../core/procedure_definition.xsd"/>
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common" schemaLocation="../core/common.xsd"/>
+    
+        <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation" schemaLocation="validation.xsd"/>
+        <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/submission" schemaLocation="submission.xsd"/>
+
+        <xs:element name="validationReportSet">
+            <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                    <xs:element name="validationReport" type="ValidationReport"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+
+        <xs:complexType name="ValidationReport">
+            <xs:annotation>
+                <xs:documentation xml:lang="en">
+                    For each (submission, centreProcedure, Experiment) points to every validation happening to every experiment under centreProcedure or centreProcedure itself
+                    For each (submission, centreSpecimen, Specimen)    points to every validation happening to every specimen under centreSpecimen or centreSpecimen itself
+                    
+                    Keeps the history of modifications based on the reportIdentifier
+                    
+                    ReportIdentifier: 
+                    
+                    submission                                  trackerID                                                          File specific
+                    |--centreProcedure                          centreID_trackerID_centreProcedureHJID                             File specific
+                    |    |--experiment                          centreID_experimentID_experimentSequenceID?_specimenID+            Can be submitted multiple times
+                    |    |    |--specimen
+                    |    |    |--procedure
+                    |    |    |    |--SimpleParameter
+                    |    |    |    |--OntologyParameter
+                    |    |    |    |--SeriesParameter
+                    |    |    |    |--MediaParameter
+                    |    |    |    |--MediaSampleParameter
+                    |    |    |    |--SeriesMediaParameter
+                    |    |    |    |--ProcedureMetadata
+                    |--centreSpecimen                           centreID_trackerID_centreSpecimenHJID                               File specific                           
+                    |    |--mouse                               centreID_specimenID                                                 Can be submitted multiple times
+                    |    |--embryo                              centreID_specimenID                                                 Can be submitted multiple times
+                    
+                    
+                    
+                    submission      : trackerID (no centre as submission can have multiple centres)
+                    specimen        : centreID_specimenID
+                    experiment      : centreID_experimentID_experimentSequenceID?_specimenID+ (if sequenceID present add it. Add every specimenID related to this experiment)
+                    centreProcedure : centreID_trackerID_centreProcedureHJID
+                    centreSpecimen  : centreID_trackerID_centreSpecimenHJID
+                    
+                    
+                           
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="submission"         type="vs:Submission"      minOccurs="1" maxOccurs="1"/>
+                <xs:element name="centreProcedure"    type="pp:CentreProcedure" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="experiment"         type="pp:Experiment"      minOccurs="0" maxOccurs="1"/>
+                <xs:element name="centreSpecimen"     type="ps:CentreSpecimen"  minOccurs="0" maxOccurs="1"/>
+                <xs:element name="specimen"           type="ps:Specimen"        minOccurs="0" maxOccurs="1"/>
+                <xs:element name="validation"         type="vv:Validation"      minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="resourceVersion"    type="ResourceVersion"    minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+            
+            
+            <xs:attribute name="reportIdentifier" type="xs:string"       use="required"/> 
+            <xs:attribute name="duration"         type="xs:long"         use="required"/>
+            <xs:attribute name="submissionDate"   type="xs:dateTime"     use="required"/>
+            <xs:attribute name="isValid"          type="xs:boolean"      use="required"/>
+            <xs:attribute name="superseeded"      type="xs:boolean"      use="required"/>
+            <xs:attribute name="phase"            type="Phase"           use="required"/>
+            <xs:attribute name="status"           type="Status"          use="required"/>
+        </xs:complexType>
+    
+    
+    
+    
+        <xs:simpleType name="Phase">
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="xmlvalidation"/>
+                <xs:enumeration value="generatingReport"/>
+            </xs:restriction>
+        </xs:simpleType>
+    
+        <xs:simpleType name="Status">
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="pending"/>
+                <xs:enumeration value="running"/>
+                <xs:enumeration value="done"/>
+                <xs:enumeration value="failed"/>
+                <xs:enumeration value="cancelled"/>
+            </xs:restriction>
+        </xs:simpleType>
+    
+    
+    <xs:complexType name="ResourceVersion">
+        <xs:attribute name="mgiDownload"    type="xs:dateTime"  use="required"/>
+        <xs:attribute name="impressVersion" type="xs:string"    use="required"/>
+        <!--<xs:attribute name="datastructureJarValidation" type="xs:string"    use="required"/>
+        <xs:attribute name="validatinoResourcesdatastructureJarValidation" type="xs:string"    use="required"/> -->
+    </xs:complexType>
+    
+    </xs:schema>
+

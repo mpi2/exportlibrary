@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_PAT_001">
+                <simpleParameter parameterID="IMPC_PAT_001_001">
+                    <value>decreased brain size [MP:0000774]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_002_001">
+                    <value>phthisis bulbi [MP:0006249]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_003_001">
+                    <value>abnormal spinal cord morphology [MP:0000955]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_004_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_005_001">
+                    <value>abnormal thyroid glands [MP:0000681]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_006_001">
+                    <value>atrial situs inversus [MP:0010431]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_007_001">
+                    <value>abnormal trachea morphology [MP:0002282]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_008_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_009_001">
+                    <value>small lung [MP:0003641]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_010_001">
+                    <value>liver fibrosis [MP:0003333]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_011_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_012_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_013_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_014_001">
+                    <value>proctitis [MP:0003305]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_015_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_016_001">
+                    <value>absent spleen [MP:0000690]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_017_001">
+                    <value>pale kidney [MP:0004969]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_018_001">
+                    <value>enlarged adrenal glands [MP:0000642]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_020_001">
+                    <value>decreased lymph node number [MP:0002219]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_021_001">
+                    <value>abnormal skin morphology [MP:0002060]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_022_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_023_001">
+                    <value>urinary bladder diverticulum [MP:0003615]</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_PAT_049_001" unit="g">
+                    <value>71.389206</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_PAT_052_001">
+                    <value>156</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_PAT_054_001">
+                    <value>Isoflurane overdose</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_PAT_056_001">
+                    <value>Adventurer Pro</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_PAT_058_001">
+                    <value>4% PFA/PBS</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_PAT_060_001">
+                    <value>Ohaus</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_PAT_061_001">
+                    <value>AV2101</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_PAT_030_001">
+                    <value>2013-02-21T16:18:11+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_PAT_031_001">
+                    <value>SOP 124138012-T</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

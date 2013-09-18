@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreSpecimenSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen/specimen_definition.xsd">
+    <centre centreID="Bay">
+        <embryo stage="34" stageUnit="DPC" colonyID="colonyID" specimenID="embryoID_00" gender="female" zygosity="wild type" litterId="litterId" pipeline="Pipeline" productionCentre="Ics" phenotypingCentre="J" project="Project" isBaseline="false"/>
+    </centre>
+</centreSpecimenSet>

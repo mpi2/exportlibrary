@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="NorCOMM2">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-28">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_IPG_001">
+                <simpleParameter parameterID="IMPC_IPG_001_001" unit="g">
+                    <value>32.30</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_IPG_002_001">
+                    <value incrementValue="0">24.72</value>
+                    <value incrementValue="15">33.79</value>
+                    <value incrementValue="30">10.91</value>
+                    <value incrementValue="60">28.93</value>
+                    <value incrementValue="120">15.05</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_IPG_003_001">
+                    <value>Machine_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_IPG_004_001">
+                    <value>ARKRAY factory.Inc</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_IPG_005_001">
+                    <value>Super Glucocard II GT-1640</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_IPG_006_001">
+                    <value>yes</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_IPG_007_001">
+                    <value>Plasma</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_IPG_008_001">
+                    <value>Experimenter_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_IPG_009_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

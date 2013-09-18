@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="DTCC-Legacy">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_ECG_001">
+                <simpleParameter parameterID="IMPC_ECG_001_001" unit="count">
+                    <value>26.5</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ECG_002_001">
+                    <value>725.22</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ECG_004_001" unit="ms">
+                    <value>142.22</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ECG_006_001" unit="ms">
+                    <value>25.55</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ECG_007_001" unit="ms">
+                    <value>10.2</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ECG_008_001" unit="ms">
+                    <value>31</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_ECG_016_001">
+                    <value>ECG-01</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ECG_017_001">
+                    <value>MouseSpecifics</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ECG_018_001">
+                    <value>ECGenie</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ECG_019_001">
+                    <value>Isoflurane</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ECG_020_001">
+                    <value>1234567890</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

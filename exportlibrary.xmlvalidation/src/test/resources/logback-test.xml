@@ -1,0 +1,167 @@
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<configuration debug="false"> 
+    <property name="TEST_LOGS_HOME" value="test_logs" />
+    
+    
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+    
+  
+    
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>
+                <pattern>%d{HH:mm:ss} %logger{10} [%file : %line] %msg%n</pattern>
+            </pattern>
+        </encoder>
+    </appender>
+    
+    
+    <appender name="FILE_ALL" class="ch.qos.logback.core.FileAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <file>${TEST_LOGS_HOME}/ALL_${bySecond}.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    
+    <appender name="FILE_DEBUG" class="ch.qos.logback.core.FileAppender">
+        <file>${TEST_LOGS_HOME}/debug_${bySecond}.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="FILE_INFO" class="ch.qos.logback.core.FileAppender">
+        <file>${TEST_LOGS_HOME}/info_${bySecond}.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    
+    <appender name="FILE_WARN" class="ch.qos.logback.core.FileAppender">
+        <file>${TEST_LOGS_HOME}/warn_${bySecond}.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.FileAppender">
+        <file>${TEST_LOGS_HOME}/error_${bySecond}.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    
+    
+    <logger name="org.hibernate"> <!--slf4.Log -->
+        <!-- <level value="TRACE" /> -->
+        <level value="INFO" />
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_ALL"/>
+        <appender-ref ref="FILE_INFO"/>
+        <appender-ref ref="FILE_DEBUG"/>
+        <appender-ref ref="FILE_WARN"/>
+        <appender-ref ref="FILE_ERROR"/>
+    </logger>
+    
+    <logger name="com.mchange.v2.c3p0"> <!--util.logger -->
+        <!--<level value="FINEST"/> -->
+        <level value="INFO" />
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_ALL"/>
+        <appender-ref ref="FILE_INFO"/>
+        <appender-ref ref="FILE_DEBUG"/>
+        <appender-ref ref="FILE_WARN"/>
+        <appender-ref ref="FILE_ERROR"/>
+    </logger>
+
+
+<!--TRACE DEBUG INFO WARN ERROR -->
+    <!-- <root level="ALL"> -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_DEBUG" />
+        <appender-ref ref="FILE_WARN" />
+        <appender-ref ref="FILE_ERROR" />
+        <appender-ref ref="FILE_ALL" />
+        <appender-ref ref="FILE_INFO"/>
+    </root>
+</configuration>
+
+
+
+<!--
+http://www.slf4j.org/api/org/apache/commons/logging/Log.html
+
+The six logging levels used by Log are (in order):
+
+trace (the least serious)
+debug
+info
+warn
+error
+fatal (the most serious)
+
+http://docs.oracle.com/javase/1.4.2/docs/api/java/util/logging/Level.html
+
+The levels in descending order are:
+
+FINEST (lowest value)
+FINER
+FINE
+CONFIG
+INFO
+WARNING
+SEVERE (highest value)
+
+-->

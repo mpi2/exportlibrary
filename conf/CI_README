@@ -1,0 +1,85 @@
+================================================================================
+INTRO
+================================================================================
+
+exportlibrary is the parent project for the modules above
+    exportlibrary.datastructure
+    exportlibrary-xsdvalidation
+    exportlibrary-xmlvalidation
+    exportlibrary-xmlserialization
+    exportlibrary-utils
+
+
+The exportlibrary parent-pom-file build only task is to deploy the artifacts to the 
+maven repository. It will deploy the parent (just the pom) and every artifact from
+every module.
+
+If it is a release, the artifacts will go to org.mousephenotype.dcc, if it's an
+snapshot they will go to org.mousephenotype.dcc.snapshots.
+
+What determines if a project is a release or a snapshot is the 
+<version> name. if contains the word snapshot. 
+
+There is no need to configure nexus deployment in the
+project configuration section in jenkins, but the default goal is deploy 
+instead of install. settings.xml should be in /usr/share/tomcat/.m2/settings.xml 
+
+Sonar though, needs to be configured in jenkin's project configuration section 
+as follows:
+
+http://193.63.70.36:8080/sonar/
+
+User and password are both sonar.
+
+The steps are:
+
+1.- new project in jenkins (manual)
+
+2.- mvn deploy plugin uploads the artifacts into nexus.
+
+3.- jenkins triggers sonar (configure in jenkins)
+
+
+if run mvn install locally it will also deploy the artifacts, but wont run sonar
+unless you have a local server installed.
+
+================================================================================
+Services running on Richard http://193.63.70.36/
+================================================================================
+
+Jenkins http://193.63.70.36:8080/jenkins/
+
+no credentials
+
+sonar   http://193.63.70.36:8080/sonar/
+
+    admin credentials: (sonar, sonar)
+
+nexus   http://193.63.70.36:8080/nexus-2.0.5/
+
+    admin credentials: (admin,  admin123)
+
+
+mysql
+
+    (user credentials) : schemas : projects
+     
+
+    (importlibrary,importlibrary):  importlibrary : importlibrary
+
+    (sonar, sonar)               :  sonar         :  all
+
+    (logger, logger)             :  logs          :  all
+
+
+
+================================================================================
+Services running on source http://source.har.mrc.ac.uk/
+================================================================================
+
+svn  svn://source.har.mrc.ac.uk
+
+jira http://source.har.mrc.ac.uk:8080
+
+
+

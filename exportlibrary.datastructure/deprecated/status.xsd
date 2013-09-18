@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:ps="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen"
+    xmlns:pp="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+    xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+    targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker"
+    elementFormDefault="qualified">
+
+    <xs:import
+        namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen"
+        schemaLocation="../core/specimen_definition.xsd"/>
+    <xs:import
+        namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+        schemaLocation="../core/procedure_definition.xsd"/>
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+        schemaLocation="../core/common.xsd"/>
+
+    <xs:include schemaLocation="submission.xsd"/>
+
+    <xs:element name="validationStatusSet">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"/>
+            </xs:annotation>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="validationStatus" type="ValidationStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="ValidationStatus">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="1">
+                <!-- <xs:element name="submission" type="Submission" minOccurs="0" maxOccurs="1"/> -->
+                <xs:element name="specimen"    type="ps:Specimen"   minOccurs="0" maxOccurs="1"/>
+                <xs:element name="experiment"  type="pp:Experiment" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="line"        type="pp:Line"       minOccurs="0" maxOccurs="1"/>
+                <xs:element name="housing" type="pp:Housing" minOccurs="0" maxOccurs="1"/>
+            </xs:choice>
+            <xs:element name="stage" type="Stage" minOccurs="1" maxOccurs="1"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Stage">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element name="failure" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="phase" type="Phase" use="required"/>
+        <xs:attribute name="status" type="Status" use="required"/>
+        <xs:attribute name="date" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <!--http://source.har.mrc.ac.uk/websvn/wsvn/Pheno-DCC/labs/gyaikhom/PhenoDCC-DownloadValidateUpload/trunk/src/main/resources/org/mousephenotype/dcc/tracker/resources/run_before_test.sql -->
+    <xs:simpleType name="Phase">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="impress_definition"/>
+            <xs:enumeration value="impress_typed"/>
+            <xs:enumeration value="imits"/>
+            <xs:enumeration value="data"/>
+            <xs:enumeration value="qc"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="pending"/>
+            <xs:enumeration value="running"/>
+            <xs:enumeration value="done"/>
+            <xs:enumeration value="failed"/>
+            <xs:enumeration value="cancelled"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,355 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
+    <artifactId>exportlibrary.datastructure</artifactId>
+    <packaging>jar</packaging>
+    <name>exportlibrary.datastructure</name>
+    <version>3.7</version>    
+    <description>
+       
+        exportlibrary.datastructure does:
+       
+        (1) generate the Java classes from the xsds
+        
+        NO CI task
+       
+    </description>
+    
+    <parent>
+        <groupId>org.mousephenotype.dcc.exportlibrary</groupId>
+        <artifactId>exportlibrary</artifactId>
+        <version>2.0.0</version>    
+    </parent>
+    
+    
+    <url><!--@TODO add url --></url>
+    
+    
+    <issueManagement>
+        <system>JIRA</system>
+        <url><!--@TODO add url --></url>
+    </issueManagement>
+    
+    
+    <!--ci management comes here -->
+    
+    <inceptionYear>2012</inceptionYear>
+    
+    <!--mailingLists -->
+    
+    
+    <developers>
+        <developer>
+            <id>julian</id>
+            <name>Julian Atienza</name>
+            <email>j dot atienza at har dot mrc dot ac dot uk</email>
+            <organization>org.mousephenotype</organization>
+            <roles>
+                <role>Senior Java Developer</role>
+            </roles>
+            <timezone>GMT0</timezone>
+        </developer>
+    </developers>
+    
+    <!--<contributors> -->
+    
+        
+    <!-- -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    
+    <scm>
+        <connection>
+            <!--@TODO add url -->
+        </connection>
+        <url>
+            <!--@TODO add url -->
+        </url>
+    </scm>
+    
+    <organization>
+        <name> www.mousephenotype.org</name>
+        <url>www.mousephenotype.org</url>
+    </organization>
+    
+    <build>   
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            
+            <resource> <!--do not distribute documentation -->
+                <directory>docs</directory>
+                <excludes>
+                    <exclude>**</exclude> 
+                </excludes>
+            </resource>
+            
+            <resource> 
+                <directory>src/test/generated</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude> 
+                </excludes>
+            </resource>
+
+        </resources>
+        
+        <plugins>
+            
+            <plugin> <!-- for each build, remove the logs for test and execution -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <id>auto-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>src/main/generated</directory>
+                        </fileset> 
+                        <fileset>
+                            <directory>src/test/generated</directory>
+                        </fileset> 
+                        <fileset>
+                            <directory>test_data</directory>
+                        </fileset> 
+                    </filesets>
+                </configuration>
+            </plugin>
+            
+            
+            <plugin>
+                <groupId>org.jvnet.hyperjaxb3</groupId>
+                <artifactId>maven-hyperjaxb3-plugin</artifactId>
+                <version>0.5.6</version>   
+                <configuration>
+                    <variant>jpa2</variant>
+                    <extension>true</extension>
+                    <removeOldOutput>true</removeOldOutput>
+                    <args>
+                        <arg>-Xannotate</arg>
+                    </args>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-core</artifactId>
+                        <version>${org.hibernate.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    
+                    <execution>
+                        <id>test_data_structure</id>
+                        <configuration> 
+                            <schemaDirectory>src/test/resources/schemas/</schemaDirectory>
+                            <generateDirectory>src/test/generated</generateDirectory>
+                        </configuration>                
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+
+                    <!--<execution>
+                        <id>main_data_structure</id>
+                        <configuration> 
+                            <schemaDirectory>src/main/resources/schemas/core</schemaDirectory>
+                            <bindingDirectory>src/main/resources/schemas/core</bindingDirectory>
+                            <generateDirectory>src/main/generated</generateDirectory>
+                        </configuration>                
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>--> 
+                    <execution>
+                        <id>tracker_data_structure</id>
+                        <configuration> 
+                            <schemaDirectory>src/main/resources/schemas/tracker</schemaDirectory>
+                            <bindingDirectory>src/main/resources/schemas/tracker</bindingDirectory>
+                            <generateDirectory>src/main/generated</generateDirectory>
+                            <removeOldOutput>true</removeOldOutput>
+                            <variant>jpa2</variant>
+                            <extension>true</extension>
+                        </configuration>                
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+            </plugin>
+         
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/generated</source>
+                                <source>src/test/generated</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+              
+                </executions>
+            </plugin> 
+            
+           
+            <plugin> <!--to configure the jdk version to compile -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <excludes>
+                        <exclude>**/*Adapter*.java</exclude> <!--to avoid compiling Adapters from both main and test -->
+                    </excludes>
+                </configuration>
+            </plugin>
+            
+            <plugin> <!--to configure test environment: junit4, run tests and install with test failure (generate jars)  -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.14</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit4</artifactId>
+                        <version>2.14</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <testFailureIgnore>false</testFailureIgnore> 
+                    <skipTests>false</skipTests>
+                    <excludes> <!-- http://ant.apache.org/manual/dirtasks.html -->
+                        <exclude>**/IT*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assemble/bin.xml</descriptor>
+                    </descriptors>
+                    <descriptorRefs>
+                        <descriptorRef>src</descriptorRef>
+                    </descriptorRefs>
+                    <formats>
+                        <format>jar</format>
+                         
+                    </formats>
+                </configuration>
+        
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> 
+                        <phase>package</phase> 
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!--
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <phase>site</phase>
+                        <configuration>
+                            <target>
+                                <exec
+                                    dir="${basedir}"
+                                    executable="${basedir}/src/main/sh/oxygen.sh"
+                                    failonerror="true">
+                                    <arg line="src/main/resources/schemas/annotation.xsd  -out:docs/annotation.pdf -format:pdf" />
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+        </plugins>
+
+    </build>
+    
+    
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>${hibernate.jpa.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jvnet.hyperjaxb3</groupId>
+            <artifactId>hyperjaxb3-ejb-runtime</artifactId>
+            <version>0.5.6</version>
+        </dependency>
+         
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+         
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.1</version>
+        </dependency>    
+        
+         
+    </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <org.hibernate.version>4.1.10.Final</org.hibernate.version>
+        <hibernate.jpa.version>1.0.1.Final</hibernate.jpa.version>
+   
+    </properties>
+    
+
+</project>

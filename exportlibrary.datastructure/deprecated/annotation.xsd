@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:ps="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen"
+    xmlns:pp="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+    xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+    targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker" elementFormDefault="qualified">
+    
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen"  schemaLocation="../core/specimen_definition.xsd"/>
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" schemaLocation="../core/procedure_definition.xsd"/>
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"    schemaLocation="../core/common.xsd"/>
+    
+    <xs:element name="annotationSet">
+        
+    <xs:complexType>    
+        <xs:annotation>
+            <xs:documentation xml:lang="en"/>
+        </xs:annotation>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="annotation" type="Annotation"/>
+            </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="Annotation">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element name="specimen"   type="ps:Specimen"/>
+                <xs:element name="experiment" type="pp:Experiment"/>
+            </xs:choice>
+            <xs:element name="author" type="Author"/>
+            <xs:element name="reason" type="Reason"/>
+        </xs:sequence>
+        
+        <xs:attribute name="annotationTrackingID" type="xs:int"         use="required"/>
+        <xs:attribute name="date"                 type="xs:dateTime"    use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="Author">
+        <xs:attribute name="name"     type="xs:string"         use="required"/>
+        <xs:attribute name="email"    type="xs:string"         use="required"/>
+        <xs:attribute name="centreID" type="pc:CentreILARcode" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="Reason">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="dataPoint" type="DataPoint" minOccurs="2" maxOccurs="unbounded"/>
+            <xs:element name="comment" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DataPoint">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"></xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal"/>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+</xs:schema>

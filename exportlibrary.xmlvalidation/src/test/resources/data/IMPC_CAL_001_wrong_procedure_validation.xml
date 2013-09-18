@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:validationSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:ns2="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" xmlns:ns3="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/submission" xmlns:ns4="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation" xmlns:ns5="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation_report">
+    <ns4:validation message="procedureID WRONG_PROCEDURE not part of the pipeline IMPC_001" level="error">
+        <ns4:procedure procedureID="WRONG_PROCEDURE">
+            <simpleParameter parameterID="IMPC_CAL_001_001" unit="g">
+                <value>45.3</value>
+            </simpleParameter>
+            <simpleParameter parameterID="IMPC_CAL_002_001" unit="g">
+                <value>41.3</value>
+            </simpleParameter>
+            <simpleParameter parameterID="IMPC_CAL_007_001" unit="count/hour">
+                <value>41</value>
+            </simpleParameter>
+            <simpleParameter parameterID="IMPC_CAL_008_001" unit="g">
+                <value>63.4</value>
+            </simpleParameter>
+            <simpleParameter parameterID="IMPC_CAL_017_001" unit="g">
+                <value>2.4</value>
+            </simpleParameter>
+            <seriesParameter parameterID="IMPC_CAL_003_001" unit="ml/h">
+                <value incrementValue="2012-11-06T10:00:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:30Z">0.1</value>
+            </seriesParameter>
+            <seriesParameter parameterID="IMPC_CAL_004_001" unit="ml/h">
+                <value incrementValue="2012-11-06T10:00:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:30Z">0.1</value>
+            </seriesParameter>
+            <seriesParameter parameterID="IMPC_CAL_005_001" unit="kJ/h">
+                <value incrementValue="2012-11-06T10:00:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:00:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:01:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:30Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:40Z">0.1</value>
+                <value incrementValue="2012-11-06T10:02:50Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:00Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:10Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:20Z">0.1</value>
+                <value incrementValue="2012-11-06T10:03:30Z">0.1</value>
+            </seriesParameter>
+            <seriesParameter parameterID="IMPC_CAL_006_001" unit="count/hour">
+                <value incrementValue="2012-11-06T10:00:00Z">5</value>
+                <value incrementValue="2012-11-06T10:00:10Z">5</value>
+                <value incrementValue="2012-11-06T10:00:20Z">5</value>
+                <value incrementValue="2012-11-06T10:00:30Z">5</value>
+                <value incrementValue="2012-11-06T10:00:40Z">5</value>
+                <value incrementValue="2012-11-06T10:00:50Z">5</value>
+                <value incrementValue="2012-11-06T10:01:00Z">5</value>
+                <value incrementValue="2012-11-06T10:01:10Z">5</value>
+                <value incrementValue="2012-11-06T10:01:20Z">5</value>
+                <value incrementValue="2012-11-06T10:01:30Z">5</value>
+                <value incrementValue="2012-11-06T10:01:40Z">5</value>
+                <value incrementValue="2012-11-06T10:01:50Z">5</value>
+                <value incrementValue="2012-11-06T10:02:00Z">5</value>
+                <value incrementValue="2012-11-06T10:02:10Z">5</value>
+                <value incrementValue="2012-11-06T10:02:20Z">5</value>
+                <value incrementValue="2012-11-06T10:02:30Z">5</value>
+                <value incrementValue="2012-11-06T10:02:40Z">5</value>
+                <value incrementValue="2012-11-06T10:02:50Z">5</value>
+                <value incrementValue="2012-11-06T10:03:00Z">5</value>
+                <value incrementValue="2012-11-06T10:03:10Z">5</value>
+                <value incrementValue="2012-11-06T10:03:20Z">5</value>
+                <value incrementValue="2012-11-06T10:03:30Z">5</value>
+            </seriesParameter>
+            <seriesParameter parameterID="IMPC_CAL_009_001" unit="g">
+                <value incrementValue="2012-11-06T10:00:00Z">5</value>
+                <value incrementValue="2012-11-06T10:00:10Z">5</value>
+                <value incrementValue="2012-11-06T10:00:20Z">5</value>
+                <value incrementValue="2012-11-06T10:00:30Z">5</value>
+                <value incrementValue="2012-11-06T10:00:40Z">5</value>
+                <value incrementValue="2012-11-06T10:00:50Z">5</value>
+                <value incrementValue="2012-11-06T10:01:00Z">5</value>
+                <value incrementValue="2012-11-06T10:01:10Z">5</value>
+                <value incrementValue="2012-11-06T10:01:20Z">5</value>
+                <value incrementValue="2012-11-06T10:01:30Z">5</value>
+                <value incrementValue="2012-11-06T10:01:40Z">5</value>
+                <value incrementValue="2012-11-06T10:01:50Z">5</value>
+                <value incrementValue="2012-11-06T10:02:00Z">5</value>
+                <value incrementValue="2012-11-06T10:02:10Z">5</value>
+                <value incrementValue="2012-11-06T10:02:20Z">5</value>
+                <value incrementValue="2012-11-06T10:02:30Z">5</value>
+                <value incrementValue="2012-11-06T10:02:40Z">5</value>
+                <value incrementValue="2012-11-06T10:02:50Z">5</value>
+                <value incrementValue="2012-11-06T10:03:00Z">5</value>
+                <value incrementValue="2012-11-06T10:03:10Z">5</value>
+                <value incrementValue="2012-11-06T10:03:20Z">5</value>
+                <value incrementValue="2012-11-06T10:03:30Z">5</value>
+            </seriesParameter>
+            <procedureMetadata parameterID="IMPC_CAL_010_001">
+                <value>17:00:00</value>
+            </procedureMetadata>
+            <procedureMetadata parameterID="IMPC_CAL_011_001">
+                <value>18.1</value>
+            </procedureMetadata>
+            <procedureMetadata parameterID="IMPC_CAL_012_001">
+                <value>yes</value>
+            </procedureMetadata>
+            <procedureMetadata parameterID="IMPC_CAL_013_001">
+                <value>2</value>
+            </procedureMetadata>
+            <procedureMetadata parameterID="IMPC_CAL_014_001">
+                <value>equipmentID</value>
+            </procedureMetadata>
+            <procedureMetadata parameterID="IMPC_CAL_015_001">
+                <value>Equipment manufacturer</value>
+            </procedureMetadata>
+            <procedureMetadata parameterID="IMPC_CAL_016_001">
+                <value>Equipment model</value>
+            </procedureMetadata>
+            <procedureMetadata parameterID="IMPC_CAL_018_001">
+                <value>experimenter ID</value>
+            </procedureMetadata>
+        </ns4:procedure>
+    </ns4:validation>
+</ns4:validationSet>

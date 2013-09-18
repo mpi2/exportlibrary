@@ -1,0 +1,270 @@
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/external/imits"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+           targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/external/imits" elementFormDefault="qualified"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+    
+    
+    <xs:simpleType name="ImitsProductionCentre">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                This production centre DOES NOT match with the production centre on common.xsd
+            </xs:documentation>
+        </xs:annotation>
+        
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="JAX"/>      <!--The Jackson Laboratory -->
+            <xs:enumeration value="Harwell"/>      <!-- MRC Harwell Mammalian Genetics Unit-->
+            <xs:enumeration value="UCD"/>    <!--University of California, Davis -->
+            <xs:enumeration value="WTSI"/>   <!-- Wellcome Trust Sanger Institute-->
+            <xs:enumeration value="HMGU"/>   <!-- Helmholtz Zentrum Muenchen GmbH, German Research Center for Environmental Health-->
+            <xs:enumeration value="ICS"/>    <!-- M.C.I. (Mouse Clinical Institute)-->
+            <xs:enumeration value="BCM"/>    <!-- Baylor College of Medicine-->
+            <xs:enumeration value="TCP"/>    <!-- Toronto Centre for Phenogenomics-->
+            <xs:enumeration value="MARC"/>   <!-- Chinese centre for Genomics-->
+            <xs:enumeration value="Monterotondo"/>   
+            <xs:enumeration value="CNB"/>   
+            <xs:enumeration value="APN"/>   
+            <xs:enumeration value="Oulu"/>   
+            <xs:enumeration value="RIKEN BRC"/>   
+            <xs:enumeration value="VETMEDUNI"/>   
+            <xs:enumeration value="IMG"/>   
+            <xs:enumeration value="CNRS"/>   
+            <xs:enumeration value="KRIBB"/>   
+            <xs:enumeration value="UniMiss"/>   
+            <xs:enumeration value="UNorCar"/>   
+            <xs:enumeration value="UCL"/>   
+            <xs:enumeration value="EMBL-Rome"/>   
+            <xs:enumeration value="CIPHE"/>   
+        </xs:restriction> 
+    </xs:simpleType>
+    
+    
+    <xs:element name="phenotypeAttempts">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> 
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element name="phenotypeAttempt"       type="PhenotypeAttempt"        minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="retrieved" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="PhenotypeAttempt">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="genotypicInformation"  type="GenotypicInformation"          minOccurs="0"  maxOccurs="1"/>
+            <xs:element name="statusDates"           type="PhenotypeAttemptStatusDates"   minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="imitsID"              type="xs:integer"              use="required"/>
+        <xs:attribute name="miPlanID"             type="xs:integer"              use="required"/>
+        <xs:attribute name="phenotypeColonyName"  type="xs:string"               use="required"/>
+        <xs:attribute name="productionCentre"     type="ImitsProductionCentre"   use="required"/>
+        <xs:attribute name="phenotypeStatus"      type="ImitsPhenotypeStatus"    use="required"/>
+        <xs:attribute name="creExcisionRequired"  type="xs:boolean"              use="required"/> <!--2013 01 25  -->
+    </xs:complexType>
+    
+    <xs:complexType name="PhenotypeAttemptStatusDates">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="phenotypeAttemptRegistered"  type="xs:date"   use="optional"/>    <!-- "Phenotype Attempt Registered-->
+        <xs:attribute name="creExcisionStarted"          type="xs:date"   use="optional"/>    <!--"Cre Excision Started -->
+        <xs:attribute name="rederivationStarted"         type="xs:date"   use="optional"/>  <!--Rederivation Started -->
+        <xs:attribute name="rederivationComplete"        type="xs:date"   use="optional"/> <!--Rederivation Complete-->
+        <xs:attribute name="creExcisionComplete"         type="xs:date"   use="optional"/>    <!--Cre Excision Complete --> 
+        <xs:attribute name="phenotypingStarted"          type="xs:date"   use="optional"/> 
+        <xs:attribute name="phenotypingComplete"         type="xs:date"   use="optional"/> 
+        <xs:attribute name="phenotypeAttemptAborted"     type="xs:date"   use="optional"/>    <!--Phenotype Attempt Aborted -->
+    </xs:complexType>
+    
+    <xs:simpleType name="ImitsPhenotypeStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Phenotype Attempt Registered"/>
+            <xs:enumeration value="Cre Excision Started"/>
+            <xs:enumeration value="Rederivation Started"/>
+            <xs:enumeration value="Rederivation Complete"/>
+            <xs:enumeration value="Cre Excision Complete"/>
+            <xs:enumeration value="Phenotyping Started"/>
+            <xs:enumeration value="Phenotyping Complete"/>
+            <xs:enumeration value="Phenotype Attempt Aborted"/>
+        </xs:restriction> 
+    </xs:simpleType>
+    
+    
+   
+    
+    
+    <xs:complexType name="GenotypicInformation">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+                mgiID from the mgi list if mgiStrain on external.xsd strainID == PhenotypeColonyBackgroundStrainName
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:attribute name="phenotypeMouseAlleleType"             type="xs:string"  use="required"/>
+        <xs:attribute name="phenotypeColonyBackgroundStrainName"  type="xs:string"  use="required"/>
+        <xs:attribute name="geneMGIID"                            type="xs:string"  use="required"/> 
+        <xs:attribute name="colonyBackgroundStrainMGIID"          type="xs:string"  use="required"/> <!--from MGI_Strain.rpt  using phenotypeColonyBackgroundStrainName strainID-->
+        <xs:attribute name="markerSymbol"                         type="xs:string"  use="required"/>
+        <xs:attribute name="microInjectionAttemptColonyName"      type="xs:string"  use="required"/>
+        <xs:attribute name="mouseAlleleSymbol"                    type="xs:string"  use="required"/>
+    </xs:complexType>
+    
+   
+    
+    
+    <xs:element name="microinjectionAttempts">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> 
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element name="microinjectionAttempt"       type="MicroinjectionAttempt"        minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="retrieved" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    
+    
+    <xs:complexType name="MicroinjectionAttempt">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> </xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element name="statusDates"           type="MicroinjectionAttemptStatusDates"   minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="colonyName"                   type="xs:string"                  use="required"/>  <!--to microInjectionAttemptColonyName at genotypic information-->
+        <xs:attribute name="esCellMarkerSymbol"           type="xs:string"                  use="required"/>
+        <xs:attribute name="esCellAlleleSymbol"           type="xs:string"                  use="required"/>
+        <xs:attribute name="statusName"                   type="ImitsMicroinjectionStatus"  use="required"/>
+        <xs:attribute name="mouseAlleleSymbolSuperscript" type="xs:string"                  use="required"/>
+        <xs:attribute name="mouseAlleleSymbol"            type="xs:string"                  use="required"/>
+        <xs:attribute name="phenotypeAttemptsCount"       type="xs:integer"                 use="required"/>
+        <xs:attribute name="pipelineName"                 type="xs:string"                  use="required"/>
+        <xs:attribute name="esCellName"                   type="xs:string"                  use="required"/>
+        <xs:attribute name="consortiumName"               type="xs:string"                  use="required"/>
+        <xs:attribute name="productionCentre"             type="ImitsProductionCentre"      use="required"/>
+        <xs:attribute name="blastStrainName"              type="xs:string"                  use="required"/>
+        <xs:attribute name="colonyBackgroundStrainName"   type="xs:string"                  use="required"/>
+        <xs:attribute name="testCrossStrainName"          type="xs:string"                  use="required"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="ImitsMicroinjectionStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Micro-injection in progress"/>
+            <xs:enumeration value="Chimeras obtained"/>
+            <xs:enumeration value="Genotype confirmed"/>
+            <xs:enumeration value="Micro-injection aborted"/>
+        </xs:restriction> 
+    </xs:simpleType>
+      
+    <xs:complexType name="MicroinjectionAttemptStatusDates">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="microinjectionInProgress"  type="xs:date"   use="optional"/>  <!--Micro-injection in progress" -->
+        <xs:attribute name="chimerasObtained"          type="xs:date"   use="optional"/>  <!--Chimeras obtained -->
+        <xs:attribute name="genotypeConfirmed"         type="xs:date"   use="optional"/>  <!-- Genotype confirmed-->
+        <xs:attribute name="microInjectionAborted"     type="xs:date"   use="optional"/>  <!-- Micro-injection aborted-->
+        
+    </xs:complexType>
+    
+   
+    
+    <xs:element name="miPlans">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> 
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element name="miPlan"       type="MIPlan" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="retrieved" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="MIPlan">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> </xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element name="statusDates" type="MicroinjectionPlansStatusDates"   minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence> 
+        <xs:attribute name="id"                    type="xs:integer"              use="required"/> <!--link to mi_planID at phenotype attempt -->
+        <xs:attribute name="markerMGIaccessionID"  type="xs:string"               use="required"/>
+        <xs:attribute name="productionCentre"      type="ImitsProductionCentre"   use="required"/>
+        <xs:attribute name="status"                type="ImitsMIPlanStatus"   use="required"/>
+    </xs:complexType>
+    
+    
+    <!--status_dates":{"Interest":"2012-04-30","Assigned":"2012-04-30","Assigned - ES Cell QC In Progress":"2012-07-17","Assigned - ES Cell QC Complete":"2012-09-25"} -->
+    <xs:complexType name="MicroinjectionPlansStatusDates">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="interest"                   type="xs:date" use="optional"/> <!--Interest-->
+        <xs:attribute name="assigned"                   type="xs:date" use="optional"/>  <!-- Assigned-->
+        <xs:attribute name="conflict"                   type="xs:date" use="optional"/>   <!--Conflict -->
+        <xs:attribute name="inactive"                   type="xs:date" use="optional"/>   <!--Inactive -->
+        <xs:attribute name="inspectGLTmouse"            type="xs:date" use="optional"/>  <!--Inspect - GLT Mouse -->        
+        <xs:attribute name="inspectMIattempt"           type="xs:date" use="optional"/>  <!--Inspect - MI Attempt -->
+        <xs:attribute name="inspectConflict"            type="xs:date" use="optional"/> <!--Inspect - Conflict" -->
+        <xs:attribute name="withdrawn"                  type="xs:date" use="optional"/> <!--withdrawn -->
+        <xs:attribute name="assignedESCellQCcomplete"   type="xs:date" use="optional"/> <!--Assigned - ES Cell QC Complete -->
+        <xs:attribute name="assignedESCellQCinProgress" type="xs:date" use="optional"/> <!-- Assigned - ES Cell QC In Progress-->
+        <xs:attribute name="abortedESCellQCFailed"      type="xs:date" use="optional"/> <!-- Assigned - ES Cell QC In Progress-->
+    </xs:complexType>
+    
+    <xs:simpleType name="ImitsMIPlanStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Interest"/>
+            <xs:enumeration value="Assigned"/>
+            <xs:enumeration value="Conflict"/>
+            <xs:enumeration value="Inactive"/>
+            <xs:enumeration value="Inspect - GLT Mouse"/>
+            <xs:enumeration value="Inspect - MI Attempt"/>
+            <xs:enumeration value="Inspect - Conflict"/>
+            <xs:enumeration value="Withdrawn"/>
+            <xs:enumeration value="Assigned - ES Cell QC Complete"/>
+            <xs:enumeration value="Assigned - ES Cell QC In Progress"/>
+            <xs:enumeration value="Aborted - ES Cell QC Failed"/>
+        </xs:restriction> 
+    </xs:simpleType>
+
+</xs:schema>

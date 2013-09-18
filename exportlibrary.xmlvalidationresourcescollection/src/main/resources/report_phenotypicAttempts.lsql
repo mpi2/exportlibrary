@@ -1,0 +1,24 @@
+
+phenotypicAttempt_totalAttempts                    = select pa.productionCentre as productionCentre,  count(pa)as totalAttempts  from PhenotypeAttempt pa , PhenotypeAttempts pas where pas.hjid = :hjid group by pa.productionCentre
+
+phenotypicAttempt_nullBkgrdStrain                  = select count(pa) as nullMGI  from PhenotypeAttempt pa , PhenotypeAttempts pas where pas.hjid = :hjid and pa.productionCentre = :productionCentre and pa.genotypicInformation.phenotypeColonyBackgroundStrainName is null
+
+phenotypicAttempt_nullMGI                          = select count(pa) as nullMGI  from PhenotypeAttempt pa , PhenotypeAttempts pas where pas.hjid = :hjid and pa.productionCentre = :productionCentre and pa.genotypicInformation.geneMGIID is null
+
+phenotypicAttempt_nullColonyBackgroundStrainMGIIDs = select count(pa) as nullMGI  from PhenotypeAttempt pa , PhenotypeAttempts pas where pas.hjid = :hjid and pa.productionCentre = :productionCentre and pa.genotypicInformation.colonyBackgroundStrainMGIID is null
+
+phenotypicAttempt_nullMarkerSymbol                 =  select count(pa) as nullMGI  from PhenotypeAttempt pa , PhenotypeAttempts pas where pas.hjid = :hjid and pa.productionCentre = :productionCentre and pa.genotypicInformation.markerSymbol is null
+
+phenotypicAttempt_microInjectionAttemptColonyName  =  select count(pa) as nullMGI  from PhenotypeAttempt pa , PhenotypeAttempts pas where pas.hjid = :hjid and pa.productionCentre = :productionCentre and pa.genotypicInformation.microInjectionAttemptColonyName is null
+
+microinjectionAttempt_totalAttempts          = select  mi.productionCentre as productionCentre  ,count(mi) as totalAttempts from MicroinjectionAttempt mi, MicroinjectionAttempts mis where mis.hjid = :hjid group by mi.productionCentre
+microinjectionAttempt_nullColonyBckgStrain   = select count(mi) as nullColonyBackgroundStrainname from MicroinjectionAttempt mi, MicroinjectionAttempts mis  where mis.hjid = :hjid and mi.productionCentre = :productionCentre and mi.colonyBackgroundStrainName is null
+microinjectionAttempt_nullMouseAlleleSymbol  = select count(mi) as nullmouseAlleleSymbol from MicroinjectionAttempt mi, MicroinjectionAttempts mis where mis.hjid = :hjid and mi.productionCentre = :productionCentre and mi.mouseAlleleSymbol is null
+
+
+
+
+
+
+
+

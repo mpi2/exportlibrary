@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<centreProcedureSet xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+ xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+ xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/pipelines"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/pipelines file:/home/julian/mrc_svn/exportlibrary/exportlibrary.datastructure/pipelines/impc_001_IMPC_ABR_001.xsd">
+    <centre centreID="J" pipeline="IMPC_001" project="IMPC_001">
+        <housing fromLIMS="false">
+            <procedure procedureID="IMPC_HOS_001">
+                <simpleParameter parameterID="IMPC_001_IMPC_HOS_001_001">
+                    <value>0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_001_IMPC_HOS_002_001">
+                    <value>0</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_001_IMPC_HOS_010_001">
+                    <value>value1</value>
+                </procedureMetadata>
+            </procedure>
+        </housing>
+        <housing fromLIMS="true">
+            <procedure procedureID="IMPC_HOS_001">
+                <simpleParameter parameterID="IMPC_001_IMPC_HOS_003_001">
+                    <value>0</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_001_IMPC_HOS_011_001">
+                    <value>value3</value>
+                </procedureMetadata>
+            </procedure>
+        </housing>
+        <experiment experimentID="experimentID1" dateOfExperiment="2006-05-04">
+            <specimenID>specimenID0</specimenID>
+            <procedure procedureID="IMPC_ABR_001">
+                <seriesParameter parameterID="IMPC_ABR_001_001" sequenceID="75">
+                    <value incrementValue="0">5.6</value>
+                    <value incrementValue="1">5.6</value>
+                    <value incrementValue="2">34.3</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_ABR_001_001" sequenceID="80">
+                    <value incrementValue="0">15.6</value>
+                    <value incrementValue="1">15.6</value>
+                    <value incrementValue="2">534.3</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_ABR_002_001" sequenceID="75">
+                    <value incrementValue="0">8.6</value>
+                    <value incrementValue="1">9.6</value>
+                    <value incrementValue="2">54.3</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_ABR_002_001" sequenceID="80">
+                    <value incrementValue="0">8.6</value>
+                    <value incrementValue="1">9.6</value>
+                    <value incrementValue="2">54.3</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_ABR_033_001">
+                    <value>value4</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_033_001">
+                    <value>value5</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="NorCOMM2">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-28">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_ABR_001">
+                <simpleParameter parameterID="IMPC_ABR_001_001" unit="g">
+                    <value>0.99</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_002_001" unit="dB SPL">
+                    <value>100.27</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_003_001">
+                    <value>0.60</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_004_001" unit="dB SPL">
+                    <value>105.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_005_001">
+                    <value>0.58</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_006_001" unit="dB SPL">
+                    <value>19.10</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_007_001">
+                    <value>0.93</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_008_001" unit="dB SPL">
+                    <value>20.79</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_009_001">
+                    <value>0.14</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_010_001" unit="dB SPL">
+                    <value>55.47</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_011_001">
+                    <value>0.51</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_012_001" unit="dB SPL">
+                    <value>3.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_013_001">
+                    <value>0.63</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_015_001" unit="dB SPL">
+                    <value>5</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_016_001">
+                    <value>No</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_017_001">
+                    <value>0.52</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_018_001">
+                    <value>0.99</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_020_001" unit="uV">
+                    <value>0.73</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_021_001" unit="uV">
+                    <value>0.36</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_022_001" unit="ms">
+                    <value>0.90</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_023_001" unit="ms">
+                    <value>0.38</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_024_001" unit="ms">
+                    <value>0.16</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_025_001" unit="ms">
+                    <value>0.91</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_026_001" unit="ms">
+                    <value>0.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ABR_027_001" unit="ms">
+                    <value>0.83</value>
+                </simpleParameter>
+                <mediaParameter parameterID="IMPC_ABR_014_001" URI="ftp://public.download/1.jpg" fileType="img/jpg"/>
+                <mediaParameter parameterID="IMPC_ABR_019_001" URI="ftp://public.download/1.jpg" fileType="img/jpg"/>
+                <procedureMetadata parameterID="IMPC_ABR_028_001">
+                    <value>6,12,18,24,30 kHz</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_029_001">
+                    <value>0-75</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_030_001">
+                    <value>0-95</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_031_001">
+                    <value>20-85</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_032_001">
+                    <value>20-85</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_033_001">
+                    <value>0-95</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_034_001">
+                    <value>0-95</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_035_001">
+                    <value>95</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_036_001">
+                    <value>5</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_037_001">
+                    <value>5</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_038_001">
+                    <value>1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_039_001">
+                    <value>42.6</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_040_001">
+                    <value>256</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_041_001">
+                    <value>In sound attenuating booth on thermo-statically controlled heating pad (@ 37°C)</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_042_001">
+                    <value>Ketamine</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_043_001">
+                    <value>Xylazine</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_044_001">
+                    <value>1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_045_001">
+                    <value>0.01</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_046_001">
+                    <value>Intraperitoneal</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_047_001">
+                    <value>2013-02-28T09:33:20+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_048_001">
+                    <value>09:33:20</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_049_001">
+                    <value>Machine_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_050_001">
+                    <value>TDT (Tucker Davis Technologies)</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_051_001">
+                    <value>RP2.1 based system, RA4PA Medusa Preamplifier</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_052_001">
+                    <value>Sanger bespoke averager software</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_053_001">
+                    <value>Experimenter_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ABR_054_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

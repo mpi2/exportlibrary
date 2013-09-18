@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:ns2="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" xmlns:ns3="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/submission" xmlns:ns4="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation" xmlns:ns5="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation_report" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BWT_001">
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g">
+                    <value>25.76331</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BWT_001_001" unit="g">
+                    <value>11.471462</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_BWT_003_001">
+                    <value>Adventurer Pro</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BWT_004_001">
+                    <value>Ohaus</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BWT_005_001">
+                    <value>463</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BWT_007_001">
+                    <value>AV2101</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BWT_003_001">
+                    <value>Adventurer Pro</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BWT_004_001">
+                    <value>Ohaus</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BWT_005_001">
+                    <value>153</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BWT_007_001">
+                    <value>AV2101</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

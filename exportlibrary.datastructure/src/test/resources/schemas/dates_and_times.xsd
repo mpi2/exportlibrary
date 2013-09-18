@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/test/dates_and_times" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/test/dates_and_times" elementFormDefault="qualified" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+    
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:globalBindings localScoping="toplevel">
+                <jaxb:serializable/>
+                 <jaxb:javaType name="java.util.Calendar" xmlType="xs:date"     parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseDate"     printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printDate" />                 
+                 <jaxb:javaType name="java.util.Calendar" xmlType="xs:time"     parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseTime"     printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printTime" />                  
+                 <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime" parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseDateTime" printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printDateTime" />
+            </jaxb:globalBindings>
+            <jaxb:schemaBindings>
+                <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.test"/>
+            </jaxb:schemaBindings>
+        </xs:appinfo>
+    </xs:annotation>
+    
+    <xs:element name="allTheTimes">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="fullTime" type="FullTime"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        
+    </xs:element>
+    
+
+    
+    <xs:complexType name="FullTime">
+        <xs:attribute name="time"     type="xs:time"     use="required"/>
+        <xs:attribute name="date"     type="xs:date"     use="required"/>
+        <xs:attribute name="dateTime" type="xs:dateTime" use="required"/>
+        <xs:attribute name="timezone" type="xs:string"   use="required"/>
+    </xs:complexType>
+    
+    
+</xs:schema>

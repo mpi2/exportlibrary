@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="experiment_2013-08-07" dateOfExperiment="2013-08-07">
+            <specimenID>mouse_985</specimenID>
+            <procedure procedureID="IMPC_EYE_001">
+                <simpleParameter parameterID="IMPC_EYE_001_001">
+                    <value>absent right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_002_001">
+                    <value>no data left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_003_001">
+                    <value>present left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_004_001">
+                    <value>no data right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_005_001">
+                    <value>left eye closed</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_006_001">
+                    <value>no data for both eyes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_007_001">
+                    <value>both eyes abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_008_001">
+                    <value>no data left eye, present right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_009_001">
+                    <value>no data left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_010_001">
+                    <value>both eyes abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_011_001">
+                    <value>no data left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_012_001">
+                    <value>left eye abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_013_001">
+                    <value>right eye dilated</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_014_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_015_001">
+                    <value>no data right eye, left eye abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_016_001">
+                    <value>no data left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_017_001">
+                    <value>absent</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_018_001">
+                    <value>present both eyes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_019_001">
+                    <value>no data left eye, present right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_020_001">
+                    <value>no data right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_021_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_022_001">
+                    <value>no data left eye, right eye abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_023_001">
+                    <value>both eyes abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_024_001">
+                    <value>no data left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_025_001">
+                    <value>right eye abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_026_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_027_001">
+                    <value>no data right eye, present left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_028_001">
+                    <value>TEXT</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_029_001">
+                    <value>TEXT</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_052_001">
+                    <value>TEXT</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_053_001">
+                    <value>TEXT</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_054_001" unit="%">
+                    <value>0.89</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_055_001" unit="%">
+                    <value>0.58</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_056_001" unit="%">
+                    <value>0.63</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_057_001" unit="%">
+                    <value>0.81</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_058_001" unit="%">
+                    <value>0.26</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_059_001" unit="%">
+                    <value>0.97</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_060_001">
+                    <value>0.05</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_061_001">
+                    <value>0.03</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_062_001">
+                    <value>0.77</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_063_001">
+                    <value>0.83</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_064_001">
+                    <value>0.03</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_065_001">
+                    <value>0.17</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_066_001">
+                    <value>0.22</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_067_001">
+                    <value>0.52</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_068_001">
+                    <value>0.11</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_069_001">
+                    <value>0.86</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_070_001">
+                    <value>0.14</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_071_001">
+                    <value>0.64</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_080_001">
+                    <value>present right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_081_001">
+                    <value>no data for both eyes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_082_001">
+                    <value>left eye abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_083_001">
+                    <value>no data right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_084_001">
+                    <value>no data left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_085_001">
+                    <value>present left eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_086_001">
+                    <value>no data right eye</value>
+                </simpleParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_050_001">
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.9659096002578735</dim>
+                            <dim id="y" origin="0.0" unit="px">0.21604293584823608</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID01">
+                            <dim id="x" origin="0.0" unit="px">0.26816076040267944</dim>
+                            <dim id="y" origin="0.0" unit="px">0.2768661379814148</dim>
+                            <dim id="z" origin="0.0" unit="px">0.31253719329833984</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID02">
+                            <dim id="x" origin="0.0" unit="px">0.5014938116073608</dim>
+                            <dim id="y" origin="0.0" unit="px">0.03607064485549927</dim>
+                            <dim id="z" origin="0.0" unit="px">0.43352586030960083</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.7234553694725037</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6638204455375671</dim>
+                            <dim id="z" origin="0.0" unit="px">0.8016952276229858</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_051_001">
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.037702322006225586</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8970435261726379</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.37450677156448364</dim>
+                            <dim id="y" origin="0.0" unit="px">0.9843627214431763</dim>
+                            <dim id="z" origin="0.0" unit="px">0.5302498936653137</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID11">
+                            <dim id="x" origin="0.0" unit="px">0.5540220737457275</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7740578055381775</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.7191799283027649</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8469317555427551</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID21">
+                            <dim id="x" origin="0.0" unit="px">0.8285340070724487</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6843438148498535</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID22">
+                            <dim id="x" origin="0.0" unit="px">0.9751728177070618</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5993176102638245</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.12014329433441162</dim>
+                            <dim id="y" origin="0.0" unit="px">0.298764169216156</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID31">
+                            <dim id="x" origin="0.0" unit="px">0.15898579359054565</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8450059294700623</dim>
+                            <dim id="z" origin="0.0" unit="px">0.6246588230133057</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID40">
+                            <dim id="x" origin="0.0" unit="px">0.7072329521179199</dim>
+                            <dim id="y" origin="0.0" unit="px">0.44233715534210205</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_072_001">
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.3380669355392456</dim>
+                            <dim id="y" origin="0.0" unit="px">0.06539231538772583</dim>
+                            <dim id="z" origin="0.0" unit="px">0.9254255890846252</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID01">
+                            <dim id="x" origin="0.0" unit="px">0.9342560172080994</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6117562055587769</dim>
+                            <dim id="z" origin="0.0" unit="px">0.3312021493911743</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.5562498569488525</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8026930689811707</dim>
+                            <dim id="z" origin="0.0" unit="px">0.19697105884552002</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID11">
+                            <dim id="x" origin="0.0" unit="px">0.8450403809547424</dim>
+                            <dim id="y" origin="0.0" unit="px">0.25931739807128906</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID12">
+                            <dim id="x" origin="0.0" unit="px">0.6841302514076233</dim>
+                            <dim id="y" origin="0.0" unit="px">0.3434073328971863</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.2620558738708496</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5798983573913574</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.4471514821052551</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5284528136253357</dim>
+                            <dim id="z" origin="0.0" unit="px">0.6478184461593628</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID31">
+                            <dim id="x" origin="0.0" unit="px">0.6938788890838623</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6813325881958008</dim>
+                            <dim id="z" origin="0.0" unit="px">0.7541921734809875</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_073_001">
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.37356579303741455</dim>
+                            <dim id="y" origin="0.0" unit="px">0.2300611138343811</dim>
+                            <dim id="z" origin="0.0" unit="px">0.3327619433403015</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID01">
+                            <dim id="x" origin="0.0" unit="px">0.7201316952705383</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7521151900291443</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.688633382320404</dim>
+                            <dim id="y" origin="0.0" unit="px">0.92530357837677</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID11">
+                            <dim id="x" origin="0.0" unit="px">0.10057860612869263</dim>
+                            <dim id="y" origin="0.0" unit="px">0.32260483503341675</dim>
+                            <dim id="z" origin="0.0" unit="px">0.3501541018486023</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.3646116852760315</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5212754011154175</dim>
+                            <dim id="z" origin="0.0" unit="px">0.2730775475502014</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.3415902853012085</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5837535262107849</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID31">
+                            <dim id="x" origin="0.0" unit="px">0.934489905834198</dim>
+                            <dim id="y" origin="0.0" unit="px">0.9163625240325928</dim>
+                            <dim id="z" origin="0.0" unit="px">0.7895224094390869</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID32">
+                            <dim id="x" origin="0.0" unit="px">0.3515927791595459</dim>
+                            <dim id="y" origin="0.0" unit="px">0.11728250980377197</dim>
+                            <dim id="z" origin="0.0" unit="px">0.3084641695022583</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID40">
+                            <dim id="x" origin="0.0" unit="px">0.8375399708747864</dim>
+                            <dim id="y" origin="0.0" unit="px">0.939070463180542</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID41">
+                            <dim id="x" origin="0.0" unit="px">0.996074914932251</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8207282423973083</dim>
+                            <dim id="z" origin="0.0" unit="px">0.07611793279647827</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID42">
+                            <dim id="x" origin="0.0" unit="px">0.7943850755691528</dim>
+                            <dim id="y" origin="0.0" unit="px">0.4395850896835327</dim>
+                            <dim id="z" origin="0.0" unit="px">0.24397152662277222</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_074_001">
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.39668095111846924</dim>
+                            <dim id="y" origin="0.0" unit="px">0.21945494413375854</dim>
+                            <dim id="z" origin="0.0" unit="px">0.23544085025787354</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.4396930932998657</dim>
+                            <dim id="y" origin="0.0" unit="px">0.9869530200958252</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID11">
+                            <dim id="x" origin="0.0" unit="px">0.32678794860839844</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6439892053604126</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID12">
+                            <dim id="x" origin="0.0" unit="px">0.9049645066261292</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7945600152015686</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.1353188157081604</dim>
+                            <dim id="y" origin="0.0" unit="px">0.26904720067977905</dim>
+                            <dim id="z" origin="0.0" unit="px">0.8927891850471497</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.2029263973236084</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5652906894683838</dim>
+                            <dim id="z" origin="0.0" unit="px">0.11788904666900635</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID31">
+                            <dim id="x" origin="0.0" unit="px">0.7525245547294617</dim>
+                            <dim id="y" origin="0.0" unit="px">0.4843028783798218</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_075_001">
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.13313180208206177</dim>
+                            <dim id="y" origin="0.0" unit="px">0.889420747756958</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_076_001">
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.8433199524879456</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5868215560913086</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID01">
+                            <dim id="x" origin="0.0" unit="px">0.08387976884841919</dim>
+                            <dim id="y" origin="0.0" unit="px">0.25686079263687134</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID02">
+                            <dim id="x" origin="0.0" unit="px">0.16074728965759277</dim>
+                            <dim id="y" origin="0.0" unit="px">0.43827587366104126</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.96531081199646</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7912851572036743</dim>
+                            <dim id="z" origin="0.0" unit="px">0.8916232585906982</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.6623697876930237</dim>
+                            <dim id="y" origin="0.0" unit="px">0.18701481819152832</dim>
+                            <dim id="z" origin="0.0" unit="px">0.8956481218338013</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID21">
+                            <dim id="x" origin="0.0" unit="px">0.6677938103675842</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5779513120651245</dim>
+                            <dim id="z" origin="0.0" unit="px">0.6903775930404663</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.9983819127082825</dim>
+                            <dim id="y" origin="0.0" unit="px">0.45078492164611816</dim>
+                            <dim id="z" origin="0.0" unit="px">0.7904874682426453</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID31">
+                            <dim id="x" origin="0.0" unit="px">0.6333025097846985</dim>
+                            <dim id="y" origin="0.0" unit="px">0.3006858825683594</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID40">
+                            <dim id="x" origin="0.0" unit="px">0.3061103820800781</dim>
+                            <dim id="y" origin="0.0" unit="px">0.716508150100708</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_077_001">
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.3665602207183838</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7987757921218872</dim>
+                            <dim id="z" origin="0.0" unit="px">0.40210574865341187</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID01">
+                            <dim id="x" origin="0.0" unit="px">0.2905682921409607</dim>
+                            <dim id="y" origin="0.0" unit="px">0.1440129280090332</dim>
+                            <dim id="z" origin="0.0" unit="px">0.5660111308097839</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.8893892168998718</dim>
+                            <dim id="y" origin="0.0" unit="px">0.007516086101531982</dim>
+                            <dim id="z" origin="0.0" unit="px">0.09302908182144165</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID11">
+                            <dim id="x" origin="0.0" unit="px">0.11853301525115967</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5676811337471008</dim>
+                            <dim id="z" origin="0.0" unit="px">0.14617633819580078</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.2144830822944641</dim>
+                            <dim id="y" origin="0.0" unit="px">0.08229416608810425</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID21">
+                            <dim id="x" origin="0.0" unit="px">0.9575438499450684</dim>
+                            <dim id="y" origin="0.0" unit="px">0.08384716510772705</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.1459333300590515</dim>
+                            <dim id="y" origin="0.0" unit="px">0.055264413356781006</dim>
+                            <dim id="z" origin="0.0" unit="px">0.09025484323501587</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID31">
+                            <dim id="x" origin="0.0" unit="px">0.5634944438934326</dim>
+                            <dim id="y" origin="0.0" unit="px">0.52901691198349</dim>
+                            <dim id="z" origin="0.0" unit="px">0.27144819498062134</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID40">
+                            <dim id="x" origin="0.0" unit="px">0.9089470505714417</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8148326277732849</dim>
+                            <dim id="z" origin="0.0" unit="px">0.8856600522994995</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID41">
+                            <dim id="x" origin="0.0" unit="px">0.6628724336624146</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6089383363723755</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID42">
+                            <dim id="x" origin="0.0" unit="px">0.5789238214492798</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7321610450744629</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_078_001">
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.1897541880607605</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7811573147773743</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID01">
+                            <dim id="x" origin="0.0" unit="px">0.45220011472702026</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8085977435112</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.4524720311164856</dim>
+                            <dim id="y" origin="0.0" unit="px">0.42509132623672485</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID11">
+                            <dim id="x" origin="0.0" unit="px">0.3589339256286621</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5199917554855347</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.8021600246429443</dim>
+                            <dim id="y" origin="0.0" unit="px">0.2754107713699341</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.6347028017044067</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7762951850891113</dim>
+                            <dim id="z" origin="0.0" unit="px">0.34376996755599976</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID31">
+                            <dim id="x" origin="0.0" unit="px">0.7317841053009033</dim>
+                            <dim id="y" origin="0.0" unit="px">0.17032837867736816</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID40">
+                            <dim id="x" origin="0.0" unit="px">0.24947422742843628</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8927379846572876</dim>
+                            <dim id="z" origin="0.0" unit="px">0.12745612859725952</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID41">
+                            <dim id="x" origin="0.0" unit="px">0.6070206761360168</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5094190239906311</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID50">
+                            <dim id="x" origin="0.0" unit="px">0.8418849110603333</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8277308940887451</dim>
+                            <dim id="z" origin="0.0" unit="px">0.23058396577835083</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID51">
+                            <dim id="x" origin="0.0" unit="px">0.04613614082336426</dim>
+                            <dim id="y" origin="0.0" unit="px">0.8237059712409973</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID60">
+                            <dim id="x" origin="0.0" unit="px">0.10554659366607666</dim>
+                            <dim id="y" origin="0.0" unit="px">0.26741325855255127</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID61">
+                            <dim id="x" origin="0.0" unit="px">0.9790378212928772</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6316763162612915</dim>
+                            <dim id="z" origin="0.0" unit="px">0.6674796938896179</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_EYE_079_001">
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID00">
+                            <dim id="x" origin="0.0" unit="px">0.4276713728904724</dim>
+                            <dim id="y" origin="0.0" unit="px">0.43470942974090576</dim>
+                            <dim id="z" origin="0.0" unit="px">0.6611459255218506</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID10">
+                            <dim id="x" origin="0.0" unit="px">0.7845232486724854</dim>
+                            <dim id="y" origin="0.0" unit="px">0.3704150319099426</dim>
+                            <dim id="z" origin="0.0" unit="px">0.8602924346923828</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID11">
+                            <dim id="x" origin="0.0" unit="px">0.775143027305603</dim>
+                            <dim id="y" origin="0.0" unit="px">0.2894763946533203</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID20">
+                            <dim id="x" origin="0.0" unit="px">0.8657444715499878</dim>
+                            <dim id="y" origin="0.0" unit="px">0.7339202165603638</dim>
+                            <dim id="z" origin="0.0" unit="px">0.05651122331619263</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID30">
+                            <dim id="x" origin="0.0" unit="px">0.029272258281707764</dim>
+                            <dim id="y" origin="0.0" unit="px">0.1276029348373413</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID40">
+                            <dim id="x" origin="0.0" unit="px">0.4568948745727539</dim>
+                            <dim id="y" origin="0.0" unit="px">0.9794755578041077</dim>
+                            <dim id="z" origin="0.0" unit="px">0.30972254276275635</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID41">
+                            <dim id="x" origin="0.0" unit="px">0.9812999367713928</dim>
+                            <dim id="y" origin="0.0" unit="px">0.39184606075286865</dim>
+                            <dim id="z" origin="0.0" unit="px">0.5007584691047668</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="three" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID50">
+                            <dim id="x" origin="0.0" unit="px">0.5843245387077332</dim>
+                            <dim id="y" origin="0.0" unit="px">0.9861690402030945</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID51">
+                            <dim id="x" origin="0.0" unit="px">0.03860127925872803</dim>
+                            <dim id="y" origin="0.0" unit="px">0.5313358306884766</dim>
+                            <dim id="z" origin="0.0" unit="px">0.24492186307907104</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID52">
+                            <dim id="x" origin="0.0" unit="px">0.600690484046936</dim>
+                            <dim id="y" origin="0.0" unit="px">0.6888320446014404</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="paramID60">
+                            <dim id="x" origin="0.0" unit="px">0.6941115260124207</dim>
+                            <dim id="y" origin="0.0" unit="px">0.11842036247253418</dim>
+                            <dim id="z" origin="0.0" unit="px">0.5517898201942444</dim>
+                        </parameterAssociation>
+                        <parameterAssociation parameterID="paramID61">
+                            <dim id="x" origin="0.0" unit="px">0.15760499238967896</dim>
+                            <dim id="y" origin="0.0" unit="px">0.4642600417137146</dim>
+                        </parameterAssociation>
+                    </value>
+                </seriesMediaParameter>
+                <procedureMetadata parameterID="IMPC_EYE_030_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_031_001">
+                    <value>Zeiss</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_032_001">
+                    <value>BQ 900 LED/IM-900</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_033_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_034_001">
+                    <value>Kowa</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_035_001">
+                    <value>Micron III</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_036_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_037_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_038_001">
+                    <value>Bioptigen</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_039_001">
+                    <value>Envisu R2200</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_040_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_041_001">
+                    <value>Oculus GmbH</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_042_001">
+                    <value>Pentacam</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_043_001">
+                    <value>Atropine</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_044_001">
+                    <value>No anesthesia</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_045_001">
+                    <value>Isoflurane</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_046_001">
+                    <value>2013-08-07</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_047_001">
+                    <value>2013-08-07</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_048_001">
+                    <value>2013-08-07</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_049_001">
+                    <value>2013-08-07</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

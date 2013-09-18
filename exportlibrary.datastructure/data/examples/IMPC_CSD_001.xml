@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="DTCC-Legacy">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_CSD_001">
+                <simpleParameter parameterID="IMPC_CSD_001_001">
+                    <value>Present</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_002_001">
+                    <value>Long</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_003_001">
+                    <value>Decreased</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_004_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_005_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_006_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_007_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_008_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_009_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_010_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_011_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_012_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_013_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_014_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_015_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_016_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_017_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_018_001">
+                    <value>Both forelimbs - not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_019_001">
+                    <value>Both forelimbs - increased</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_020_001">
+                    <value>One hindlimb only - not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_021_001">
+                    <value>Both hindlimbs - not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_022_001">
+                    <value>Both hindlimbs - decreased</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_023_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_024_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_025_001">
+                    <value>Increased</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_026_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_027_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_028_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_029_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_030_001">
+                    <value>Absent</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_031_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_032_001" unit="Squares crossed">
+                    <value>4</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_033_001">
+                    <value>Lack of fluidity in movement</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_034_001">
+                    <value>Dragging</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_035_001">
+                    <value>No response</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_036_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_037_001">
+                    <value>Retropulsion</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_038_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_039_001">
+                    <value>Absent</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_040_001">
+                    <value>Both forepaws decreased</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_041_001">
+                    <value>One hindpaw increased</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_042_001">
+                    <value>One forepaw not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_043_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_044_001">
+                    <value>Both forelimbs decreased number</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_045_001">
+                    <value>Both hindlimbs increased number</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_046_001">
+                    <value>One forelimb - decreased size</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_047_001">
+                    <value>One hindlimb - increased size</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_048_001">
+                    <value>Both forelimbs not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_049_001">
+                    <value>Both hindlimbs not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_050_001">
+                    <value>One forelimb increased number</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_051_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_052_001">
+                    <value>Both forelimbs increased length</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_053_001">
+                    <value>Both hindlimbs increased length</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_054_001">
+                    <value>Both forelimbs not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_055_001">
+                    <value>One hindlimb not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_056_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_057_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_058_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_059_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_060_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_061_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_062_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_063_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_064_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_065_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_066_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_067_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_068_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_069_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_070_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_071_001">
+                    <value>Absent</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_072_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_073_001">
+                    <value>No data</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_074_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_075_001">
+                    <value>Not as expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_076_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_077_001">
+                    <value>Present</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_078_001">
+                    <value>As expected</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_079_001">
+                    <value>Excessive aggression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CSD_080_001">
+                    <value>Present</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_CSD_081_001">
+                    <value>156</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CSD_082_001">
+                    <value>Open bench</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CSD_083_001">
+                    <value>5</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CSD_086_001">
+                    <value>121</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<centreProcedureSet xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+ xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+ xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure file:/home/julian/mrc_svn/exportlibrary/exportlibrary.datastructure/src/main/resources/schemas/core/procedure_definition.xsd">
+    <centre centreID="J" pipeline="pipeline1" project="project1">
+       <experiment experimentID="openfield_00" dateOfExperiment="2012-12-19">
+          <specimenID>mouse1</specimenID>
+          <procedure procedureID="IMPC_OFD_001">
+             <seriesParameter parameterID="IMPC_OFD_005_001"> <!-- distance travelled-->
+                <value incrementValue="5">3</value>
+                <value incrementValue="10">6</value>
+                <value incrementValue="15">9</value>
+                <value incrementValue="20">12</value>
+             </seriesParameter>
+          </procedure>
+       </experiment>
+    </centre>
+    
+</centreProcedureSet>

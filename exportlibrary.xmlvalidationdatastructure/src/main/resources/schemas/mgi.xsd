@@ -1,0 +1,77 @@
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/external/mgi"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/external/mgi" elementFormDefault="qualified"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+    
+    
+    <xs:element name="mgiStrains">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> 
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="mgiStrain" type="MGIStrain"/>
+            </xs:sequence>
+            <xs:attribute name="parsed" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="MGIStrain">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+                strainID is the one appearing in specimen_definition
+            </xs:documentation>
+        </xs:annotation>
+        
+        <xs:attribute name="MGI_ID"     type="xs:string"  use="required"/>
+        <xs:attribute name="strainID"   type="xs:string"  use="required"/>
+        <xs:attribute name="strainType" type="StrainType" use="required"/>
+    </xs:complexType>
+    
+    
+    
+    <xs:simpleType name="StrainType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                only inbred strains are considered
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="coisogenic"/>
+            <xs:enumeration value="congenic"/>
+            <xs:enumeration value="conplastic"/>
+            <xs:enumeration value="consomic"/>
+            <xs:enumeration value="inbred strain"/>
+            <xs:enumeration value="Not Applicable"/>
+            <xs:enumeration value="Not Specified"/>
+            <xs:enumeration value="recombinant congenic (RC)"/>
+            <xs:enumeration value="recombinant inbred (RI)"/>
+        </xs:restriction> 
+    </xs:simpleType>
+    
+</xs:schema>

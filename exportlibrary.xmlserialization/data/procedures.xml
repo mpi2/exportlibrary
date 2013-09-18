@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="J" pipeline="IMPC_001" project="IMPC">
+        <housing>
+            <procedure procedureID="IMPC_HOU_001">
+                <simpleParameter parameterID="IMPC_HOU_001_001">
+                    <value>yes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HOU_001_002">
+                    <value>21</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HOU_001_003">
+                    <value>23</value>
+                </simpleParameter>
+                <seriesParameter parameterID="ESLIM_HOU_001_004">
+                    <value incrementValue="1">Wood chips</value>
+                    <value incrementValue="2">Fun Tunnels</value>
+                </seriesParameter>
+                <seriesParameter parameterID="ESLIM_HOU_001_005">
+                    <value incrementValue="1">Malburg</value>
+                    <value incrementValue="2">Ebola</value>
+                </seriesParameter>
+            </procedure>
+        </housing>
+        <experiment experimentID="localExperimentID" dateOfExperiment="2012-06-30">
+            <specimenID>specimenID_00_at_Jax</specimenID>
+            <procedure procedureID="IMPC_002_001">
+                <simpleParameter parameterID="IMPC_002_001_006_001">
+                    <value>Straub tail</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_002_001_057_001">
+                    <value>bench</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_002_001_058_001">
+                    <value>1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_002_001_059_001">
+                    <value>3.2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_002_001_060_001">
+                    <value>John Doe</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

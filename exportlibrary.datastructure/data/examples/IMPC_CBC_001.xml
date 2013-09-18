@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="NorCOMM2">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-28">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_CBC_001">
+                <simpleParameter parameterID="IMPC_CBC_001_001" unit="mmol/L">
+                    <value>154.38</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_002_001" unit="mmol/L">
+                    <value>4.16</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_003_001" unit="mmol/L">
+                    <value>109.72</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_004_001" unit="mg/dl">
+                    <value>2.14</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_005_001" unit="mg/dl">
+                    <value>14.06</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_006_001" unit="g/l">
+                    <value>57.78</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_007_001" unit="g/l">
+                    <value>23.68</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_008_001" unit="mg/dl">
+                    <value>6.37</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_009_001" unit="mg/dl">
+                    <value>1.48</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_010_001" unit="mg/dl">
+                    <value>4.35</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_011_001" unit="mg/dl">
+                    <value>27.74</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_012_001" unit="U/l">
+                    <value>640.15</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_013_001" unit="U/l">
+                    <value>267.44</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_014_001" unit="U/l">
+                    <value>277.70</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_015_001" unit="mg/dl">
+                    <value>6.06</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_016_001" unit="mg/dl">
+                    <value>1.56</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_017_001" unit="mg/dl">
+                    <value>3.30</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_018_001" unit="mg/dl">
+                    <value>19.79</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_019_001">
+                    <value>TEXT</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_020_001" unit="umol/l">
+                    <value>0.20</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_021_001" unit="U/l">
+                    <value>0.96</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_022_001" unit="U/l">
+                    <value>1,844.44</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_023_001" unit="U/l">
+                    <value>550.30</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_024_001" unit="umol/l">
+                    <value>0.02</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_025_001" unit="mg/dl">
+                    <value>0.32</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_026_001" unit="mmol/L">
+                    <value>0.21</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_027_001" unit="mmol/L">
+                    <value>2.02</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_028_001" unit="U/l">
+                    <value>1,594.62</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_029_001" unit="umol/l">
+                    <value>231.73</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_030_001" unit="mg/ml">
+                    <value>20.39</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_031_001" unit="mg/dl">
+                    <value>0.21</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CBC_032_001" unit="mg/l">
+                    <value>0.11</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_CBC_033_001">
+                    <value>Machine_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_034_001">
+                    <value>Roche</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_035_001">
+                    <value>AU 480</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_036_001">
+                    <value>Injection narcosis with Sodium Pentobarbital (Pentobarb, 0.1ml)</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_037_001">
+                    <value>Retro-orbital puncture</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_038_001">
+                    <value>No</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_042_001">
+                    <value>No</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_043_001">
+                    <value>Fresh</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_044_001">
+                    <value>Yes (by Equipment, automatically)</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_045_001">
+                    <value>ESLIM_024_001</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_046_001">
+                    <value>2013-02-28T09:33:20+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_047_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_048_001">
+                    <value>Moderate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_049_001">
+                    <value>Experimenter_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_050_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_039_001">
+                    <value>Kabe Labortechnik Lithium heparin coated tubes</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_040_001">
+                    <value>2013-02-28T09:33:20+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_041_001">
+                    <value>2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CBC_051_001">
+                    <value>Experimenter_2</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

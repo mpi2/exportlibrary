@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mousephenotype.dcc.exportlibrary</groupId>
+    <artifactId>exportlibrary</artifactId>
+    <packaging>pom</packaging>
+    <name>exportlibrary-parent</name>
+    <version>2.0.0</version>    
+    <description>
+        
+        
+
+        
+    </description>
+    
+    <url><!--@TODO add url --></url>
+    
+    
+    <issueManagement>
+        <system>JIRA</system>
+        <url><!--@TODO add url --></url>
+    </issueManagement>
+    
+    
+    <ciManagement>
+        <system>jenkins</system>
+        <url><!--@TODO add url --></url>
+    </ciManagement>
+    
+    <inceptionYear>2012</inceptionYear>
+    
+    
+    <developers>
+        <developer>
+            <id>julian</id>
+            <name>Julian Atienza</name>
+            <email>j dot atienza at har dot mrc dot ac dot uk</email>
+            <organization>org.mousephenotype</organization>
+            <roles>
+                <role>Senior Java Developer</role>
+            </roles>
+            <timezone>GMT0</timezone>
+        </developer>
+    </developers>
+    
+    
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+ 
+
+    
+    
+    <scm>
+        <connection>
+            git@github.com:mpi2/exportlibrary.git
+        </connection>
+        <url>
+		<!--@TODO add url -->
+        </url>
+    </scm>
+    
+    <modules>
+        <module>exportlibrary.datastructure</module>
+        <module>exportlibrary.xsdvalidation</module>
+        <module>exportlibrary.xmlinstantiation</module>
+        <module>exportlibrary.xmlserialization</module>
+        <module>exportlibrary.xmlvalidationdatastructure</module>
+        <module>exportlibrary.xmlvalidationresourcescollection</module>
+        <module>exportlibrary.xmlvalidationremoteclients</module>
+        <module>exportlibrary.xmlvalidation</module>
+        <module>exportlibrary.traverser</module>
+        <module>exportlibrary.exporter</module>
+        <module>exportlibrary.overviewsUpdater</module>
+        <module>exportlibrary.validationRemover</module>
+        <module>exportlibrary.fullTraverser</module>
+        <module>exportlibrary.impressexamplesgeneration</module>
+
+    </modules>
+    
+ 
+    
+    <organization>
+        <name> www.mousephenotype.org</name>
+        <url>www.mousephenotype.org</url>
+    </organization>
+    
+    
+
+    
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>1.0-beta-6</version>
+            </extension>
+        </extensions>
+        
+        <resources>
+            <resource> <!--do not distribute configuration -->
+                <directory>conf</directory>
+                <excludes>
+                    <exclude>**</exclude> 
+                </excludes>
+            </resource>
+        </resources>
+        <plugins>
+            
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <inherited>false</inherited>
+                        <id>purge-repository</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>purge-local-repository</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <inherited>false</inherited>
+                        <id>remove-old-installers</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>remove-project-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <removeAll>true</removeAll>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            
+            
+            
+            <plugin>
+                <!--
+                mvn license:check
+                mvn license:format
+                -->
+                <inherited>false</inherited>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.10.b1</version>
+                <configuration>
+                    <header>conf/header.txt</header>
+                    <strictCheck>true</strictCheck>
+                    <failIfMissing>true</failIfMissing>
+                    <aggregate>true</aggregate>
+                    <properties>
+                        <year>2013</year>
+                        <developer>Julian Atienza Herrero</developer>
+                        <email>j.atienza at har.mrc.ac.uk</email>
+                    </properties>
+                    <excludes>
+                        <exclude>**/src/main/generated/**</exclude>
+                        <exclude>**/src/test/generated/**</exclude>
+                        <exclude>**/data/**</exclude>
+                        <exclude>**/conf/**</exclude>
+                        <exclude>**/docs/**</exclude>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.script</exclude>
+                        <exclude>**/*.xjb</exclude>
+                        <exclude>**/*.log</exclude>
+                        <exclude>**/*.txt</exclude>
+                        <exclude>**/resolver.xsd</exclude>
+                        <exclude>**/*.dat</exclude>
+                        <exclude>**/*.ftp</exclude>
+                        <exclude>**/*.ws</exclude>
+                        <exclude>**/*.rpt</exclude>
+                        <exclude>**/*.Logger</exclude>
+                        <exclude>**/*.lck</exclude>
+                        <exclude>**/*.tgz</exclude>
+                        <exclude>**/*.ctrl</exclude>
+                        <exclude>**/*.lsql</exclude>
+                        <exclude>**/*.wsdl</exclude>
+                        <exclude>**/*.tmp</exclude>
+                        <exclude>**/*.pdf</exclude>
+                        <exclude>**/*.csv</exclude>
+                        <exclude>**/*.json</exclude>
+                        <exclude>**/XMLFileSplitter.java</exclude>
+                        <exclude>**/README</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-headers</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> 
+            <plugin>
+                <!--mvn clean install site site:stage -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <reportPlugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-project-info-reports-plugin</artifactId>
+                            <version>2.4</version>
+                            <configuration>
+                                <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+                                <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+                            </configuration>
+              
+                            <reports>
+                                <report>index</report>
+                                <report>license</report>
+                                <report>plugin-management</report>
+                                <report>project-team</report>
+                                <report>dependency-management</report>
+                                <report>summary</report>
+                                
+                                <report>cim</report>
+                                <report>dependencies</report>
+                                <report>dependency-convergence </report>
+                                <report>distribution-management</report>
+                                <report>help</report>
+                                <report>issue-tracking</report>
+                                <report>mailing-list</report>
+                                <report>modules</report>
+                                <report>plugins</report>
+                                <report>scm</report> 
+                            </reports>
+                        </plugin>
+            
+                        <plugin> <!--please install yDoc in your system -->
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <version>2.8.1</version>
+                            <configuration>
+                                <sourcepath>${basedir}/src/main/java/org/mousephenotype;${basedir}/src/main/generated</sourcepath>
+                                <doclet>ydoc.doclets.YStandard</doclet>
+                                <docletPath>${yDoc.path}/lib/ydoc.jar:${yDoc.path}/lib/styleed.jar:${yDoc.path}/resources</docletPath>
+                                <additionalparam>-umlautogen</additionalparam>
+                            </configuration>
+
+                           
+                        </plugin>
+                        
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-changelog-plugin</artifactId>
+                            <version>2.2</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-checkstyle-plugin</artifactId>
+                            <version>2.9.1</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-jxr-plugin</artifactId>
+                            <version>2.3</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-report-plugin</artifactId>
+                            <version>2.12</version>
+                        </plugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+            
+            
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>post-site</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>                   
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>target/staging/**/changelog.html</include>
+                    </includes>
+                    <replacements>
+                        <replacement>
+                            <token>PhenoDCC</token>
+                            <value></value>
+                        </replacement>         
+                    </replacements>
+                    <ignoreErrors>true</ignoreErrors>
+                </configuration>
+            </plugin>
+            
+   
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8.1</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                </configuration>                 
+                <executions>
+                    <execution>
+                        <id>javadoc-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+
+        </plugins>
+    </build>
+    
+    
+    
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit-addons</groupId>
+            <artifactId>junit-addons</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${com.google.guava.version}</version>
+        </dependency>	
+    
+    
+        <!-- Logging dependencies -->
+        
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${ch.qos.logback.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${ch.qos.logback.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+        
+        <!-- END logging dependencies -->
+    
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.20</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>${org.apache.derby.version}</version>
+            
+        </dependency>
+        
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.1</version>
+        </dependency>
+        
+    </dependencies>
+    
+    
+   
+    <repositories>
+      
+        <repository>
+            <id>maven2</id>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        
+
+      
+    </repositories>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Codehaus repository</id>
+            <url>http://repository.codehaus.org/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+        
+         
+        <pluginRepository>
+            <id>maven2</id>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>sonatype-public-repository</id>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+        
+    </pluginRepositories>
+    
+    <properties>
+        <yDoc.path>/opt/yworks-uml-doclet-3.0_02-jdk1.5</yDoc.path>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <org.slf4j.version>1.7.3</org.slf4j.version>
+        <ch.qos.logback.version>1.0.9</ch.qos.logback.version>
+        <commons.logging.version>1.1.1</commons.logging.version>
+        <mysql.version>5.1.23</mysql.version>
+        <com.mchange.c3p0.version>0.9.2</com.mchange.c3p0.version>
+        <org.hibernate.version>4.0.0.Final</org.hibernate.version>
+        <org.hibernate.commons.annotations.version>4.0.1.Final</org.hibernate.commons.annotations.version>
+        <hibernate.jpa.version>1.0.1.Final</hibernate.jpa.version>
+        <jboss.logging.version>3.1.3.GA</jboss.logging.version>
+        <org.apache.derby.version>10.9.1.0</org.apache.derby.version>
+        <javax.transaction.version>1.1</javax.transaction.version>
+        <com.google.guava.version>14.0</com.google.guava.version>
+    
+    </properties>
+    
+</project>

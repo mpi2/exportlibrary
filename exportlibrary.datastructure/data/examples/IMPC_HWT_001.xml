@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="DTCC-Legacy">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_HWT_001">
+                <simpleParameter parameterID="IMPC_HWT_007_001" unit="g">
+                    <value>71.2043</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HWT_008_001" unit="mg">
+                    <value>0.8433147</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_HWT_003_001">
+                    <value>156</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HWT_005_001">
+                    <value>carbon dioxide</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HWT_006_001">
+                    <value>Adventurer Pro</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HWT_010_001">
+                    <value>Ohaus</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HWT_011_001">
+                    <value>AV2101</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HWT_001_001">
+                    <value>2013-02-21T16:18:11+0000</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

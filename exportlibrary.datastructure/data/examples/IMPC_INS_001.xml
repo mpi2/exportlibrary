@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="NorCOMM2">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-28">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_INS_001">
+                <simpleParameter parameterID="IMPC_INS_001_001" unit="pg/ml">
+                    <value>11,344.61</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_INS_002_001">
+                    <value>Mouse Insulin kit</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_003_001">
+                    <value>MORINAGA (Yokohama, Japan)</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_004_001">
+                    <value>Kit_0123</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_005_001">
+                    <value>Machine_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_006_001">
+                    <value>Thermo scientific</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_007_001">
+                    <value>Multiskan JX</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_008_001">
+                    <value>Kabe Labortechnik Lithium heparin coated tubes</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_009_001">
+                    <value>Isofluorane</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_010_001">
+                    <value>Retro-orbital puncture</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_011_001">
+                    <value>Li-Heparin</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_012_001">
+                    <value>2013-02-28T09:33:20+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_013_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_014_001">
+                    <value>Frozen</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_015_001">
+                    <value>Yes</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_016_001">
+                    <value>Neat plasma</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_017_001">
+                    <value>2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_018_001">
+                    <value>ESLIM_024_001</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_019_001">
+                    <value>Moderate</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_020_001">
+                    <value>Experimenter_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_021_001">
+                    <value>Experimenter_2</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_INS_022_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

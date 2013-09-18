@@ -1,0 +1,114 @@
+<!--
+
+    Copyright (C) 2012 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ps="http://www.mousephenotype.org/sites/mousephenotype.org/files/core/specimen"
+           xmlns:pp="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
+           xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+           targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation" elementFormDefault="qualified" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+    <xs:import namespace="http://www.mousephenotype.org/sites/mousephenotype.org/files/core/specimen"  schemaLocation="http://www.mousephenotype.org/sites/mousephenotype.org/files/core/specimen/specimen_definition.xsd"/>
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd"/>
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"    schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common/common.xsd"/>
+
+
+    <xs:element name="validationSet">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"/>
+            </xs:annotation>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="validation" type="Validation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Validation">
+        <xs:annotation>
+            <xs:documentation>
+                isActive: is a flag that allows a validation issue to be ignored in future processes.
+                ie: This is where if validating an experiment, a specimen was initialy not found and then added later, the validation issue on the experiment can be marked an
+                inactive.
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:element name="line"                       type="pp:Line"/>
+            <xs:element name="housing"                    type="pp:Housing"/>
+            <xs:element name="centreProcedure"            type="pp:CentreProcedure"/>
+            <xs:element name="experiment"                 type="pp:Experiment"/>
+            <xs:element name="procedure"                  type="pp:Procedure"/>
+            <xs:element name="simpleParameter"            type="pp:SimpleParameter"/>
+            <xs:element name="ontologyParameter"          type="pp:OntologyParameter"/>
+            <xs:element name="seriesParameter"            type="pp:SeriesParameter"/>
+            <xs:element name="seriesParameterValue"       type="pp:SeriesParameterValue"/>
+            <xs:element name="mediaParameter"             type="pp:MediaParameter"/>
+            <xs:element name="mediaSampleParameter"       type="pp:MediaSampleParameter"/>
+            <xs:element name="mediaSample"                type="pp:MediaSample"/>
+            <xs:element name="mediaSection"               type="pp:MediaSection"/>
+            <xs:element name="mediaFile"                  type="pp:MediaFile"/>
+            <xs:element name="parameterAssociation"       type="pp:ParameterAssociation"/>
+            <xs:element name="dimension"                  type="pp:Dimension"/>
+            <xs:element name="seriesMediaParameter"       type="pp:SeriesMediaParameter"/>
+            <xs:element name="seriesMediaParameterValue"  type="pp:SeriesMediaParameterValue"/>
+            <xs:element name="procedureMetadata"          type="pp:ProcedureMetadata"/>
+    <!-- -->
+            <xs:element name="centreSpecimen"             type="ps:CentreSpecimen"/>
+            <xs:element name="specimen"                   type="ps:Specimen"/>
+            <xs:element name="mouse"                      type="ps:Mouse"/>
+            <xs:element name="embryo"                     type="ps:Embryo"/>
+            <xs:element name="genotype"                   type="ps:Genotype"/>
+            <xs:element name="chromosomalAlteration"      type="ps:ChromosomalAlteration"/>
+            <xs:element name="chromosome"                 type="ps:Chromosome"/>
+            <xs:element name="parentalStrain"             type="ps:ParentalStrain"/>
+            <xs:element name="relatedSpecimen"            type="ps:RelatedSpecimen"/>
+            
+            
+        </xs:choice>
+        <xs:attribute name="message"   type="xs:string"        use="required"/>
+        <xs:attribute name="testID"    type="xs:string"        use="required"/>
+        <xs:attribute name="level"     type="ExceptionLevel"   use="required"/>
+        <xs:attribute name="datetime"  type="xs:dateTime"      use="required"/>
+        <xs:attribute name="isActive"  type="xs:boolean"       use="required"/>
+    </xs:complexType>
+       
+    <xs:simpleType name="ExceptionLevel">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="warn"/>
+            <xs:enumeration value="error"/>
+            <xs:enumeration value="fatal"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="Status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="pending"/>
+            <xs:enumeration value="running"/>
+            <xs:enumeration value="done"/>
+            <xs:enumeration value="failed"/>
+            <xs:enumeration value="cancelled"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>
+

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+               xmlns:orm="http://java.sun.com/xml/ns/persistence/orm"
+               xmlns:annox="http://annox.dev.java.net"
+               jaxb:extensionBindingPrefixes="hj orm annox"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               version="2.1">
+
+    
+    
+    
+                       
+                   
+    <jaxb:globalBindings localScoping="toplevel"  generateIsSetMethod="true" >
+        <jaxb:serializable/>
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:date"     parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseDate"     printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printDate" />                 
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:time"     parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseTime"     printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printTime" />                  
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime" parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseDateTime" printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printDateTime" />
+    </jaxb:globalBindings>
+ 
+    <jaxb:bindings schemaLocation="../core/common.xsd" node="/xs:schema">
+        
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.core.common"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+ 
+ 
+    <jaxb:bindings schemaLocation="../core/specimen_definition.xsd" node="/xs:schema">
+        
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="xs:complexType[@name='Specimen']//xs:attribute[@name='specimenID']">
+            <annox:annotate>
+                <annox:annotate annox:class="org.hibernate.annotations.Index" name="specimenIDIndex" columnNames="SPECIMENID"/>
+            </annox:annotate>
+        </jaxb:bindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='Specimen']//xs:attribute[@name='colonyID']">
+            <annox:annotate>
+                <annox:annotate annox:class="org.hibernate.annotations.Index" name="colonyIDIndex" columnNames="COLONYID"/>
+            </annox:annotate>
+        </jaxb:bindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='Specimen']//xs:attribute[@name='strainID']">
+            <annox:annotate>
+                <annox:annotate annox:class="org.hibernate.annotations.Index" name="strainIDIndex" columnNames="STRAINID"/>
+            </annox:annotate>
+        </jaxb:bindings>
+        
+        
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../core/procedure_definition.xsd" node="/xs:schema">
+        
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure"/>
+        </jaxb:schemaBindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='SimpleParameter']//xs:element[@name='value']">
+            <hj:basic>
+                <orm:column length="1024"/>
+            </hj:basic>
+        </jaxb:bindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='Experiment']//xs:attribute[@name='experimentID']">
+            <annox:annotate>
+                <annox:annotate annox:class="org.hibernate.annotations.Index" name="experimentIDIndex" columnNames="experimentID sequenceID"/>
+            </annox:annotate>
+        </jaxb:bindings>
+        
+    </jaxb:bindings>
+ 
+ 
+    <jaxb:bindings schemaLocation="submission.xsd" node="/xs:schema">
+       
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.tracker.submission"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+    
+    <jaxb:bindings schemaLocation="validation.xsd" node="/xs:schema">
+        
+        <!--
+        <hj:persistence>
+            <hj:default-one-to-many   orphan-removal="true">
+                <orm:order-column/>
+            </hj:default-one-to-many>
+            <hj:default-many-to-one  optional="true" unique="true">
+                <orm:cascade>
+                    <orm:order-column/>
+                </orm:cascade>
+            </hj:default-many-to-one>
+        </hj:persistence>
+        -->
+        
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="xs:complexType[@name='Validation']//xs:attribute[@name='message']">
+            <hj:basic>
+                <orm:lob/>
+                <orm:column length="10000"/>
+            </hj:basic>
+        </jaxb:bindings>
+         <!--
+        <jaxb:bindings node="xs:complexType[@name='Validation']//xs:element[@name='validationReport']">
+            <hj:many-to-many name="validation"  mapped-by="validation" merge="false">
+                <hj:cascade>
+                    <hj:cascade-persist/>
+                </hj:cascade>
+            </hj:many-to-many>
+             
+        </jaxb:bindings>    
+             -->
+         
+    </jaxb:bindings> 
+   <!-- 
+    <jaxb:bindings schemaLocation="validation_report.xsd" node="/xs:schema">
+        
+       
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report"/>
+        </jaxb:schemaBindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='ValidationReport']//xs:element[@name='submission']">
+            <hj:one-to-one/>
+        </jaxb:bindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='ValidationReport']//xs:element[@name='validation']">
+            <hj:many-to-many orphan-removal="true" name="validationReport">
+                <orm:join-table name="VALIDATION_REPORT_VALIDATION">
+                    <orm:join-column name="validationreport"  referenced-column-name="HJID" />
+                    <orm:inverse-join-column name="validation" referenced-column-name="HJID" />
+                    <orm:unique-constraint>
+                        <orm:column-name>validationreport</orm:column-name>
+                        <orm:column-name>validation</orm:column-name>
+                    </orm:unique-constraint> 
+                </orm:join-table>
+                <orm:order-column/>
+            </hj:many-to-many>
+            
+        </jaxb:bindings>
+        
+        
+         
+        <jaxb:bindings node="xs:complexType[@name='ValidationReport']//xs:attribute[@name='reportIdentifier']">
+            <annox:annotate>
+                <annox:annotate annox:class="org.hibernate.annotations.Index" name="reportIdentifierIndex" columnNames="REPORTIDENTIFIER"/>
+            </annox:annotate>
+        </jaxb:bindings>
+        
+    </jaxb:bindings>
+    -->
+</jaxb:bindings>
+
+
+

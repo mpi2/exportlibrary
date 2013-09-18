@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="NorCOMM2">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-28">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_HEM_001">
+                <simpleParameter parameterID="IMPC_HEM_001_001" unit="10^3/ul ">
+                    <value>23.69</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HEM_002_001" unit="10^6/ul">
+                    <value>3.18</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HEM_003_001" unit="g/dl">
+                    <value>21.56</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HEM_004_001" unit="%">
+                    <value>0.30</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HEM_005_001" unit="fl">
+                    <value>53.74</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HEM_006_001" unit="pg">
+                    <value>0.65</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HEM_007_001" unit="g/dl">
+                    <value>37.91</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_HEM_008_001" unit="10^3/ul ">
+                    <value>5,129.35</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_HEM_009_001">
+                    <value>Machine_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_010_001">
+                    <value>Scil animal care company Gmbh</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_011_001">
+                    <value>Ac-T diff Analyzer</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_012_001">
+                    <value>Gas anaesthesia with Isofluorane</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_013_001">
+                    <value>Cardiac puncture</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_014_001">
+                    <value>EDTA</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_018_001">
+                    <value>No</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_020_001">
+                    <value>ESLIM_024_001</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_026_001">
+                    <value>25</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_021_001">
+                    <value>2013-02-28T09:33:20+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_022_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_023_001">
+                    <value>C57/BL6 chip card</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_024_001">
+                    <value>Experimenter_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_025_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_015_001">
+                    <value>Kabe Labortechnik Lithium heparin coated tubes</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_016_001">
+                    <value>2013-02-28T09:33:20+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_HEM_017_001">
+                    <value>Experimenter_2</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Thu Aug 15 15:28:14 BST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0140-8260-7358-00000c7f7568 
+on database directory /home/julian/mrc_svn/exportlibrary/exportlibrary.validationRemover/test_databases/testDatabase  with class loader sun.misc.Launcher$AppClassLoader@7b9a29 
+Loaded from file:/home/julian/mrc_svn/exportlibrary/exportlibrary.validationRemover/target/exportlibrary.validationRemover-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_21-b11
+user.dir=/home/julian/mrc_svn/exportlibrary/exportlibrary.validationRemover
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

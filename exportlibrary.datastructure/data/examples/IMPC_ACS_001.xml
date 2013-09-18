@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="NorCOMM2">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-28">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_ACS_001">
+                <simpleParameter parameterID="IMPC_ACS_001_001">
+                    <value>563.11</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_002_001">
+                    <value>207.52</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_003_001">
+                    <value>292.10</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_004_001">
+                    <value>1,362.28</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_005_001">
+                    <value>603.07</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_006_001">
+                    <value>953.82</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_007_001">
+                    <value>2,643.85</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_008_001">
+                    <value>1,116.79</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_009_001">
+                    <value>1,421.49</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_010_001">
+                    <value>168.28</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_033_001" unit="%">
+                    <value>0.80</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_034_001" unit="%">
+                    <value>0.25</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_035_001" unit="%">
+                    <value>0.06</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_036_001" unit="%">
+                    <value>0.68</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ACS_037_001" unit="%">
+                    <value>0.52</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_ACS_011_001">
+                    <value>60</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_012_001">
+                    <value>2013-02-28T09:33:20+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_015_001">
+                    <value>120</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_016_001">
+                    <value>70</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_017_001">
+                    <value>67</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_018_001">
+                    <value>75</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_019_001">
+                    <value>73</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_020_001">
+                    <value>85</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_013_001">
+                    <value>50</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_021_001">
+                    <value>0.01</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_022_001">
+                    <value>6</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_023_001">
+                    <value>300</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_024_001">
+                    <value>Pseudo-random</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_025_001">
+                    <value>Mouse_chamber_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_026_001">
+                    <value>Machine_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_014_001">
+                    <value>Experimenter_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_027_001">
+                    <value>Med Associates Inc., VT, USA</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_028_001">
+                    <value>SR-4020</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_029_001">
+                    <value>Med Associates Startle Reflex Vers. 6.00</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_030_001">
+                    <value>4 x 9</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_031_001">
+                    <value>Med Associates Inc., VT, USA</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_039_001">
+                    <value>PHM 255A</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_032_001">
+                    <value>33 x 43 x 33</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ACS_038_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

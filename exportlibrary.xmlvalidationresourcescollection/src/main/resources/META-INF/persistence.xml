@@ -1,0 +1,108 @@
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<persistence version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd
+http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <persistence-unit name="org.mousephenotype.dcc.exportlibrary.external">
+        <class>org.mousephenotype.dcc.exportlibrary.external.imits_reports.MicroinjectionAttemptReport</class>
+        <class>org.mousephenotype.dcc.exportlibrary.external.imits_reports.MicroinjectionAttemptReports</class>
+        <class>org.mousephenotype.dcc.exportlibrary.external.imits_reports.PhenotypeAttemptReport</class>
+        <class>org.mousephenotype.dcc.exportlibrary.external.imits_reports.PhenotypeAttemptReports</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.GenotypicInformation</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.MIPlan</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.MiPlans</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.MicroinjectionAttempt</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.MicroinjectionAttemptStatusDates</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.MicroinjectionAttempts</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.MicroinjectionPlansStatusDates</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.PhenotypeAttempt</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.PhenotypeAttemptStatusDates</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.PhenotypeAttempts</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameter</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameterIncrement</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameterOption</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressOntologyParameterOption</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressPipeline</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressPipelineContainer</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressProcedure</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.mgi.MGIStrain</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.mgi.MgiStrains</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.statuscodes.StatusCode</class>
+        <class>org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.statuscodes.Statuscodes</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <shared-cache-mode>NONE</shared-cache-mode>
+    </persistence-unit>
+    
+    
+    <persistence-unit name="org.mousephenotype.dcc.imitsdatastructure">
+   
+        <class>org.mousephenotype.dcc.imitsdatastructure.Audits</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Centres</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Consortia</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Contacts</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.DeleterStrains</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.DepositedMaterials</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.EmailTemplates</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.EsCells</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Genes</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.IntermediateReport</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiAttemptDistributionCentres</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiAttemptStatusStamps</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiAttemptStatuses</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.imitsMicroinjectionAttempts</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiPlanEsCellQcs</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiPlanEsQcComments</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiPlanPriorities</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiPlanStatusStamps</class>
+        
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiPlanStatuses</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.MiPlanSubProjects</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.imitsMIPlans</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Notifications</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.PhenotypeAttemptDistributionCentres</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.PhenotypeAttemptStatusStamps</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.PhenotypeAttemptStatuses</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.imitsPhenotypeAttempts</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Pipelines</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.ProductionGoals</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.QcResults</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.ReportCaches</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.SchemaMigrations</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.SolrUpdateQueueItems</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Strains</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepAlleles</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepDistributionQcs</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepEsCellDistributionCentres</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepEsCells</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepGenbankFiles</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepMutationMethods</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepMutationSubtypes</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepMutationTypes</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepPipelines</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.TargRepTargetingVectors</class>
+        <class>org.mousephenotype.dcc.imitsdatastructure.Users</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <shared-cache-mode>NONE</shared-cache-mode>
+    </persistence-unit>
+    
+</persistence>

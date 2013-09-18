@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SpecimenResource" targetNamespace="http://resources.ws.exportlibrary.dcc.mousephenotype.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://resources.ws.exportlibrary.dcc.mousephenotype.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common" xmlns:tns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" elementFormDefault="qualified" targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" version="1.0">
+<xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"/>
+<xs:element name="centreSpecimenSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="centre" type="tns:CentreSpecimen"/>
+      </xs:sequence>
+      <xs:attribute name="Hjid" type="xs:long"/>
+    </xs:complexType>
+  </xs:element>
+<xs:complexType name="CentreSpecimen">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="mouse" type="tns:Mouse"/>
+        <xs:element name="embryo" type="tns:Embryo"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="centreID" type="ns1:CentreILARcode" use="required"/>
+    <xs:attribute name="Hjid" type="xs:long"/>
+  </xs:complexType>
+<xs:complexType name="Mouse">
+    <xs:complexContent>
+      <xs:extension base="tns:Specimen">
+        <xs:sequence/>
+        <xs:attribute name="DOB" type="xs:date" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType abstract="true" name="Specimen">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="relatedSpecimen" nillable="true" type="tns:RelatedSpecimen"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="genotype" nillable="true" type="tns:Genotype"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="chromosomalAlteration" nillable="true" type="tns:ChromosomalAlteration"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="parentalStrain" nillable="true" type="tns:ParentalStrain"/>
+      <xs:element minOccurs="0" name="statusCode" type="ns1:StatusCode"/>
+    </xs:sequence>
+    <xs:attribute name="colonyID" type="xs:string"/>
+    <xs:attribute name="isBaseline" type="xs:boolean" use="required"/>
+    <xs:attribute name="strainID" type="xs:string"/>
+    <xs:attribute name="specimenID" type="xs:string" use="required"/>
+    <xs:attribute name="gender" type="ns1:Gender" use="required"/>
+    <xs:attribute name="zygosity" type="ns1:Zygosity" use="required"/>
+    <xs:attribute name="litterId" type="xs:string" use="required"/>
+    <xs:attribute name="pipeline" type="xs:string" use="required"/>
+    <xs:attribute name="productionCentre" type="ns1:CentreILARcode"/>
+    <xs:attribute name="phenotypingCentre" type="ns1:CentreILARcode" use="required"/>
+    <xs:attribute name="project" type="xs:string" use="required"/>
+    <xs:attribute name="Hjid" type="xs:long"/>
+  </xs:complexType>
+<xs:complexType name="RelatedSpecimen">
+    <xs:sequence/>
+    <xs:attribute name="specimenID" type="xs:string" use="required"/>
+    <xs:attribute name="relationship" type="tns:Relationship" use="required"/>
+    <xs:attribute name="Hjid" type="xs:long"/>
+  </xs:complexType>
+<xs:complexType name="Genotype">
+    <xs:sequence/>
+    <xs:attribute name="MGIGeneId" type="xs:string" use="required"/>
+    <xs:attribute name="geneSymbol" type="xs:string" use="required"/>
+    <xs:attribute name="MGIAlleleId" type="xs:string" use="required"/>
+    <xs:attribute name="fatherZygosity" type="ns1:Zygosity"/>
+    <xs:attribute name="motherZygosity" type="ns1:Zygosity"/>
+    <xs:attribute name="Hjid" type="xs:long"/>
+  </xs:complexType>
+<xs:complexType name="ChromosomalAlteration">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="chromosomeAdded" nillable="true" type="tns:Chromosome"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="chromosomeRemoved" nillable="true" type="tns:Chromosome"/>
+    </xs:sequence>
+    <xs:attribute name="Hjid" type="xs:long"/>
+  </xs:complexType>
+<xs:complexType name="Chromosome">
+    <xs:sequence/>
+    <xs:attribute name="start" type="xs:string" use="required"/>
+    <xs:attribute name="end" type="xs:string" use="required"/>
+    <xs:attribute name="species" type="xs:string"/>
+    <xs:attribute name="Hjid" type="xs:long"/>
+  </xs:complexType>
+<xs:complexType name="ParentalStrain">
+    <xs:sequence/>
+    <xs:attribute name="percentage" type="xs:double" use="required"/>
+    <xs:attribute name="MGIStrainID" type="xs:string" use="required"/>
+    <xs:attribute name="gender" type="ns1:StrictGender" use="required"/>
+    <xs:attribute name="level" type="xs:int" use="required"/>
+    <xs:attribute name="Hjid" type="xs:long"/>
+  </xs:complexType>
+<xs:complexType name="Embryo">
+    <xs:complexContent>
+      <xs:extension base="tns:Specimen">
+        <xs:sequence/>
+        <xs:attribute name="stage" type="xs:string" use="required"/>
+        <xs:attribute name="stageUnit" type="ns1:StageUnit" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:simpleType name="Relationship">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mother"/>
+      <xs:enumeration value="father"/>
+      <xs:enumeration value="littermate"/>
+      <xs:enumeration value="from_similar_breeding"/>
+      <xs:enumeration value="from_stock_breeding"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common" version="1.0">
+<xs:complexType name="StatusCode">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="date" type="xs:date"/>
+        <xs:attribute name="Hjid" type="xs:long"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+<xs:simpleType name="Zygosity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="wild type"/>
+      <xs:enumeration value="homozygous"/>
+      <xs:enumeration value="heterozygous"/>
+      <xs:enumeration value="hemizygous"/>
+    </xs:restriction>
+  </xs:simpleType>
+<xs:simpleType name="StrictGender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="male"/>
+      <xs:enumeration value="female"/>
+    </xs:restriction>
+  </xs:simpleType>
+<xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="male"/>
+      <xs:enumeration value="female"/>
+      <xs:enumeration value="intersex"/>
+      <xs:enumeration value="no data"/>
+    </xs:restriction>
+  </xs:simpleType>
+<xs:simpleType name="CentreILARcode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="J"/>
+      <xs:enumeration value="Ucd"/>
+      <xs:enumeration value="Ncom"/>
+      <xs:enumeration value="Bay"/>
+      <xs:enumeration value="Wtsi"/>
+      <xs:enumeration value="Ics"/>
+      <xs:enumeration value="Hmgu"/>
+      <xs:enumeration value="Rbrc"/>
+      <xs:enumeration value="Ning"/>
+      <xs:enumeration value="H"/>
+      <xs:enumeration value="Gmc"/>
+    </xs:restriction>
+  </xs:simpleType>
+<xs:simpleType name="StageUnit">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DPC"/>
+      <xs:enumeration value="Theiler"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" xmlns:tns="http://resources.ws.exportlibrary.dcc.mousephenotype.org/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://resources.ws.exportlibrary.dcc.mousephenotype.org/">
+  <xsd:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen"/>
+  <xsd:element name="getCentreSpecimenSet" type="tns:getCentreSpecimenSet"/>
+  <xsd:complexType name="getCentreSpecimenSet">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="centreID" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getCentreSpecimenSetResponse" type="tns:getCentreSpecimenSetResponse"/>
+  <xsd:complexType name="getCentreSpecimenSetResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="ns0:centreSpecimenSet"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addCentreSpecimenSet" type="tns:addCentreSpecimenSet"/>
+  <xsd:complexType name="addCentreSpecimenSet">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="ns0:centreSpecimenSet"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addCentreSpecimenSetResponse" type="tns:addCentreSpecimenSetResponse"/>
+  <xsd:complexType name="addCentreSpecimenSetResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addCentreSpecimenSet">
+    <wsdl:part name="parameters" element="tns:addCentreSpecimenSet">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCentreSpecimenSetResponse">
+    <wsdl:part name="parameters" element="tns:getCentreSpecimenSetResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCentreSpecimenSetResponse">
+    <wsdl:part name="parameters" element="tns:addCentreSpecimenSetResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCentreSpecimenSet">
+    <wsdl:part name="parameters" element="tns:getCentreSpecimenSet">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SpecimenResourcePortType">
+    <wsdl:operation name="getCentreSpecimenSet">
+      <wsdl:input name="getCentreSpecimenSet" message="tns:getCentreSpecimenSet">
+    </wsdl:input>
+      <wsdl:output name="getCentreSpecimenSetResponse" message="tns:getCentreSpecimenSetResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCentreSpecimenSet">
+      <wsdl:input name="addCentreSpecimenSet" message="tns:addCentreSpecimenSet">
+    </wsdl:input>
+      <wsdl:output name="addCentreSpecimenSetResponse" message="tns:addCentreSpecimenSetResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SpecimenResourceSoapBinding" type="tns:SpecimenResourcePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addCentreSpecimenSet">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addCentreSpecimenSet">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addCentreSpecimenSetResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCentreSpecimenSet">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCentreSpecimenSet">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCentreSpecimenSetResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SpecimenResource">
+    <wsdl:port name="SpecimenResourcePort" binding="tns:SpecimenResourceSoapBinding">
+      <soap:address location="http://localhost:53884/jaxrs-resource"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

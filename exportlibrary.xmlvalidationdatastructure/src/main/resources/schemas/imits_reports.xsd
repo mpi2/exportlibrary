@@ -1,0 +1,84 @@
+<!--
+    
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+    
+    MEDICAL RESEARCH COUNCIL UK MRC
+    
+    Harwell Mammalian Genetics Unit
+    
+    http://www.har.mrc.ac.uk
+    
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+    
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/external/imits_reports"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/external/imits"
+    targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/external/imits_reports" elementFormDefault="qualified"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+    <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/external/imits"  schemaLocation="imits.xsd"/>    
+    <xs:complexType name="PhenotypeAttemptReport">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="productionCentre"                         type="pc:ImitsProductionCentre"   use="required"/>
+        <xs:attribute name="totalAttempts"                            type="xs:integer"              use="required"/>
+        <xs:attribute name="nullPhenotypeColonyBackgroundStrainNames" type="xs:integer"              use="required"/>
+        <xs:attribute name="nullGeneMGIIDs"                           type="xs:integer"              use="required"/>
+        <xs:attribute name="nullColonyBackgroundStrainMGIIDs"         type="xs:integer"              use="required"/>
+        <xs:attribute name="nullMarkerSymbols"                        type="xs:integer"              use="required"/>
+        <xs:attribute name="nullMicroInjectionAttemptColonyNames"     type="xs:integer"              use="required"/>
+        
+    </xs:complexType>
+    
+    <xs:complexType name="MicroinjectionAttemptReport">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="productionCentre"                     type="pc:ImitsProductionCentre"   use="required"/>
+        <xs:attribute name="totalAttempts"                        type="xs:integer"              use="required"/>
+        <xs:attribute name="nullColonyBackgroundStrainname"       type="xs:integer"              use="required"/>
+        <xs:attribute name="nullMouseAlleleSymbol"                type="xs:integer"              use="required"/>
+    </xs:complexType>
+    
+    
+    <xs:element name="phenotypeAttemptReports">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> 
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element name="pPhenotypeAttemptReport"       type="PhenotypeAttemptReport"        minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="retrieved" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="microinjectionAttemptReports">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> 
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element name="microinjectionAttemptReport"       type="MicroinjectionAttemptReport"        minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="retrieved" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

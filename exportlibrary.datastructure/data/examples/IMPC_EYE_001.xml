@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_EYE_001">
+                <simpleParameter parameterID="IMPC_EYE_007_001">
+                    <value>present</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_008_001">
+                    <value>present right eye</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_016_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_017_001">
+                    <value>no data for both eyes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_020_001">
+                    <value>no data for both eyes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_022_001">
+                    <value>no data for both eyes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_023_001">
+                    <value>left eye abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_024_001">
+                    <value>right eye abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_EYE_025_001">
+                    <value>no data right eye</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_EYE_036_001">
+                    <value>1234567890</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_043_001">
+                    <value>Atropine 0.5% treatment</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_044_001">
+                    <value>Atropine 0.5% (pupil)</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_EYE_045_001">
+                    <value>137 mg Ketamine/6.6 mg Xylazine per kg body weight</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

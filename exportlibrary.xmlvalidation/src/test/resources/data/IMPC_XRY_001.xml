@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:ns2="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" xmlns:ns3="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/submission" xmlns:ns4="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation" xmlns:ns5="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation_report">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-01-17">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_XRY_001">
+                <simpleParameter parameterID="IMPC_XRY_001_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_002_001">
+                    <value>abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_003_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_004_001">
+                    <value>abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_005_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_006_001">
+                    <value>abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_007_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_008_001">
+                    <value>0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_009_001">
+                    <value>4</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_010_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_011_001">
+                    <value>not fused</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_012_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_013_001">
+                    <value>4</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_014_001">
+                    <value>8</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_015_001">
+                    <value>2</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_016_001">
+                    <value>0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_017_001">
+                    <value>9</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_018_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_019_001">
+                    <value>no</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_020_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_021_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_022_001">
+                    <value>abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_023_001">
+                    <value>abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_024_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_025_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_026_001">
+                    <value>abnormal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_027_001">
+                    <value>normal</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_028_001">
+                    <value>3</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_029_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_030_001">
+                    <value>no</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_031_001">
+                    <value>yes</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_032_001">
+                    <value>TEXT</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_033_001" unit="mm">
+                    <value>0.6411445</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_XRY_035_001">
+                    <value>TEXT</value>
+                </simpleParameter>
+                <seriesMediaParameter parameterID="IMPC_XRY_048_001">
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg"/>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg"/>
+                </seriesMediaParameter>
+                <seriesMediaParameter parameterID="IMPC_XRY_034_001">
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg"/>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg"/>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg"/>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="parameterID">
+                            <dim id="x" origin="0.0" unit="px">0.9222291707992554</dim>
+                            <dim id="y" origin="0.0" unit="px">0.40190571546554565</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="one" URI="ftp://images/image.jpg" fileType="img/jpg">
+                        <parameterAssociation parameterID="parameterID">
+                            <dim id="x" origin="0.0" unit="px">0.3088567852973938</dim>
+                            <dim id="y" origin="0.0" unit="px">0.10333377122879028</dim>
+                        </parameterAssociation>
+                    </value>
+                    <value incrementValue="two" URI="ftp://images/image.jpg" fileType="img/jpg"/>
+                </seriesMediaParameter>
+                <procedureMetadata parameterID="IMPC_XRY_036_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_XRY_039_001">
+                    <value>0.05186826</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_XRY_040_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_XRY_041_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_XRY_042_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_XRY_043_001">
+                    <value>this is random text</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

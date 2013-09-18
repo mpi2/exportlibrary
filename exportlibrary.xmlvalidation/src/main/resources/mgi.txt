@@ -1,0 +1,6 @@
+HOST_NAME=ftp.informatics.jax.org
+port=21
+USER=anonymous
+PASSWORD=
+fromFile=pub/reports/MGI_Strain.rpt
+toFile=MGI_Strain.rpt

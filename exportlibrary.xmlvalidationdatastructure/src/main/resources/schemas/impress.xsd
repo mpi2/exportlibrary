@@ -1,0 +1,171 @@
+<!--
+
+    Copyright (C) 2013 Julian Atienza Herrero <j.atienza at har.mrc.ac.uk>
+
+    MEDICAL RESEARCH COUNCIL UK MRC
+
+    Harwell Mammalian Genetics Unit
+
+    http://www.har.mrc.ac.uk
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/external/impress"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/external/impress" elementFormDefault="qualified"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+    
+    
+    <xs:element name="impressPipelineContainer">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> 
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="pipeline" type="ImpressPipeline"/>
+            </xs:sequence>
+            <xs:attribute name="queried" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="ImpressPipeline">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="impressProcedure" type="ImpressProcedure"/>
+        </xs:sequence>
+        <xs:attribute name="is_deprecated" type="xs:boolean" use="required"/>
+        <xs:attribute name="pipeline_name" type="xs:string"  use="required"/>
+        <xs:attribute name="minor_version" type="xs:integer" use="required"/>
+        <xs:attribute name="pipeline_id"   type="xs:integer" use="required"/>
+        <xs:attribute name="description"   type="xs:string"  use="required"/>
+        <xs:attribute name="major_version" type="xs:integer" use="required"/>
+        <xs:attribute name="pipeline_key"  type="xs:string"  use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="ImpressProcedure">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="impressParameter" type="ImpressParameter"/>
+        </xs:sequence>
+        <xs:attribute name="is_deprecated"  type="xs:boolean" use="required"/> 
+        <xs:attribute name="minor_version"  type="xs:integer" use="required"/>     
+        <xs:attribute name="procedure_id"   type="xs:integer" use="required"/>  
+        <xs:attribute name="description"    type="xs:string"  use="required"/>
+        <xs:attribute name="major_version"  type="xs:integer" use="required"/>     
+        <xs:attribute name="procedure_name" type="xs:string"  use="required"/>    
+        <xs:attribute name="is_mandatory"   type="xs:boolean" use="required"/> 
+        <xs:attribute name="week"           type="xs:integer" use="required"/> 
+        <xs:attribute name="procedure_key"  type="xs:string"  use="required"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="ImpressParameterType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                as from the parameter types defined in procedure_definition.xsd
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="simpleParameter"/>
+            <xs:enumeration value="ontologyParameter"/>
+            <xs:enumeration value="seriesParameter"/>
+            <xs:enumeration value="mediaParameter"/>
+            <xs:enumeration value="mediaSampleParameter"/>
+            <xs:enumeration value="seriesMediaParameter"/>
+            <xs:enumeration value="procedureMetadata"/>
+        </xs:restriction> 
+    </xs:simpleType>
+    
+    
+    <xs:complexType name="ImpressParameter">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="impressParameterIncrement"      type="ImpressParameterIncrement"      minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="impressParameterOption"         type="ImpressParameterOption"         minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="impressOntologyParameterOption" type="ImpressOntologyParameterOption" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="value_type"                   type="xs:string"             use="required"/>
+        <xs:attribute name="is_deprecated"                 type="xs:boolean"           use="required"/>
+        <xs:attribute name="graph_type"                    type="xs:string"            use="required"/>
+   <!-- <xs:attribute name="is_metadata"                   type="xs:boolean"           use="required"/>  present on version prior to type-->
+        <xs:attribute name="qc_notes"                      type="xs:string"            use="required"/>
+        <xs:attribute name="qc_check"                      type="xs:boolean"           use="required"/> <!--if true you need to check qc_min and qc_max that can be null values -->
+        <xs:attribute name="qc_maximum"                    type="xs:float"             use="required"/>
+        <xs:attribute name="qc_minimum"                    type="xs:float"             use="required"/>     
+        <xs:attribute name="is_annotation"                 type="xs:boolean"           use="required"/>
+        <xs:attribute name="data_analysis_notes"           type="xs:string"            use="required"/>
+        <xs:attribute name="type"                          type="ImpressParameterType" use="required"/>
+   <!-- <xs:attribute name="is_media"                      type="xs:boolean"           use="required"/> present on version prior to type-->
+        <xs:attribute name="is_option"                     type="xs:boolean"           use="required"/>
+        <xs:attribute name="unit"                          type="xs:string"            use="required"/>
+        <xs:attribute name="is_required"                   type="xs:boolean"           use="required"/>
+        <xs:attribute name="minor_version"                 type="xs:integer"           use="required"/>
+        <xs:attribute name="derivation"                    type="xs:string"            use="required"/>
+        <xs:attribute name="description"                   type="xs:string"            use="required"/>
+        <xs:attribute name="major_version"                 type="xs:integer"           use="required"/>
+        <xs:attribute name="parameter_id"                  type="xs:integer"           use="required"/>
+        <xs:attribute name="is_derived"                    type="xs:boolean"           use="required"/>
+        <xs:attribute name="is_increment"                  type="xs:boolean"           use="required"/>
+        <xs:attribute name="parameter_name"                type="xs:string"            use="required"/>
+        <xs:attribute name="parameter_key"                 type="xs:string"            use="required"/>
+        <xs:attribute name="is_required_for_data_analysis" type="xs:boolean"           use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="ImpressParameterIncrement">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="min"       type="xs:integer" use="required"/>
+        <xs:attribute name="unit"      type="xs:string"  use="required"/>
+        <xs:attribute name="is_active" type="xs:boolean" use="required"/>
+        <xs:attribute name="string"    type="xs:string" use="required"/>
+        <xs:attribute name="type"      type="xs:string"  use="required"/>
+    </xs:complexType>
+    
+    
+    <xs:complexType name="ImpressParameterOption">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="is_active"          type="xs:boolean" use="required"/> 
+        <xs:attribute name="description"        type="xs:string"  use="required"/>
+        <xs:attribute name="name"               type="xs:string"  use="required"/>
+        <xs:attribute name="parent_name"        type="xs:string"  use="required"/>
+        <xs:attribute name="parent_description" type="xs:string"  use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="ImpressOntologyParameterOption">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="ontology_id"         type="xs:string"  use="required"/>
+        <xs:attribute name="ontology_term"       type="xs:string"  use="required"/>
+    </xs:complexType>
+    
+    
+    
+</xs:schema>

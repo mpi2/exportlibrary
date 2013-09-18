@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="NorCOMM2">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-28">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_CAL_001">
+                <simpleParameter parameterID="IMPC_CAL_001_001" unit="g">
+                    <value>25.02</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CAL_002_001" unit="g">
+                    <value>47.01</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CAL_008_001" unit="g">
+                    <value>7.64</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_CAL_017_001">
+                    <value>0.43</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_CAL_003_001">
+                    <value incrementValue="0">325.03</value>
+                    <value incrementValue="1">81.94</value>
+                    <value incrementValue="2">149.96</value>
+                    <value incrementValue="3">34.92</value>
+                    <value incrementValue="4">4.61</value>
+                    <value incrementValue="5">233.32</value>
+                    <value incrementValue="6">0.22</value>
+                    <value incrementValue="7">291.85</value>
+                    <value incrementValue="8">6.99</value>
+                    <value incrementValue="9">162.59</value>
+                    <value incrementValue="10">5.57</value>
+                    <value incrementValue="11">85.95</value>
+                    <value incrementValue="12">334.34</value>
+                    <value incrementValue="13">151.78</value>
+                    <value incrementValue="14">124.55</value>
+                    <value incrementValue="15">203.55</value>
+                    <value incrementValue="16">155.45</value>
+                    <value incrementValue="17">264.02</value>
+                    <value incrementValue="18">356.79</value>
+                    <value incrementValue="19">300.23</value>
+                    <value incrementValue="20">314.24</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_CAL_004_001">
+                    <value incrementValue="0">46.84</value>
+                    <value incrementValue="1">207.44</value>
+                    <value incrementValue="2">296.33</value>
+                    <value incrementValue="3">355.30</value>
+                    <value incrementValue="4">0.18</value>
+                    <value incrementValue="5">271.25</value>
+                    <value incrementValue="6">290.46</value>
+                    <value incrementValue="7">244.64</value>
+                    <value incrementValue="8">197.81</value>
+                    <value incrementValue="9">31.51</value>
+                    <value incrementValue="10">199.67</value>
+                    <value incrementValue="11">5.30</value>
+                    <value incrementValue="12">166.38</value>
+                    <value incrementValue="13">180.30</value>
+                    <value incrementValue="14">146.84</value>
+                    <value incrementValue="15">205.41</value>
+                    <value incrementValue="16">253.61</value>
+                    <value incrementValue="17">339.03</value>
+                    <value incrementValue="18">119.56</value>
+                    <value incrementValue="19">226.42</value>
+                    <value incrementValue="20">5.77</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_CAL_005_001">
+                    <value incrementValue="0">5.00</value>
+                    <value incrementValue="1">7.54</value>
+                    <value incrementValue="2">7.27</value>
+                    <value incrementValue="3">3.61</value>
+                    <value incrementValue="4">6.10</value>
+                    <value incrementValue="5">7.31</value>
+                    <value incrementValue="6">1.63</value>
+                    <value incrementValue="7">1.95</value>
+                    <value incrementValue="8">2.63</value>
+                    <value incrementValue="9">5.11</value>
+                    <value incrementValue="10">5.02</value>
+                    <value incrementValue="11">8.07</value>
+                    <value incrementValue="12">7.34</value>
+                    <value incrementValue="13">3.22</value>
+                    <value incrementValue="14">6.82</value>
+                    <value incrementValue="15">4.11</value>
+                    <value incrementValue="16">5.99</value>
+                    <value incrementValue="17">3.39</value>
+                    <value incrementValue="18">5.26</value>
+                    <value incrementValue="19">7.46</value>
+                    <value incrementValue="20">5.33</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_CAL_006_001">
+                    <value incrementValue="0">84</value>
+                    <value incrementValue="1">23</value>
+                    <value incrementValue="2">24</value>
+                    <value incrementValue="3">7</value>
+                    <value incrementValue="4">61</value>
+                    <value incrementValue="5">89</value>
+                    <value incrementValue="6">35</value>
+                    <value incrementValue="7">87</value>
+                    <value incrementValue="8">55</value>
+                    <value incrementValue="9">4</value>
+                    <value incrementValue="10">81</value>
+                    <value incrementValue="11">83</value>
+                    <value incrementValue="12">70</value>
+                    <value incrementValue="13">7</value>
+                    <value incrementValue="14">9</value>
+                    <value incrementValue="15">27</value>
+                    <value incrementValue="16">45</value>
+                    <value incrementValue="17">52</value>
+                    <value incrementValue="18">4</value>
+                    <value incrementValue="19">79</value>
+                    <value incrementValue="20">90</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_CAL_007_001">
+                    <value incrementValue="0">74</value>
+                    <value incrementValue="1">78</value>
+                    <value incrementValue="2">86</value>
+                    <value incrementValue="3">35</value>
+                    <value incrementValue="4">12</value>
+                    <value incrementValue="5">28</value>
+                    <value incrementValue="6">58</value>
+                    <value incrementValue="7">54</value>
+                    <value incrementValue="8">9</value>
+                    <value incrementValue="9">70</value>
+                    <value incrementValue="10">9</value>
+                    <value incrementValue="11">3</value>
+                    <value incrementValue="12">55</value>
+                    <value incrementValue="13">25</value>
+                    <value incrementValue="14">93</value>
+                    <value incrementValue="15">42</value>
+                    <value incrementValue="16">59</value>
+                    <value incrementValue="17">100</value>
+                    <value incrementValue="18">7</value>
+                    <value incrementValue="19">55</value>
+                    <value incrementValue="20">23</value>
+                </seriesParameter>
+                <seriesParameter parameterID="IMPC_CAL_009_001">
+                    <value incrementValue="0">3.21</value>
+                    <value incrementValue="1">7.01</value>
+                    <value incrementValue="2">7.76</value>
+                    <value incrementValue="3">8.50</value>
+                    <value incrementValue="4">4.63</value>
+                    <value incrementValue="5">8.23</value>
+                    <value incrementValue="6">3.41</value>
+                    <value incrementValue="7">0.50</value>
+                    <value incrementValue="8">0.93</value>
+                    <value incrementValue="9">5.47</value>
+                    <value incrementValue="10">3.91</value>
+                    <value incrementValue="11">6.07</value>
+                    <value incrementValue="12">3.54</value>
+                    <value incrementValue="13">8.41</value>
+                    <value incrementValue="14">3.20</value>
+                    <value incrementValue="15">5.24</value>
+                    <value incrementValue="16">3.81</value>
+                    <value incrementValue="17">6.14</value>
+                    <value incrementValue="18">5.08</value>
+                    <value incrementValue="19">3.65</value>
+                    <value incrementValue="20">9.06</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_CAL_010_001">
+                    <value>7 pm</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_011_001">
+                    <value>23.4-25.4</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_012_001">
+                    <value>No</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_013_001">
+                    <value>48</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_014_001">
+                    <value>Machine_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_015_001">
+                    <value>TSE Systems GmbH</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_016_001">
+                    <value>FWI-3002 &amp; IA-16M</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_018_001">
+                    <value>Experimenter_1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_019_001">
+                    <value>2013-02-28</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_CAL_020_001">
+                    <value>7 am</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

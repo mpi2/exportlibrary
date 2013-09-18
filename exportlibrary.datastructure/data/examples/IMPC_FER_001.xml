@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <line colonyID="MRC - Harwell-EPD0337_2_D04-1-3">
+            <procedure procedureID="IMPC_FER_001">
+                <simpleParameter parameterID="IMPC_FER_001_001">
+                    <value>Fertile</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_FER_019_001">
+                    <value>Infertile</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_FER_002_001" unit="count">
+                    <value>8</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_FER_003_001" unit="count">
+                    <value>0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_FER_006_001" unit="count">
+                    <value>0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_FER_007_001" unit="count">
+                    <value>1</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_FER_010_001" unit="count">
+                    <value>7</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_FER_011_001" unit="count">
+                    <value>6</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_FER_014_001">
+                    <value>12</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_FER_015_001">
+                    <value>5</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_FER_016_001">
+                    <value>Heterozygous</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_FER_017_001">
+                    <value>Black6N</value>
+                </procedureMetadata>
+            </procedure>
+        </line>
+    </centre>
+</centreProcedureSet>

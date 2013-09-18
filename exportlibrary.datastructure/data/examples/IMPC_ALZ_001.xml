@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_ALZ_001">
+                <simpleParameter parameterID="IMPC_ALZ_001_001">
+                    <value>ambiguous</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_002_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_003_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_004_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_005_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_006_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_007_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_008_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_009_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_010_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_011_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_012_001">
+                    <value>ambiguous</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_013_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_014_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_015_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_016_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_017_001">
+                    <value>ambiguous</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_018_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_019_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_020_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_021_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_022_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_023_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_024_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_025_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_026_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_027_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_028_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_029_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_030_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_031_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_032_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_033_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_034_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_035_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_036_001">
+                    <value>tissue not available</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_037_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_038_001">
+                    <value>no expression</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_039_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_040_001">
+                    <value>imageOnly</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_ALZ_041_001">
+                    <value>expression</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_ALZ_080_001">
+                    <value>ALZ-01</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ALZ_081_001">
+                    <value>Leica</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ALZ_082_001">
+                    <value>MZ16A</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ALZ_091_001">
+                    <value>Xgal</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ALZ_092_001">
+                    <value>Harwell_prep</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ALZ_098_001">
+                    <value>2.8</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ALZ_100_001">
+                    <value>2013-02-21</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_ALZ_101_001">
+                    <value>2013-02-21</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

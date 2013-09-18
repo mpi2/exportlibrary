@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+               xmlns:orm="http://java.sun.com/xml/ns/persistence/orm"
+               jaxb:extensionBindingPrefixes="hj orm"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               version="2.1">
+                   
+                   
+    <jaxb:globalBindings localScoping="toplevel"  generateIsSetMethod="true" >
+        <jaxb:serializable/>
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:date"     parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseDate"     printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printDate" />                 
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:time"     parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseTime"     printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printTime" />                  
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime" parseMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.parseDateTime" printMethod="org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter.printDateTime" />
+    </jaxb:globalBindings>
+ 
+  <jaxb:bindings schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common/common.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.core.common"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+ 
+ 
+  <jaxb:bindings schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen/specimen_defintion.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure"/>
+        </jaxb:schemaBindings>
+        
+        <jaxb:bindings node="xs:complexType[@name='SimpleParameter']//xs:element[@name='value']">
+            <hj:basic>
+                <orm:column length="1024"/>
+            </hj:basic>
+        </jaxb:bindings>
+    </jaxb:bindings>
+ 
+ 
+    <jaxb:bindings schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/submission/submission.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.tracker.submission"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+    
+    <jaxb:bindings schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation/validation.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="xs:complexType[@name='Validation']//xs:attribute[@name='message']">
+            <hj:basic>
+                <orm:column length="1024"/>
+            </hj:basic>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    <jaxb:bindings schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/tracker/validation_report/validation_report.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+    
+</jaxb:bindings>

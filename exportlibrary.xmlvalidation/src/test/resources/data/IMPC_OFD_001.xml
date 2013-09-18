@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_OFD_001">
+                <simpleParameter parameterID="IMPC_OFD_007_001" unit="s">
+                    <value>400.34</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_008_001" unit="s">
+                    <value>1200.0</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_009_001" unit="cm/s">
+                    <value>5.53</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_010_001" unit="cm">
+                    <value>5000.51</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_011_001" unit="s">
+                    <value>355.52</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_012_001" unit="s">
+                    <value>100.34</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_013_001" unit="cm/s">
+                    <value>4.23</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_014_001" unit="cm">
+                    <value>300.33</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_015_001" unit="s">
+                    <value>5.55</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_016_001" unit="s">
+                    <value>20.22</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_017_001" unit="cm/s">
+                    <value>10.22</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_OFD_018_001" unit="s">
+                    <value>75.75</value>
+                </simpleParameter>
+                <seriesParameter parameterID="IMPC_OFD_005_001">
+                    <value incrementValue="5">8500.41</value>
+                    <value incrementValue="10">4500.75</value>
+                    <value incrementValue="15">2000.80</value>
+                    <value incrementValue="20">1750.27</value>
+                </seriesParameter>
+                <procedureMetadata parameterID="IMPC_OFD_023_001">
+                    <value>OFD-01</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_024_001">
+                    <value>TSE</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_025_001">
+                    <value>ActiMot / MoTil 480 x 480 mm</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_026_001">
+                    <value>40</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_027_001">
+                    <value>125</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_032_001">
+                    <value>8</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_033_001">
+                    <value>Beam-Breaker</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_034_001">
+                    <value>44</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_035_001">
+                    <value>1234567890</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_OFD_039_001">
+                    <value>2.2</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

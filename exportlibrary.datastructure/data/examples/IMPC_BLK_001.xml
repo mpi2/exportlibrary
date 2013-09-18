@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreProcedureSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure/procedure_definition.xsd">
+    <centre centreID="H" pipeline="IMPC_001" project="BaSH">
+        <experiment experimentID="my_first_experiment" dateOfExperiment="2013-02-21">
+            <specimenID>my_first_specimen</specimenID>
+            <procedure procedureID="IMPC_BLK_001">
+                <simpleParameter parameterID="IMPC_BLK_010_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_011_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_012_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_013_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_014_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_015_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_016_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_017_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_018_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_019_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_020_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_021_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_022_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_023_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_024_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_025_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_026_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_027_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_028_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_029_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_030_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_031_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_032_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_033_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_034_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_035_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_036_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_037_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_038_001">
+                    <value>Blocked banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_039_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_040_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <simpleParameter parameterID="IMPC_BLK_041_001">
+                    <value>Not Block banked</value>
+                </simpleParameter>
+                <procedureMetadata parameterID="IMPC_BLK_003_001">
+                    <value>12412</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BLK_006_001">
+                    <value>Neutral buffered formalin</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BLK_007_001">
+                    <value>Block 1</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BLK_008_001">
+                    <value>Paraffin</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BLK_001_001">
+                    <value>2013-02-21T16:18:11+0000</value>
+                </procedureMetadata>
+                <procedureMetadata parameterID="IMPC_BLK_002_001">
+                    <value>2013-02-21T16:18:11+0000</value>
+                </procedureMetadata>
+            </procedure>
+        </experiment>
+    </centre>
+</centreProcedureSet>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<centreSpecimenSet xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/specimen/specimen_definition.xsd">
+    <centre centreID="J">
+        <mouse DOB="2012-06-30" colonyID="colonyID" isBaseline="false" strainID="strainID" specimenID="specimenID_00_at_Jax" gender="male" zygosity="wild type" litterId="litterID" pipeline="IMPC_001" productionCentre="J" phenotypingCentre="J" project="IMPC">
+            <relatedSpecimen specimenID="specimenID_00_a" relationship="littermate"/>
+            <relatedSpecimen specimenID="specimenID_00_m" relationship="mother"/>
+        </mouse>
+        <embryo stage="34" stageUnit="DPC" colonyID="colonyID" isBaseline="false" specimenID="embryoID_00" gender="female" zygosity="wild type" litterId="litterId" pipeline="Pipeline" productionCentre="Ics" phenotypingCentre="J" project="Project"/>
+    </centre>
+</centreSpecimenSet>
