@@ -98,13 +98,13 @@ public class XMLValidationControl {
 
         if (ipp.getIos().equals(IOParameters.IOS.EXTERNAL_DB_PROPERTIES)
                 || ipp.getIos().equals(IOParameters.IOS.DEFAULT_DB_PROPERTIES)) {
-            logger.info("removing previous validation exceptions");
+            logger.error("removing previous validation exceptions");
 
             try {
                 this.validationRemover = new ValidationRemover(this.getIoController().getHibernateManager(ipp.getIos(), ipp.getValues()));
                 validationRemover.run(ipp.getHjid());
             } catch (Exception ex) {
-                logger.info("exception thrown on removing validations", ex.getMessage());
+                logger.error("exception thrown on removing validations", ex.getMessage());
             }
 
             logger.info("validating process running");
@@ -118,7 +118,7 @@ public class XMLValidationControl {
                 traverser = new Traverser(this.getIoController().getHibernateManager(ipp.getIos(), ipp.getValues()));
                 traverser.run(dataToValidate.getHjid(), new ResourceVersion());
             } catch (Exception ex) {
-                logger.info("exception thrown building validation reports", ex);
+                logger.error("exception thrown building validation reports", ex);
             }
 
         }

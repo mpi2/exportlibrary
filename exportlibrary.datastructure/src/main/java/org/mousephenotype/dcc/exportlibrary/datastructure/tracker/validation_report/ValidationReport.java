@@ -45,7 +45,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
@@ -197,9 +196,7 @@ public class ValidationReport
      * @return possible object is {@link Submission }
      *
      */
-    @OneToOne(targetEntity = Submission.class, cascade = {
-        CascadeType.ALL
-    })
+    @OneToOne(targetEntity = Submission.class)
     @JoinColumn(name = "SUBMISSION_VALIDATIONREPORT__0")
     public Submission getSubmission() {
         return submission;
@@ -226,9 +223,7 @@ public class ValidationReport
      * @return possible object is {@link CentreProcedure }
      *
      */
-    @ManyToOne(targetEntity = CentreProcedure.class, cascade = {
-        CascadeType.ALL
-    }, optional = true)
+    @OneToOne(targetEntity = CentreProcedure.class)
     @JoinColumn(name = "CENTREPROCEDURE_VALIDATIONRE_0")
     public CentreProcedure getCentreProcedure() {
         return centreProcedure;
@@ -255,9 +250,7 @@ public class ValidationReport
      * @return possible object is {@link Experiment }
      *
      */
-    @ManyToOne(targetEntity = Experiment.class, cascade = {
-        CascadeType.ALL
-    }, optional = true)
+    @OneToOne(targetEntity = Experiment.class)
     @JoinColumn(name = "EXPERIMENT_VALIDATIONREPORT__0")
     public Experiment getExperiment() {
         return experiment;
@@ -286,9 +279,7 @@ public class ValidationReport
      * @return possible object is {@link Experiment }
      *
      */
-    @ManyToOne(targetEntity = Line.class, cascade = {
-        CascadeType.ALL
-    }, optional = true)
+    @OneToOne(targetEntity = Line.class)
     @JoinColumn(name = "LINE_VALIDATIONREPORT__0")
     public Line getLine() {
         return line;
@@ -320,9 +311,7 @@ public class ValidationReport
      * @return possible object is {@link Experiment }
      *
      */
-    @ManyToOne(targetEntity = Housing.class, cascade = {
-        CascadeType.ALL
-    }, optional = true)
+    @OneToOne(targetEntity = Housing.class)
     @JoinColumn(name = "HOUSING_VALIDATIONREPORT__0")
     public Housing getHousing() {
         return housing;
@@ -353,9 +342,7 @@ public class ValidationReport
      * @return possible object is {@link CentreSpecimen }
      *
      */
-    @ManyToOne(targetEntity = CentreSpecimen.class, cascade = {
-        CascadeType.ALL
-    }, optional = true)
+    @OneToOne(targetEntity = CentreSpecimen.class)
     @JoinColumn(name = "CENTRESPECIMEN_VALIDATIONREP_0")
     public CentreSpecimen getCentreSpecimen() {
         return centreSpecimen;
@@ -382,9 +369,7 @@ public class ValidationReport
      * @return possible object is {@link Specimen }
      *
      */
-    @ManyToOne(targetEntity = Specimen.class, cascade = {
-        CascadeType.ALL
-    }, optional = true)
+    @OneToOne(targetEntity = Specimen.class)
     @JoinColumn(name = "SPECIMEN_VALIDATIONREPORT_HJ_0")
     public Specimen getSpecimen() {
         return specimen;
@@ -467,7 +452,7 @@ public class ValidationReport
      * @return possible object is {@link ResourceVersion }
      *
      */
-    @ManyToOne(targetEntity = ResourceVersion.class, cascade = {
+    @OneToOne(targetEntity = ResourceVersion.class, cascade = {
         CascadeType.ALL
     }, optional = true)
     @JoinColumn(name = "RESOURCEVERSION_VALIDATIONRE_0")

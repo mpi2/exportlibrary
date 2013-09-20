@@ -29,7 +29,6 @@
 
 package org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report;
 
-import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report.*;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;

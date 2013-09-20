@@ -281,6 +281,8 @@ public class Reporter {
                 this.updateValidationReport(reportIdentifier);
             }
         }
+        logger.info("updating superseed for {} no valid submissions");
+        logger.info("updating superseed for {} valid submissions");
     }
 
     public void compileResults(ResourceVersion resourceVersion, long duration) {

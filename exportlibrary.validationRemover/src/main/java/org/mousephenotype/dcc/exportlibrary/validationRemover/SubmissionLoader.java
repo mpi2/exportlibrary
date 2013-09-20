@@ -25,9 +25,11 @@ import com.google.common.collect.ImmutableMap;
 import java.util.List;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.submission.Submission;
 import org.mousephenotype.dcc.utils.persistence.HibernateManager;
+import org.slf4j.LoggerFactory;
 
 public class SubmissionLoader {
 
+    protected static final org.slf4j.Logger logger = LoggerFactory.getLogger(SubmissionLoader.class);
     private static final String SUBMISSION_LOAD_QUERY = "from Submission s where s.trackerID =:trackerID";
     private final HibernateManager hibernateManager;
     private List<Submission> submissions;
@@ -44,5 +46,6 @@ public class SubmissionLoader {
         submissions = this.hibernateManager.query(SUBMISSION_LOAD_QUERY,
                 ImmutableMap.<String, Object>builder().put("trackerID", trackerID).build(),
                 Submission.class);
+        logger.info("loaded {} submissions",submissions.size());
     }
 }

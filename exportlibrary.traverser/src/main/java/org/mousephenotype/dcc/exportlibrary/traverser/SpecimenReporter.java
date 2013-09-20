@@ -30,7 +30,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.common.CentreILARcode;
-import org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure.CentreProcedure;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen.CentreSpecimen;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen.Specimen;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.submission.Submission;
@@ -90,13 +89,13 @@ public class SpecimenReporter {
         return sb.toString();
     }
 
-    public String getReportIdentifier(Submission submission, CentreProcedure centreProcedure) {
+    public String getReportIdentifier(Submission submission, CentreSpecimen centreSpecimen) {
         StringBuilder sb = new StringBuilder();
-        sb.append(centreProcedure.getCentreID().toString());
+        sb.append(centreSpecimen.getCentreID().toString());
         sb.append("_");
         sb.append(submission.getTrackerID());
         sb.append("_");
-        sb.append(centreProcedure.getHjid());
+        sb.append(centreSpecimen.getHjid());
 
         return sb.toString();
     }
@@ -195,6 +194,8 @@ public class SpecimenReporter {
                 validationReportSet.getValidationReport().add(validationReport);
             }
         }
+             
+        
         //submissions need to be collected at the end as they are retrieved from the database
 
         SubmissionCounter submissionCounter = new SubmissionCounter();

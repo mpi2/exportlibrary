@@ -26,6 +26,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.common.CentreILARcode;
@@ -63,7 +64,10 @@ public class CentreSpecimenLoaderTest {
         CentreSpecimenLoaderTest.centreSpecimenSetLoader = new CentreSpecimenSetLoader(hibernateManager);
 
     }
-
+    
+   
+    
+    @Ignore
     @Test
     public void testLoadCentreSpecimenSet() {
         Calendar submissionDate = DatatypeConverter.parseDate("2013-05-24");

@@ -77,11 +77,11 @@ public class CommandImpl extends org.mousephenotype.dcc.exportlibrary.datastruct
         ImmutableMap<String, Object> build = ImmutableMap.<String, Object>builder().put("contained", parameter).build();
         List<Validation> results = this.hibernateManager.query(sb.toString(), build, Validation.class);
         if (results != null && !results.isEmpty()) {
-            logger.info("validation exceptions found for {}", containerAttribute);
+            logger.trace("validation exceptions found for {}", containerAttribute);
             this.validations.addAll(results);
             return true;
         } else {
-            logger.info("validation exceptions not found for {}", containerAttribute);
+            logger.trace("validation exceptions not found for {}", containerAttribute);
         }
         return false;
     }
@@ -104,7 +104,7 @@ public class CommandImpl extends org.mousephenotype.dcc.exportlibrary.datastruct
         if (!this.validationSets.isEmpty()) {
             for (ValidationSet validationSet : this.validationSets) {
                 this.hibernateManager.remove(ValidationSet.class, validationSet.getHjid());
-                logger.info("removing validationset {}", validationSet.getHjid());
+                logger.trace("removing validationset {}", validationSet.getHjid());
             }
         }
     }
@@ -156,6 +156,7 @@ public class CommandImpl extends org.mousephenotype.dcc.exportlibrary.datastruct
         if (!this.validationReportSets.isEmpty()) {
             for (ValidationReportSet validationReportSet : this.validationReportSets) {
                 this.hibernateManager.remove(ValidationReportSet.class, validationReportSet.getHjid());
+                   logger.trace("removing validationset {}", validationReportSet.getHjid());
             }
         }
     }
