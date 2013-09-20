@@ -259,7 +259,7 @@ http://stackoverflow.com/questions/9622121/pass-a-java-parameter-from-maven
                 </dependencies>
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore> 
-                    <skipTests>false</skipTests>
+                    <skipTests>true</skipTests>
                     <excludes> <!-- http://ant.apache.org/manual/dirtasks.html -->
                         <exclude>**/IT*.java</exclude>
                     </excludes>
