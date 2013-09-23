@@ -158,6 +158,7 @@ public class SpecimenReporter {
                 this.storeSubmission(mergedSubmission, false, this.specimenCommandImpl.getSpecimenValidations().get(centreSpecimen, specimen));
                 validationReport.setSubmission(mergedSubmission);
                 validationReport.setCentreSpecimen(centreSpecimen);
+                validationReport.setSpecimen(specimen);
                 //validationReport.setValidation(row.getValue());
                 //validationReport.setValidation(this.specimenCommandImpl.getSpecimenValidations().get(centreSpecimen, specimen));
                 validationReport.getValidation().addAll(this.specimenCommandImpl.getSpecimenValidations().get(centreSpecimen, specimen));
