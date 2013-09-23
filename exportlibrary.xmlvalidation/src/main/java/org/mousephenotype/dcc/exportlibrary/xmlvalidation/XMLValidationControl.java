@@ -121,6 +121,11 @@ public class XMLValidationControl {
                 logger.error("exception thrown building validation reports", ex);
             }
 
+        }else{
+            logger.info("validating process running");
+            this.validate(doc);
+            logger.info("serializing results");
+            this.serializeResults(doc);
         }
 
         logger.info("closing infrastructure");
