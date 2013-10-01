@@ -24,25 +24,38 @@ package org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.impress;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import javax.mail.MessagingException;
 import javax.persistence.*;
 import javax.xml.bind.JAXBException;
+import org.apache.commons.configuration.ConfigurationException;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.Incarnator;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameter;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameterType;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressPipeline;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressPipelineContainer;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressProcedure;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidationresourcescollection.XMLValidationResourcesCollector;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidationresourcescollection.impress.Resource;
+import org.mousephenotype.dcc.utils.net.email.EMAILUtils;
 import org.mousephenotype.dcc.utils.persistence.HibernateManager;
+import org.springframework.mail.MailException;
 
 /**
  *
  * @author julian
  */
 public class ImpressBrowser extends Incarnator<ImpressPipelineContainer> {
+
+    private XMLValidationResourcesCollector xmlValidationResourcesCollector;
 
     public ImpressPipelineContainer getImpressPipelineContainer() {
         if (this.getObject() == null) {
@@ -54,14 +67,89 @@ public class ImpressBrowser extends Incarnator<ImpressPipelineContainer> {
 
     public ImpressBrowser(String contextPath, String xmlFilename) throws Exception {
         super(contextPath, xmlFilename);
+        this.update();
     }
 
     public ImpressBrowser(HibernateManager hibernateManager) {
         super(hibernateManager);
+        this.update();
     }
 
     public ImpressBrowser(String persistenceUnitName, Properties properties) {
         super(persistenceUnitName, properties);
+        this.update();
+    }
+
+    public boolean latest() {
+        String whenLastModifiedFromWS = Resource.getWhenLastModified();
+        DateTime whenLastModifiedDateTime = null;
+        try {
+            whenLastModifiedDateTime = new org.joda.time.DateTime(DatatypeConverter.parseDateTime(whenLastModifiedFromWS));
+        } catch (Exception ex) {
+            logger.error("error parsing date from impress web services", ex);
+        }
+        if (whenLastModifiedDateTime != null) {
+            List<ImpressPipelineContainer> query = this.hibernateManager.query("from ImpressPipelineContainer", ImpressPipelineContainer.class);
+            if (query.size() == 1) {
+                DateTime whenLastModifiedFromDB = new org.joda.time.DateTime(query.get(0).getQueried()).withZone(DateTimeZone.UTC);
+                if (whenLastModifiedDateTime.isAfter(whenLastModifiedFromDB)) {
+                    return false;
+                }
+            } else {
+                logger.error("{} impressPipelines in the database", query.size());
+            }
+        }
+
+        return true;
+    }
+
+    private void sendMessage(String content, String subject) {
+        EMAILUtils eMAILUtils = EMAILUtils.getEMAILUtils();
+        try {
+            eMAILUtils.sendEmail(new String[]{"itdcc@har.mrc.ac.uk"}, null, null, "dcc.logging@har.mrc.ac.uk", subject, content, null);
+        } catch (MailException | MessagingException ex) {
+            logger.error("error sending email", ex);
+
+        }
+    }
+
+    public final void update() {
+        Properties properties = this.hibernateManager.getProperties();
+        String persistenceUnitname = this.hibernateManager.getPersistencename();
+        boolean exceptionThrown = false;
+        String message = null;
+        if (!latest()) {
+            logger.info("updating xmlvalidationresources");
+            properties.put("hibernate.hbm2ddl.auto", "create");
+            HibernateManager updater = new HibernateManager(properties, persistenceUnitname);
+            this.xmlValidationResourcesCollector = new XMLValidationResourcesCollector(null);
+            this.xmlValidationResourcesCollector.setHibernateManager(updater);
+
+            try {
+                this.xmlValidationResourcesCollector.execute();
+            } catch (FileNotFoundException ex) {
+                logger.error("cannot find mgi configuration file", ex);
+                exceptionThrown = true;
+                message = ex.getMessage();
+            } catch (IOException ex) {
+                logger.error("IOException", ex);
+                exceptionThrown = true;
+                message = ex.getMessage();
+            } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException | NoSuchMethodException | InvocationTargetException | ConfigurationException ex) {
+                logger.error("exception thrown", ex);
+                exceptionThrown = true;
+                message = ex.getMessage();
+            } finally {
+                if (exceptionThrown) {
+                    this.sendMessage(message, "error updating xmlvalidationresources " + DatatypeConverter.printDateTime(DatatypeConverter.now()));
+                } else {
+                    this.sendMessage("", "xmlvalidationresources updated successfully at " + DatatypeConverter.printDateTime(DatatypeConverter.now()));
+                }
+            }
+            properties.remove("hibernate.hbm2ddl.auto");
+            updater.close();
+        }
+
     }
 
     public boolean loadPipeline(String pipelineKey) throws IllegalStateException, QueryTimeoutException, TransactionRequiredException, PessimisticLockException,

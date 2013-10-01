@@ -21,14 +21,6 @@
  */
 package org.mousephenotype.dcc.exportlibrary.xmlvalidationresourcescollection.statuscodes;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Calendar;
 import org.apache.commons.configuration.ConfigurationException;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.statuscodes.StatusCode;

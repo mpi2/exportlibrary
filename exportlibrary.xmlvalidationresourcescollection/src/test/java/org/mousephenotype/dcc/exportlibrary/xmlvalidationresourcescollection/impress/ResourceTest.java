@@ -21,13 +21,14 @@
  */
 package org.mousephenotype.dcc.exportlibrary.xmlvalidationresourcescollection.impress;
 
+import java.util.Calendar;
+import org.junit.Assert;
 
-import junit.framework.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter;
 import org.mousephenotype.impress.soap.server.ArrayOfString;
 import org.slf4j.LoggerFactory;
-
-
 
 /**
  *
@@ -37,6 +38,7 @@ public class ResourceTest {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ResourceTest.class);
 
+    
     @Test
     public void testValidProcedure() {
         String procedureID = "IMPC_BWT_001";
@@ -50,7 +52,8 @@ public class ResourceTest {
         Assert.assertTrue(validProcedure);
     }
 
-    @Test
+    
+    
     public void testvalidParameter() {
         String parameterID = "IMPC_BWT_001_001";
         boolean validParameter = false;
@@ -63,10 +66,12 @@ public class ResourceTest {
         Assert.assertTrue(validParameter);
     }
 
+    @Ignore
     @Test
     public void getPipelineKeys() {
     }
 
+    
     @Test
     public void testvalidPipeline() {
 
@@ -84,10 +89,27 @@ public class ResourceTest {
             Assert.assertTrue(validParameter);
         }
     }
+
     
     @Test
-    public void testGetProcedures(){
+    public void testGetProcedures() {
         Object object = Resource.getProcedures("IMPC_001");
         logger.info(object.toString());
+    }
+
+    
+    @Test
+    public void testWhenLastModified() {
+        String when = Resource.getWhenLastModified();
+        Assert.assertNotNull(when);
+        logger.info("when {}", when);
+        Calendar parseDateTime = null;
+        try {
+            parseDateTime = DatatypeConverter.parseDateTime(when);
+        } catch (Exception ex) {
+            logger.error("",ex);
+            Assert.fail();
+        }
+        logger.info("{} {}",when,DatatypeConverter.printDateTime(parseDateTime));
     }
 }

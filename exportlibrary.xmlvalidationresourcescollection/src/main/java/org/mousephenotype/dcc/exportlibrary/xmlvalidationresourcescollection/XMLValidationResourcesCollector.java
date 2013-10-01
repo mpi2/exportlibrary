@@ -91,10 +91,10 @@ public class XMLValidationResourcesCollector extends ConsoleReader {
         this.localImitsHibernateManager = XMLValidationResourcesCollector.getHibernateManager(engine.LOCAL_IMITS, LOCALIMITS_PERSISTENCEUNITNAME);
     }
 
-    public void run() throws FileNotFoundException, IOException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, ConfigurationException {
-
+    
+    
+    public void execute()throws FileNotFoundException, IOException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, ConfigurationException {
         
-
         logger.info("loading {} with status codes", STATUS_CODES_CSV_FILENAME);
         StatusCodesReader statusCodesReader = new StatusCodesReader(STATUS_CODES_CSV_FILENAME);
         statusCodesReader.read(now);
@@ -117,8 +117,12 @@ public class XMLValidationResourcesCollector extends ConsoleReader {
         this.impressCacher.loadFromWS();
         logger.info("persisting impress");
         this.outputHibernateManager.persist(this.impressCacher.getImpressPipelineContainer());
+        //this.outputHibernateManager.getEntityManager().close();
         //
-
+    }
+    
+    public void run() throws FileNotFoundException, IOException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, ConfigurationException {
+        this.execute();
         //
         this.outputHibernateManager.close();
         logger.info("finished");

@@ -22,6 +22,7 @@
 package org.mousephenotype.dcc.exportlibrary.xmlvalidationresourcescollection.impress;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.converters.DatatypeConverter;
 
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameter;
@@ -42,11 +43,23 @@ public class Cacher {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Cacher.class);
     private ImpressPipelineContainer impressPipelineContainer;
 
+    
+    private Calendar getWhenLastUpdated(){
+        String whenLastModifiedFromWS = Resource.getWhenLastModified();
+        Calendar whenLastModifiedCalendar = null;
+        try {
+            whenLastModifiedCalendar = DatatypeConverter.parseDateTime(whenLastModifiedFromWS);
+        } catch (Exception ex) {
+            logger.error("error parsing date from impress web services", ex);
+        }
+        return whenLastModifiedCalendar;
+    }
+    
     public void loadFromWS() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         logger.info("loading impress from ws");
 
         this.impressPipelineContainer = new ImpressPipelineContainer();
-        this.getImpressPipelineContainer().setQueried(DatatypeConverter.now());
+        this.getImpressPipelineContainer().setQueried(this.getWhenLastUpdated());
 
         logger.debug("loading pipelineKeys from IMPReSS ws");
         ArrayOfString pipelineKeys = Resource.getPipelineKeys();

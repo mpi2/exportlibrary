@@ -31,7 +31,6 @@ import java.security.UnrecoverableKeyException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.TransactionRequiredException;
 import org.apache.http.client.ClientProtocolException;
@@ -135,7 +134,7 @@ public class IMITSBrowser extends Incarnator {
         phenotypeAttemptsFromDB = null;
         try {
             phenotypeAttemptsFromDB = hibernateManager.uniqueResult(PhenotypeAttempts.class);
-        } catch (NoResultException ex) {
+        } catch (IllegalStateException| PersistenceException  ex) {
             logger.error("no phenotype attempts found ", ex);
         }
         if (phenotypeAttemptsFromDB != null) {

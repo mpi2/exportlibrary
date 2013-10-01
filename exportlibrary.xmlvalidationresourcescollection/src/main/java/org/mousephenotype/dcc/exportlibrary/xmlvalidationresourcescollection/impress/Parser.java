@@ -84,7 +84,7 @@ public class Parser {
 
     public static void linkParameterOptions2parameter(ImpressParameter impressParameter) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         ArrayOfHashOfString parameterOptions = new ArrayOfHashOfString((org.apache.xerces.dom.ElementNSImpl) Resource.getParameterOptions(impressParameter.getParameterKey()));
-        logger.info("{} parameterOptions for parameter {}", parameterOptions.getHashMapArrayList().size(), impressParameter.getParameterName());
+        logger.trace("{} parameterOptions for parameter {}", parameterOptions.getHashMapArrayList().size(), impressParameter.getParameterName());
         ImpressParameterOption impressParameterOption = new ImpressParameterOption();
         for (HashMap<String, String> rawParameterOption : parameterOptions.getHashMapArrayList()) {
             Instantiator.getInstance(ImpressParameterOption.class, impressParameterOption, rawParameterOption);
@@ -96,7 +96,7 @@ public class Parser {
     public static void linkOntologyParameterOptions2Parameter(ImpressParameter impressParameter) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         Object rawOptions = Resource.getParameterOntologyOptions( impressParameter.getParameterKey());
         ArrayOfHashOfString ontologyParameterOptions = new ArrayOfHashOfString((org.apache.xerces.dom.ElementNSImpl) rawOptions);
-        logger.info("{} ontologyParameterOptions for parameter {}", ontologyParameterOptions.getHashMapArrayList().size(), impressParameter.getParameterName());
+        logger.trace("{} ontologyParameterOptions for parameter {}", ontologyParameterOptions.getHashMapArrayList().size(), impressParameter.getParameterName());
         ImpressOntologyParameterOption impressOntologyParameterOption = new ImpressOntologyParameterOption();
         for (HashMap<String, String> rawOntologyParameterOption : ontologyParameterOptions.getHashMapArrayList()) {
             Instantiator.getInstance(ImpressOntologyParameterOption.class, impressOntologyParameterOption, rawOntologyParameterOption);
@@ -108,7 +108,7 @@ public class Parser {
     
     public static void linkParameterIncrements2parameter(ImpressParameter impressParameter) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         ArrayOfHashOfString parameterIncrements = new ArrayOfHashOfString((org.apache.xerces.dom.ElementNSImpl) Resource.getParameterIncrements(impressParameter.getParameterKey()));
-        logger.info("{} parameterOptions for parameter {}", parameterIncrements.getHashMapArrayList().size(), impressParameter.getParameterName());
+        logger.trace("{} parameterOptions for parameter {}", parameterIncrements.getHashMapArrayList().size(), impressParameter.getParameterName());
         ImpressParameterIncrement impressParameterIncrement = new ImpressParameterIncrement();
         for (HashMap<String, String> rawParameterIncrement : parameterIncrements.getHashMapArrayList()) {
             Instantiator.getInstance(ImpressParameterIncrement.class, impressParameterIncrement, rawParameterIncrement);

@@ -23,6 +23,7 @@ package org.mousephenotype.dcc.exportlibrary.xmlvalidation.consoleapps;
 
 import java.io.FileNotFoundException;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import javax.persistence.LockTimeoutException;
@@ -34,6 +35,7 @@ import javax.xml.bind.JAXBException;
 import org.apache.commons.configuration.ConfigurationException;
 import org.hibernate.HibernateException;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure.CentreProcedureSet;
+import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation.Validation;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation.ValidationSet;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report.ValidationReportSet;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.CentreProcedureSetValidator;
@@ -102,6 +104,10 @@ public class ValidatorClient {
         if(this.validationSet == null)
             this.validationSet = new ValidationSet();
         return this.validationSet;
+    }
+    
+    public List<Validation> getResults(){
+        return this.validationSet.getValidation();
     }
 //just instantiate a container
 
