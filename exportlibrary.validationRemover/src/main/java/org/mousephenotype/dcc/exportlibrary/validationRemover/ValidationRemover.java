@@ -61,7 +61,7 @@ private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Validatio
             centreProcedureSet.setCentre(submission.getCentreProcedure());
             centreProcedureSetTraverser.run(ci, centreProcedureSet);
             if(!ci.loadValidationSets()){
-                logger.info("no validation results found for submission trackerID {}", submission.getTrackerID());
+                logger.info("no validation results found for no valid submission trackerID {}", submission.getTrackerID());
             }
         }
         if (submission.isSetCentreSpecimen()) {
@@ -70,10 +70,13 @@ private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Validatio
             centreSpecimenSet.setCentre(submission.getCentreSpecimen());
             centreSpecimenSetTraverser.run(ci, centreSpecimenSet);
             if(!ci.loadValidationSets()){
-                logger.info("no validation results found for submission trackerID {}", submission.getTrackerID());
+                logger.info("no validation results found for no valid submission trackerID {}", submission.getTrackerID());
             }
         }
-        ci.loadValidationReportSets();
+        boolean foundValidationReports = ci.loadValidationReportSets();
+        if(foundValidationReports){
+            logger.info("validation reports found for submission trackerID {}", submission.getTrackerID());
+        }
         ci.removeValidationReportSets();
         ci.removeValidationSets();
         
