@@ -19,7 +19,6 @@
 -- License for the specific language governing permissions and limitations under
 -- the License.
 --
-
 /*
 how many times an instance has been submitted
 */
@@ -39,20 +38,22 @@ FROM phenodcc_raw.VALIDATIONREPORT
 GROUP BY VALIDATIONREPORT.REPORTIDENTIFIER
 ORDER BY COUNT(1) DESC;
 /*
-see which files they came from
+see which files they came from. It shows how many times the entity was present in each file
 */
 SELECT fname,
     xml_file.created,
     xml_file.last_update,
-    xml_file.id AS trackerID
+    xml_file.id AS trackerID,
+    DATE(VALIDATIONREPORT.SUBMISSIONDATE),
+     VALIDATIONREPORT.REPORTIDENTIFIER,
+     VALIDATIONREPORT.ISVALID,
+     VALIDATIONREPORT.SUPERSEEDED
 FROM phenodcc_tracker.xml_file
 JOIN phenodcc_tracker.zip_download        ON zip_download.id = xml_file.zip_id
 JOIN phenodcc_tracker.file_source_has_zip ON zip_download.zf_id = file_source_has_zip.id
 JOIN phenodcc_tracker.zip_action          ON file_source_has_zip.za_id = zip_action.id
 JOIN phenodcc_tracker.zip_file            ON zip_action.zip_id = zip_file.id
-WHERE phenodcc_tracker.xml_file.id IN
-    (SELECT SUBMISSION.TRACKERID
-        FROM phenodcc_raw.VALIDATIONREPORT
-        JOIN phenodcc_raw.SUBMISSION ON SUBMISSION.HJID = VALIDATIONREPORT.SUBMISSION_VALIDATIONREPORT__0
-        WHERE REPORTIDENTIFIER= 'J_20120515F-11')
+JOIN phenodcc_raw.SUBMISSION              ON phenodcc_tracker.xml_file.id = SUBMISSION.TRACKERID
+JOIN phenodcc_raw.VALIDATIONREPORT        ON SUBMISSION.HJID = VALIDATIONREPORT.SUBMISSION_VALIDATIONREPORT__0
+WHERE REPORTIDENTIFIER= 'J_20120515F-11'
 ORDER BY trackerID ASC
