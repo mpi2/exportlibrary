@@ -197,6 +197,7 @@
                         <exclude>**/*.json</exclude>
                         <exclude>**/XMLFileSplitter.java</exclude>
                         <exclude>**/README</exclude>
+                        <exclude>**/*.sql</exclude>
                     </excludes>
                 </configuration>
                 <executions>
