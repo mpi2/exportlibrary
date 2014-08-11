@@ -41,6 +41,16 @@
             </roles>
             <timezone>GMT0</timezone>
         </developer>
+        <developer>
+            <id>duncan</id>
+            <name>Duncan Sneddon</name>
+            <email>d dot sneddon at har dot mrc dot ac dot uk</email>
+            <organization>org.mousephenotype</organization>
+            <roles>
+                <role>Senior Java Developer</role>
+            </roles>
+            <timezone>GMT0</timezone>
+        </developer>
     </developers>
     
     
@@ -73,12 +83,11 @@
         <module>exportlibrary.xmlvalidationremoteclients</module>
         <module>exportlibrary.xmlvalidation</module>
         <module>exportlibrary.traverser</module>
-        <module>exportlibrary.exporter</module>
-        <module>exportlibrary.overviewsUpdater</module>
         <module>exportlibrary.validationRemover</module>
         <module>exportlibrary.fullTraverser</module>
         <module>exportlibrary.impressexamplesgeneration</module>
-
+        <module>exportlibrary.exportcommunication</module>
+        <module>exportlibrary.exporterworker</module>
     </modules>
     
  
@@ -111,7 +120,7 @@
         </resources>
         <plugins>
             
-            <plugin>  
+            <!--  <plugin>  
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>2.7</version>
@@ -125,7 +134,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
             
             
             <plugin>
@@ -161,13 +170,13 @@
                 <version>1.10.b1</version>
                 <configuration>
                     <header>conf/header.txt</header>
-                    <strictCheck>true</strictCheck>
-                    <failIfMissing>true</failIfMissing>
+                    <strictCheck>false</strictCheck>
+                    <failIfMissing>false</failIfMissing>
                     <aggregate>true</aggregate>
                     <properties>
-                        <year>2013</year>
-                        <developer>Julian Atienza Herrero</developer>
-                        <email>j.atienza at har.mrc.ac.uk</email>
+                        <year>2014</year>
+                        <developer>Duncan Sneddon</developer>
+                        <email>d.sneddon at har.mrc.ac.uk</email>
                     </properties>
                     <excludes>
                         <exclude>**/src/main/generated/**</exclude>
@@ -196,6 +205,7 @@
                         <exclude>**/*.csv</exclude>
                         <exclude>**/*.json</exclude>
                         <exclude>**/XMLFileSplitter.java</exclude>
+						<exclude>**/TraverserTest.java</exclude>
                         <exclude>**/README</exclude>
                         <exclude>**/*.sql</exclude>
                     </excludes>
