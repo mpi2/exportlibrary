@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+    <artifactId>exportlibrary</artifactId>
+    <groupId>org.mousephenotype.dcc.exportlibrary</groupId>
+    <version>2.0.0</version>
+  </parent>
+    <groupId>org.mousephenotype.dcc.exportlibrary.exportcommunication</groupId>
+    <artifactId>exportlibrary.exportcommunication</artifactId>
+    <packaging>jar</packaging>
+    <name>exportlibrary.exportcommunication</name>
+    <version>1.0-SNAPSHOT</version>
+    
+    <url>http://www.mousephenotype.org/dcc/exportlibrary.exportcommunication</url>
+    
+    
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://source.har.mrc.ac.uk:8080/secure/browse/exportlibrary.exportcommunication</url>
+    </issueManagement>
+    
+    
+    
+    
+    <inceptionYear>2012</inceptionYear>
+    
+    
+    
+    
+    <developers>
+        <developer>
+            <id>julian</id>
+            <name>Julian Atienza</name>
+            <email>j dot atienza at har dot mrc dot ac dot uk</email>
+            <organization>org.mousephenotype</organization>
+            <roles>
+                <role>Senior Java Developer</role>
+            </roles>
+            <timezone>GMT0</timezone>
+        </developer>
+    </developers>
+    
+    <!--<contributors> -->
+    
+        
+    <!-- -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    
+    <scm>
+        <connection>scm:svn:svn://julian:julian@source.har.mrc.ac.uk/PhenoDCC/exportlibrary.exportcommunication/trunk/exportlibrary.exportcommunication/</connection>
+        <url>http://source.har.mrc.ac.uk/websvn/wsvn/Pheno-DCC/exportlibrary.exportcommunication</url>
+    </scm>
+    
+    
+    <distributionManagement>
+        <repository>
+            <id>org.mousephenotype.dcc</id>
+            <url>http://193.63.70.36:8080/nexus-2.0.5/content/repositories/org.mousephenotype.dcc/</url>
+        </repository>
+        <snapshotRepository>
+            <id>org.mousephenotype.dcc.snapshots</id>
+            <url>http://193.63.70.36:8080/nexus-2.0.5/content/repositories/org.mousephenotype.dcc.snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+    <organization>
+        <name>www.mousephenotype.org</name>
+        <url>www.mousephenotype.org</url>
+    </organization>
+    
+    <build>
+ 
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            
+            <resource> <!--do not distribute documentation -->
+                <directory>docs</directory>
+                <excludes>
+                    <exclude>**</exclude> 
+                </excludes>
+            </resource>
+            <resource> <!--include data for testing -->
+                <directory>data</directory>
+                <targetPath>data</targetPath>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        
+        <plugins>
+            
+            <plugin> <!-- for each build, remove the logs for test and execution -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <id>auto-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>test_logs</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>exec_logs</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            
+           
+            <plugin> <!--to configure the jdk version to compile -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+                     
+
+            <plugin> <!--to configure test environment: junit4, run tests and install with test failure (generate jars)  -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit4</artifactId>
+                        <version>2.12</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore> 
+                    <skipTests>false</skipTests>
+                    <excludes> <!-- http://ant.apache.org/manual/dirtasks.html -->
+                        <exclude>**/IT*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            
+
+            <plugin> <!-- run the Integration Tests -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>failsafe-maven-plugin</artifactId>
+                <version>2.4.3-alpha-1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+        </plugins>
+
+    </build>
+    
+      
+        
+    <repositories>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Maven 2 Repository</name>
+            <url>http://download.java.net/maven/2</url>
+        </repository>
+        <repository>
+            <id>maven2</id>
+            <url>http://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        </repository>
+    </repositories>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Maven 2 Repository</name>
+            <url>http://download.java.net/maven/2</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>maven2</id>
+            <url>http://repo1.maven.org/maven2</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- -->
+        <dependency>
+            <groupId>junit-addons</groupId>
+            <artifactId>junit-addons</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+                    
+    
+    <!-- Logging dependencies -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.6.4</version>
+            
+        </dependency>
+        <!-- -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.4</version>
+            
+        </dependency>
+        <!-- -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.6</version>
+            
+        </dependency>
+        <!-- -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.0.6</version>
+            
+        </dependency>
+        <!-- -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+        <!-- -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1-rev-1</version>
+        </dependency>
+            <!-- -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.20</version>
+        </dependency>
+    <!-- END logging dependencies -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.2.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
+            <artifactId>exportlibrary.datastructure</artifactId>
+            <version>3.8</version>
+        </dependency>
+    </dependencies>
+       
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    
+</project>
