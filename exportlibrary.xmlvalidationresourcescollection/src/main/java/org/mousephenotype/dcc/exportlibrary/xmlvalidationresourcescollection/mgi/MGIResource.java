@@ -61,30 +61,31 @@ public class MGIResource {
     private static Properties ftpProperties;
     private static final String ftpLocalPropertiesFilename = "mgi.txt";
     private MGIStrainParser mGIStrainParser;
-
+    
     static {
         if (!(new File(EXTERNAL_RESOURCES_FOLDER).exists())) {
             new File(EXTERNAL_RESOURCES_FOLDER).mkdir();
         }
         try {
-
+            
             Reader reader = new Reader(ftpLocalPropertiesFilename);
             ftpProperties = reader.getProperties();
+            
         } catch (ConfigurationException ex) {
             logger.error("ftp configuration file: {} not found", ftpLocalPropertiesFilename, ex);
         }
-
+        
     }
-
+    
     public MGIResource(Properties properties) throws HibernateException {
         this.persistenceProperties = properties;
     }
-
+    
     public MGIResource(HibernateManager hibernateManager) throws HibernateException {
         this.persistenceProperties = null;
         this.hibernateManager = hibernateManager;
     }
-
+    
     protected void init(boolean downloadSource, boolean loadCache) throws FileNotFoundException, IOException {
         if (downloadSource) {
             this.triggerDownload();
@@ -95,28 +96,31 @@ public class MGIResource {
         }
         this.startResource();
     }
-
+    
     public void run(Calendar now) throws FileNotFoundException, IOException {
         this.triggerDownload();
         this.work(now);
-
+        
     }
-
+    
     private void triggerDownload() throws IOException {
-        logger.info("downloading {}/{}", ftpProperties.getProperty("url"), ftpProperties.getProperty("fromFile"));
+        if (ftpProperties.getProperty("url") == null) {
+            fallbackOnDefaults();
+        }
+        logger.info("Downloading from {} to be written to file {}", ftpProperties.getProperty("url"), ftpProperties.getProperty("fromFile"));
         ftpUtils = new FTPUtils(ftpProperties.getProperty("url"), Integer.valueOf(ftpProperties.getProperty("port")),
                 ftpProperties.getProperty("username"), ftpProperties.getProperty("password"), FTPUtils.fileTypes.BINARY_FILE_TYPE, FTPUtils.fileTransferModes.STREAM_TRANSFER_MODE);
         ftpUtils.download(ftpProperties.getProperty("fromFile"), filename);
         ftpUtils.close();
     }
-
+    
     private void work(Calendar now) throws FileNotFoundException {
         logger.info("new MGIStrainParser");
         this.mGIStrainParser = new MGIStrainParser(filename, now);
         logger.info("running mgiStrainParser");
         this.mGIStrainParser.run();
     }
-
+    
     private void loadCache(boolean downloadSource) throws IllegalStateException, EntityExistsException, IllegalArgumentException, TransactionRequiredException, RuntimeException, FileNotFoundException, HibernateException {
         logger.info("loading cache from {}", filename);
         //
@@ -126,17 +130,17 @@ public class MGIResource {
         this.hibernateManager = new HibernateManager(persistenceProperties, PERSISTENCE_UNIT_NAME);
         //
         this.work(DatatypeConverter.now());
-
+        
         logger.info("starting store for {} entries from the mgi list", this.mGIStrainParser.getMGIStrains().getMgiStrain().size());
         //  
         this.hibernateManager.persist(this.mGIStrainParser.getMGIStrains());
-
+        
     }
-
+    
     public HibernateManager getHibernateManager() {
         return this.hibernateManager;
     }
-
+    
     private void startResource() throws FileNotFoundException, IOException {
         persistenceProperties.remove("hibernate.hbm2ddl.auto");
         logger.info("starting persistence manager ");
@@ -144,18 +148,29 @@ public class MGIResource {
             hibernateManager = new HibernateManager(persistenceProperties, PERSISTENCE_UNIT_NAME);
         }
     }
-
+    
     public MgiStrains getStrains() {
         return this.mGIStrainParser.getMGIStrains();
     }
-
+    
     public boolean findStrain(String strainID) throws IllegalStateException, QueryTimeoutException, TransactionRequiredException, PessimisticLockException,
             LockTimeoutException, PersistenceException {
         List<String> query = hibernateManager.query(queryStrain, ImmutableMap.<String, Object>builder().put("STRAINID", strainID).build(), String.class);
         return query != null && query.size() > 0;
     }
-
+    
     public void close() {
         hibernateManager.close();
+    }
+    
+    private void fallbackOnDefaults() {
+        // Reseting to defaults. 
+        logger.info("Resetting the MGI credentials to default probably as the result of the file containing the alternative could not be found.");
+        ftpProperties.put("url", "ftp.informatics.jax.org");
+        ftpProperties.put("port", "21");
+        ftpProperties.put("username", "anonymous");
+        ftpProperties.put("password", "");
+        ftpProperties.put("fromFile", "pub/reports/MGI_Strain.rpt");
+        ftpProperties.put("toFile", "MGI_Strain.rpt");
     }
 }

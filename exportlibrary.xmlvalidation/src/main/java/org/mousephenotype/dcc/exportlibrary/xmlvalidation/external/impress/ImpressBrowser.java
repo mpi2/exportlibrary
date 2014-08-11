@@ -26,6 +26,8 @@ import com.google.common.collect.Sets;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
@@ -70,12 +72,12 @@ public class ImpressBrowser extends Incarnator<ImpressPipelineContainer> {
         this.update();
     }
 
-    public ImpressBrowser(HibernateManager hibernateManager) {
+    public ImpressBrowser(HibernateManager hibernateManager) throws Exception {
         super(hibernateManager);
         this.update();
     }
 
-    public ImpressBrowser(String persistenceUnitName, Properties properties) {
+    public ImpressBrowser(String persistenceUnitName, Properties properties) throws Exception{
         super(persistenceUnitName, properties);
         this.update();
     }
@@ -88,22 +90,32 @@ public class ImpressBrowser extends Incarnator<ImpressPipelineContainer> {
         } catch (Exception ex) {
             logger.error("error parsing date from impress web services", ex);
         }
-        if (whenLastModifiedDateTime != null) {
+        if (whenLastModifiedDateTime == null) {
+            return false; // if this is null then you have to update!
+        } else {
             List<ImpressPipelineContainer> query = this.hibernateManager.query("from ImpressPipelineContainer", ImpressPipelineContainer.class);
             if (query.size() == 1) {
+                if (query.get(0).getQueried() == null) {
+                    return false; //If the Queried date in the database is null then assume data empty
+                }
                 DateTime whenLastModifiedFromDB = new org.joda.time.DateTime(query.get(0).getQueried()).withZone(DateTimeZone.UTC);
-                if (whenLastModifiedDateTime.isAfter(whenLastModifiedFromDB)) {
+                if (whenLastModifiedFromDB == null || whenLastModifiedDateTime.isAfter(whenLastModifiedFromDB)) {
                     return false;
                 }
             } else {
                 logger.error("{} impressPipelines in the database", query.size());
+                return false; // If there is nothing then you need something to validate against!
             }
         }
-
         return true;
     }
 
     private void sendMessage(String content, String subject) {
+        try {
+            subject = "[" + InetAddress.getLocalHost().getHostName() + "] " + subject;
+        } catch (UnknownHostException ex) {
+            subject = subject + "on undetermined host";
+        }
         EMAILUtils eMAILUtils = EMAILUtils.getEMAILUtils();
         try {
             eMAILUtils.sendEmail(new String[]{"itdcc@har.mrc.ac.uk"}, null, null, "dcc.logging@har.mrc.ac.uk", subject, content, null);
@@ -113,7 +125,7 @@ public class ImpressBrowser extends Incarnator<ImpressPipelineContainer> {
         }
     }
 
-    public final void update() {
+    public final void update() throws IllegalArgumentException{
         Properties properties = this.hibernateManager.getProperties();
         String persistenceUnitname = this.hibernateManager.getPersistencename();
         boolean exceptionThrown = false;
@@ -130,30 +142,30 @@ public class ImpressBrowser extends Incarnator<ImpressPipelineContainer> {
             } catch (FileNotFoundException ex) {
                 logger.error("cannot find mgi configuration file", ex);
                 exceptionThrown = true;
-                message = ex.getMessage();
+                message = ex.toString();
             } catch (IOException ex) {
                 logger.error("IOException", ex);
                 exceptionThrown = true;
-                message = ex.getMessage();
+                message = ex.toString();
             } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException | NoSuchMethodException | InvocationTargetException | ConfigurationException ex) {
                 logger.error("exception thrown", ex);
                 exceptionThrown = true;
-                message = ex.getMessage();
+                message = ex.toString(); 
             } finally {
                 if (exceptionThrown) {
                     this.sendMessage(message, "error updating xmlvalidationresources " + DatatypeConverter.printDateTime(DatatypeConverter.now()));
+                    throw new IllegalArgumentException("There was a problem setting up the resources to carry out the validation \n\nWhat follows is the Exception:\n"+message);
                 } else {
                     this.sendMessage("", "xmlvalidationresources updated successfully at " + DatatypeConverter.printDateTime(DatatypeConverter.now()));
                 }
+                properties.remove("hibernate.hbm2ddl.auto");
+                updater.close();
             }
-            properties.remove("hibernate.hbm2ddl.auto");
-            updater.close();
-        }
 
+        }
     }
 
-    public boolean loadPipeline(String pipelineKey) throws IllegalStateException, QueryTimeoutException, TransactionRequiredException, PessimisticLockException,
-            LockTimeoutException, PersistenceException, JAXBException, FileNotFoundException, Exception {
+    public boolean loadPipeline(String pipelineKey) throws IllegalStateException, QueryTimeoutException, TransactionRequiredException, PessimisticLockException, LockTimeoutException, PersistenceException, JAXBException, FileNotFoundException, Exception {
         logger.info("querying for the pipeline {}", pipelineKey);
 
         List<ImpressPipeline> impressPipelines = this.hibernateManager.query("from ImpressPipeline i where i.pipelineKey =:pipelineKey",

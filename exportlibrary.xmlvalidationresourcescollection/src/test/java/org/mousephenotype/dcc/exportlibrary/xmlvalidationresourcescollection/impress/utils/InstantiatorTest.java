@@ -53,7 +53,7 @@ public class InstantiatorTest {
         map.put("pipeline_name", "pipeline_name");
         map.put("minor_version", "1");
         map.put("pipeline_id", "456");
-        map.put("description", "description");
+        //map.put("description", "description");
         map.put("major_version", "2");
         map.put("pipeline_key", "pipeline_key");
         return map;
@@ -88,7 +88,7 @@ public class InstantiatorTest {
         impressPipeline2.setPipelineName("pipeline_name");
         impressPipeline2.setMinorVersion(BigInteger.valueOf(1L));
         impressPipeline2.setPipelineId(BigInteger.valueOf(456L));
-        impressPipeline2.setDescription("description");
+        //impressPipeline2.setDescription("description");
         impressPipeline2.setMajorVersion(BigInteger.valueOf(2L));
         impressPipeline2.setPipelineKey("pipeline_key");
         

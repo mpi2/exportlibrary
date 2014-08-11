@@ -91,36 +91,49 @@ public class XMLValidationResourcesCollector extends ConsoleReader {
         this.localImitsHibernateManager = XMLValidationResourcesCollector.getHibernateManager(engine.LOCAL_IMITS, LOCALIMITS_PERSISTENCEUNITNAME);
     }
 
-    
-    
-    public void execute()throws FileNotFoundException, IOException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, ConfigurationException {
-        
-        logger.info("loading {} with status codes", STATUS_CODES_CSV_FILENAME);
-        StatusCodesReader statusCodesReader = new StatusCodesReader(STATUS_CODES_CSV_FILENAME);
-        statusCodesReader.read(now);
-        logger.info("persisting statuscodes");
-        this.outputHibernateManager.persist(statusCodesReader.getStatuscodes());
-        //
-        this.outputHibernateManager.getEntityManager().close();
-        //
+    public void execute() throws FileNotFoundException, IOException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, ConfigurationException {
 
-        logger.info("collecting from MGI");
-        this.mGIResource = new MGIResource(this.outputHibernateManager);
-        this.mGIResource.run(now);
-        logger.info("persisting MGI");
-        
-        this.outputHibernateManager.persist(this.mGIResource.getStrains());
-        this.outputHibernateManager.getEntityManager().close();
-        //
-        logger.info("collecting from impress");
-        this.impressCacher = new Cacher();
-        this.impressCacher.loadFromWS();
-        logger.info("persisting impress");
-        this.outputHibernateManager.persist(this.impressCacher.getImpressPipelineContainer());
+        try {
+            logger.info("loading {} with status codes", STATUS_CODES_CSV_FILENAME);
+            StatusCodesReader statusCodesReader = new StatusCodesReader(STATUS_CODES_CSV_FILENAME);
+            statusCodesReader.read(now);
+            logger.info("persisting statuscodes");
+            this.outputHibernateManager.persist(statusCodesReader.getStatuscodes());
+            //
+            this.outputHibernateManager.getEntityManager().close();
+            //
+        } catch (Exception e) {
+            logger.error("There was an error processing the Status code File", e);
+            throw new IllegalArgumentException("There was an error processing the Status code File", e);
+        }
+
+        try {
+            logger.info("collecting from MGI");
+            this.mGIResource = new MGIResource(this.outputHibernateManager);
+            this.mGIResource.run(now);
+            logger.info("persisting MGI");
+
+            this.outputHibernateManager.persist(this.mGIResource.getStrains());
+            this.outputHibernateManager.getEntityManager().close();
+        } catch (Exception e) {
+            logger.error("There was an error processing the MGI information", e);
+            throw new IllegalArgumentException("There was an error processing the MGI information", e);
+        }
+
+        try {
+            logger.info("collecting from impress");
+            this.impressCacher = new Cacher();
+            this.impressCacher.loadFromWS();
+            logger.info("persisting impress");
+            this.outputHibernateManager.persist(this.impressCacher.getImpressPipelineContainer());
+        } catch (Exception e) {
+            logger.error("There was an error processing the IMPReSS information", e);
+            throw new IllegalArgumentException("There was an error processing the IMPReSS information", e);
+        }
         //this.outputHibernateManager.getEntityManager().close();
         //
     }
-    
+
     public void run() throws FileNotFoundException, IOException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, ConfigurationException {
         this.execute();
         //

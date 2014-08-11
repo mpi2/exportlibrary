@@ -289,7 +289,7 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
                 return impressParameter.getType();
             }
         }
-        logger.error("cannot find parameterType for procedure {}  parameter {}", impressProcedure.getProcedureKey(), parameterID);
+        //logger.error("cannot find parameterType for procedure {}  parameter {}", impressProcedure.getProcedureKey(), parameterID);
         return null;
     }
 

@@ -29,6 +29,7 @@ import junitx.framework.Assert;
 import org.apache.commons.configuration.ConfigurationException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mousephenotype.dcc.utils.io.conf.Reader;
 import org.mousephenotype.dcc.utils.persistence.HibernateManager;
@@ -76,6 +77,7 @@ public class XMLValidationResourcesCollectorTest {
     }
 
     @Test
+    @Ignore
     public void testRun() {
         try {
             XMLValidationResourcesCollectorTest.xMLValidationResourcesCollector.run();

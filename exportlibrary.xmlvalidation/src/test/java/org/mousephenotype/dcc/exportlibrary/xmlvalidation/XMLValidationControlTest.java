@@ -28,6 +28,7 @@ import org.hibernate.HibernateException;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.IOParameters.CONNECTOR_NAMES;
 import org.slf4j.LoggerFactory;
@@ -50,6 +51,7 @@ public class XMLValidationControlTest {
     }
 
     @Test
+    @Ignore
     public void testRunXML2XMLDerby() {
         Map<CONNECTOR_NAMES, IOParameters> ioparametersMap = XML2XMLDerbyParametersGenerator.getXML2XMLDerbyParameters();
 
@@ -119,5 +121,6 @@ public class XMLValidationControlTest {
 
     @AfterClass
     public static void teardown() {
+        
     }
 }

@@ -61,7 +61,7 @@ public class ParserTest {
         logger.info("{} loaded", pipelineKey);
         logger.info("loading procedure {}", procedureKey);
         try {
-            impressProcedure = Parser.getImpressProcedure(procedureKey);
+            impressProcedure = Parser.getImpressProcedure(procedureKey, pipelineKey);
         } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
             logger.error("", ex);
             Assert.fail();

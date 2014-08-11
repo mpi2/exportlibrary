@@ -98,7 +98,16 @@ public class RepeatedParameterInfoTest {
             logger.error("", ex);
             Assert.fail();
         }
-        impressBrowser = new ImpressBrowser(hibernateManager);
+        try {
+            impressBrowser = new ImpressBrowser(hibernateManager);
+        } catch (IllegalArgumentException iae) {
+            logger.error("An IllegalArgument Exception was thown! This may well have been the result of the databases not being populated");
+            Assert.fail();
+        } catch (Exception ex) {
+            logger.error("An exception was thrown!");
+            Assert.fail();
+        }
+
 
         Assert.assertNotNull(impressBrowser);
         try {

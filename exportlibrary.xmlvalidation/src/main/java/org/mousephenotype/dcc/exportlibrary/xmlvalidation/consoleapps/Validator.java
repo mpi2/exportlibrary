@@ -64,7 +64,7 @@ public class Validator extends ConsoleReader {
         super(arguments);
     }
 
-    public void validate(Map<CONNECTOR_NAMES, IOParameters> ioparameters, String externalConfigurationFilename) throws JAXBException, FileNotFoundException, Exception {
+    public void validate(Map<CONNECTOR_NAMES, IOParameters> ioparameters, String externalConfigurationFilename) throws JAXBException, FileNotFoundException, IllegalArgumentException, Exception {
         xmlValidationControl = new XMLValidationControl();
         xmlValidationControl.run(ioparameters, externalConfigurationFilename);
     }
@@ -85,7 +85,7 @@ public class Validator extends ConsoleReader {
          * RESOURCES
          */
         //Arguments for where to find the external resources
-        Argument<String> externalResourcesLocationPersistenceFilenameArgument = new Argument<>(String.class, "h", "externalResourcesLocationPersistenceFilename ", "externalResourcesLocationPersistenceFilename ", true, " hibernate properties");
+        Argument<String> externalResourcesLocationPersistenceFilenameArgument = new Argument<>(String.class, "h", "externalResourcesLocationPersistenceFilename ", "externalResourcesLocationPersistenceFilename ", true, "hibernate properties file to control the connection with validation resources");
         Argument<Boolean> externalResourcesLocationOnLocalDatabaseArgument = new Argument<>(Boolean.class, "l", "externalResourcesLocationLocalDatabase ", "externalResourcesLocationLocalDatabase ", true, " if not present, downloads the resources as a derby database");
         //
 
@@ -135,6 +135,9 @@ public class Validator extends ConsoleReader {
             System.exit(-1);
         } catch (FileNotFoundException ex) {
             logger.error("cannot find file", ex);
+            System.exit(-1);
+        } catch (IllegalArgumentException iae) {
+            logger.error("There was a problem running the validation. This could have been caused by the process to gather the data required for validation not being correctly processed. ", iae);
             System.exit(-1);
         } catch (Exception ex) {
             logger.error("", ex);

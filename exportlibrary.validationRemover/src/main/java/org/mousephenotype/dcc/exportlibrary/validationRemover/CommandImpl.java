@@ -209,105 +209,120 @@ public class CommandImpl extends org.mousephenotype.dcc.exportlibrary.datastruct
     @Override
     public boolean run(Procedure procedure) {
         boolean result = this.loadValidations("procedure", procedure);
-        result = result || this.loadValidationReports("procedure", procedure);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("procedure", procedure);
         return result;
     }
 
     @Override
     public boolean run(SimpleParameter simpleParameter) {
         boolean result = this.loadValidations("simpleParameter", simpleParameter);
-        result = result || this.loadValidationReports("simpleParameter", simpleParameter);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("simpleParameter", simpleParameter);
         return result;
     }
 
     @Override
     public boolean run(OntologyParameter ontologyParameter) {
         boolean result = this.loadValidations("ontologyParameter", ontologyParameter);
-        result = result || this.loadValidationReports("ontologyParameter", ontologyParameter);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("ontologyParameter", ontologyParameter);
         return result;
     }
 
     @Override
     public boolean run(SeriesParameter seriesParameter) {
         boolean result = this.loadValidations("seriesParameter", seriesParameter);
-        result = result || this.loadValidationReports("seriesParameter", seriesParameter);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("seriesParameter", seriesParameter);
         return result;
     }
 
     @Override
     public boolean run(SeriesParameterValue seriesParameterValue) {
         boolean result = this.loadValidations("seriesParameterValue", seriesParameterValue);
-        result = result || this.loadValidationReports("seriesParameterValue", seriesParameterValue);
+                // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("seriesParameterValue", seriesParameterValue);
         return result;
     }
 
     @Override
     public boolean run(MediaParameter mediaParameter) {
         boolean result = this.loadValidations("mediaParameter", mediaParameter);
-        result = result || this.loadValidationReports("mediaParameter", mediaParameter);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("mediaParameter", mediaParameter);
         return result;
     }
 
     @Override
     public boolean run(MediaSampleParameter mediaSampleParameter) {
         boolean result = this.loadValidations("mediaSampleParameter", mediaSampleParameter);
-        result = result || this.loadValidationReports("mediaSampleParameter", mediaSampleParameter);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("mediaSampleParameter", mediaSampleParameter);
         return result;
     }
 
     @Override
     public boolean run(MediaSample mediaSample) {
         boolean result = this.loadValidations("mediaSample", mediaSample);
-        result = result || this.loadValidationReports("mediaSample", mediaSample);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("mediaSample", mediaSample);
         return result;
     }
 
     @Override
     public boolean run(MediaSection mediaSection) {
         boolean result = this.loadValidations("mediaSection", mediaSection);
-        result = result || this.loadValidationReports("mediaSection", mediaSection);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("mediaSection", mediaSection);
         return result;
     }
 
     @Override
     public boolean run(MediaFile MediaFile) {
         boolean result = this.loadValidations("MediaFile", MediaFile);
-        result = result || this.loadValidationReports("MediaFile", MediaFile);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("MediaFile", MediaFile);
         return result;
     }
 
     @Override
     public boolean run(ParameterAssociation parameterAssociation) {
         boolean result = this.loadValidations("parameterAssociation", parameterAssociation);
-        result = result || this.loadValidationReports("parameterAssociation", parameterAssociation);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("parameterAssociation", parameterAssociation);
         return result;
     }
 
     @Override
     public boolean run(Dimension dimension) {
         boolean result = this.loadValidations("dimension", dimension);
-        result = result || this.loadValidationReports("dimension", dimension);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("dimension", dimension);
         return result;
     }
 
     @Override
     public boolean run(SeriesMediaParameter seriesMediaParameter) {
         boolean result = this.loadValidations("seriesMediaParameter", seriesMediaParameter);
-        result = result || this.loadValidationReports("seriesMediaParameter", seriesMediaParameter);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("seriesMediaParameter", seriesMediaParameter);
         return result;
     }
 
     @Override
     public boolean run(SeriesMediaParameterValue seriesMediaParameterValue) {
         boolean result = this.loadValidations("seriesMediaParameterValue", seriesMediaParameterValue);
-        result = result || this.loadValidationReports("seriesMediaParameterValue", seriesMediaParameterValue);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("seriesMediaParameterValue", seriesMediaParameterValue);
         return result;
     }
 
     @Override
     public boolean run(ProcedureMetadata procedureMetadata) {
         boolean result = this.loadValidations("procedureMetadata", procedureMetadata);
-        result = result || this.loadValidationReports("procedureMetadata", procedureMetadata);
+        // Removed as there is not FK link to this class in VALIDATIONREPORT
+        //result = result || this.loadValidationReports("procedureMetadata", procedureMetadata);
         return result;
     }
     //specimen

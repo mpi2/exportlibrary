@@ -21,14 +21,10 @@
  */
 package org.mousephenotype.dcc.exportlibrary.xmlvalidationresourcescollection.impress;
 
-
-
 import org.mousephenotype.impress.soap.server.ArrayOfString;
 import org.mousephenotype.impress.soap.server.ImpressSoapPort;
 import org.mousephenotype.impress.soap.server.ImpressSoapService;
 import org.slf4j.LoggerFactory;
-
-
 
 /**
  *
@@ -43,7 +39,7 @@ public class Resource {
     //initializing impress ws connection
     static {
         try {
-            service = new ImpressSoapService(); 
+            service = new ImpressSoapService();
             port = service.getImpressSoapPort();
         } catch (Exception ex) {
             logger.error("cannot connect to Impress", ex);
@@ -54,8 +50,6 @@ public class Resource {
         return port.isValidParameter(parameterID);
     }
 
-    
-    
     public static boolean validParameter(String procedureID, String parameterID) {
         return port.procedureHasParameter(procedureID, parameterID);
     }
@@ -91,7 +85,8 @@ public class Resource {
     public static Object getParameterOptions(String parameterKey) {
         return port.getParameterOptions(parameterKey);
     }
-    public static Object getParameterOntologyOptions(String parameterKey){
+
+    public static Object getParameterOntologyOptions(String parameterKey) {
         return port.getParameterOntologyOptions(parameterKey);
     }
 
@@ -99,8 +94,8 @@ public class Resource {
         return port.getParameterIncrements(parameterKey);
     }
 
-    public static Object getProcedure(String procedureKey) {
-        return port.getProcedure(procedureKey);
+    public static Object getProcedure(String procedureKey, String pipelineKey) {
+        return port.getProcedure(procedureKey, pipelineKey);
     }
 
     public static Object getParameter(String parameterKey) {

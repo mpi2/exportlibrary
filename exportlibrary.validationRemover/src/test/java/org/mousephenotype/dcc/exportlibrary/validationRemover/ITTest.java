@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 public class ITTest {
     private static final Logger logger = LoggerFactory.getLogger(ITTest.class);
     private int execute(String[] args) throws Exception {
-	String  __EXECUTABLE__= "target/exportlibrary.validationRemover-1.0.0-jar-with-dependencies.jar";
+	String  __EXECUTABLE__= "target/exportlibrary.validationRemover-1.0.1-jar-with-dependencies.jar";
         File jar = new File(__EXECUTABLE__);
         String[] execArgs = new String[args.length + 3];
         System.arraycopy(args, 0, execArgs, 3, args.length);

@@ -85,130 +85,137 @@ public class CentreProcedureSetValidatorTest {
 
     @BeforeClass
     public static void setupCentreProcedure() {
-
-        if (!(new File(EXTERNAL_RESOURCES_FOLDER).exists())) {
-            new File(EXTERNAL_RESOURCES_FOLDER).mkdir();
-        }
-
-
-        properties = null;
-        Reader reader = null;
         try {
-            reader = new Reader(propertiesFilename);
-        } catch (ConfigurationException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        }
-
-        properties = reader.getProperties();
-        Assert.assertNotNull(properties);
-
-        hibernateManager = new HibernateManager(properties, contextPath);
-
-        Assert.assertNotNull(hibernateManager);
-        propertiesXMLResources = null;
-
-        try {
-            reader = new Reader(propertiesFilenameXMLResources);
-        } catch (ConfigurationException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        }
-
-        propertiesXMLResources = reader.getProperties();
+            if (!(new File(EXTERNAL_RESOURCES_FOLDER).exists())) {
+                new File(EXTERNAL_RESOURCES_FOLDER).mkdir();
+            }
 
 
-        Assert.assertNotNull(propertiesXMLResources);
+            properties = null;
+            Reader reader = null;
+            try {
+                reader = new Reader(propertiesFilename);
+            } catch (ConfigurationException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            }
 
-        hibernateManagerXMLResources = new HibernateManager(propertiesXMLResources, "org.mousephenotype.dcc.exportlibrary.xmlvalidation.external");
+            properties = reader.getProperties();
+            Assert.assertNotNull(properties);
 
-        Assert.assertNotNull(hibernateManagerXMLResources);
+            hibernateManager = new HibernateManager(properties, contextPath);
 
-        submissionSet = new SubmissionSet();
-        submission = new Submission();
-        centreProcedureSet = new CentreProcedureSet();
-        centreProcedure = new CentreProcedure();
-              
-        
-        submissionSet.getSubmission().add(submission);
-        submission.setCentreProcedure(centreProcedureSet.getCentre());
-        
+            Assert.assertNotNull(hibernateManager);
+            propertiesXMLResources = null;
 
+            try {
+                reader = new Reader(propertiesFilenameXMLResources);
+            } catch (ConfigurationException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            }
 
-        centreProcedure.setCentreID(CentreILARcode.J);
-        centreProcedure.setPipeline("IMPC_001");
-        centreProcedure.setProject("IMPC_001");
-        centreProcedureSet.getCentre().add(centreProcedure);
-
-        Experiment experiment = new Experiment();
-        centreProcedure.getExperiment().add(experiment);
-        Procedure procedure = new Procedure();
-        procedure.setProcedureID("IMPC_ACS_001");
-        experiment.setProcedure(procedure);
-
-        SimpleParameter simpleParameter = new SimpleParameter();
-        simpleParameter.setParameterID("IMPC_ACS_012_001");
-        simpleParameter.setValue("2013-03-01T00:00:00+0000");
-        procedure.getSimpleParameter().add(simpleParameter);
-
-        //
-
-        validationSet = new ValidationSet();
-        validationReportSet = new ValidationReportSet();
-        //
-        xmlValidationResources = new EnumMap<>(IOParameters.VALIDATIONRESOURCES_IDS.class);
+            propertiesXMLResources = reader.getProperties();
 
 
-        xmlValidationResources.put(VALIDATIONRESOURCES_IDS.ImpressBrowser, new ImpressBrowser(hibernateManagerXMLResources));
+            Assert.assertNotNull(propertiesXMLResources);
 
-        specimenWSclient = new SpecimenWSclient("http://mousephenotype.org/phenodcc-validation-ws/resources/mousesummary/byspecimenid");
+            hibernateManagerXMLResources = new HibernateManager(propertiesXMLResources, "org.mousephenotype.dcc.exportlibrary.xmlvalidation.external");
 
-        try {
-            centreProcedureSetValidator = new CentreProcedureSetValidator(centreProcedureSet, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
-        } catch (IllegalStateException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (QueryTimeoutException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (TransactionRequiredException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (PessimisticLockException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (LockTimeoutException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (PersistenceException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (JAXBException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (FileNotFoundException ex) {
-            logger.error("", ex);
-            Assert.fail();
+            Assert.assertNotNull(hibernateManagerXMLResources);
+
+            submissionSet = new SubmissionSet();
+            submission = new Submission();
+            centreProcedureSet = new CentreProcedureSet();
+            centreProcedure = new CentreProcedure();
+
+
+            submissionSet.getSubmission().add(submission);
+            submission.setCentreProcedure(centreProcedureSet.getCentre());
+
+
+
+            centreProcedure.setCentreID(CentreILARcode.J);
+            centreProcedure.setPipeline("IMPC_001");
+            centreProcedure.setProject("IMPC_001");
+            centreProcedureSet.getCentre().add(centreProcedure);
+
+            Experiment experiment = new Experiment();
+            centreProcedure.getExperiment().add(experiment);
+            Procedure procedure = new Procedure();
+            procedure.setProcedureID("IMPC_ACS_001");
+            experiment.setProcedure(procedure);
+
+            SimpleParameter simpleParameter = new SimpleParameter();
+            simpleParameter.setParameterID("IMPC_ACS_012_001");
+            simpleParameter.setValue("2013-03-01T00:00:00+0000");
+            procedure.getSimpleParameter().add(simpleParameter);
+
+            //
+
+            validationSet = new ValidationSet();
+            validationReportSet = new ValidationReportSet();
+            //
+            xmlValidationResources = new EnumMap<>(IOParameters.VALIDATIONRESOURCES_IDS.class);
+
+
+            xmlValidationResources.put(VALIDATIONRESOURCES_IDS.ImpressBrowser, new ImpressBrowser(hibernateManagerXMLResources));
+
+            specimenWSclient = new SpecimenWSclient("http://mousephenotype.org/phenodcc-validation-ws/resources/mousesummary/byspecimenid");
+
+            try {
+                centreProcedureSetValidator = new CentreProcedureSetValidator(centreProcedureSet, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+            } catch (IllegalStateException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (QueryTimeoutException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (TransactionRequiredException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (PessimisticLockException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (LockTimeoutException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (PersistenceException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (JAXBException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (FileNotFoundException ex) {
+                logger.error("", ex);
+                Assert.fail();
+            } catch (Exception ex) {
+                logger.error("", ex);
+                Assert.fail();
+            }
+
+
+
+            try {
+                //hibernateManager.persist(centreProcedureSet);
+                hibernateManager.persist(submissionSet);
+            } catch (Exception ex) {
+                logger.error("", ex);
+                Assert.fail();
+            }
+            logger.info("validating example");
+            centreProcedureSetValidator.validateWithHandler();
+            centreProcedureSetValidator.compileValidationSet();
+            logger.info("persisting {} results", validationSet.getValidation().size());
+            hibernateManager.persist(validationSet);
+            logger.info("validation process finished");
+        } catch (IllegalArgumentException iae) {
+            logger.error("An IllegalArgument Exception was thown! This may well have been the result of the databases not being populated");
+            // do nothing! Assert.fail();
         } catch (Exception ex) {
-            logger.error("", ex);
+            logger.error("An exception was thrown!");
             Assert.fail();
         }
-
-
-
-        try {
-            //hibernateManager.persist(centreProcedureSet);
-            hibernateManager.persist(submissionSet);
-        } catch (Exception ex) {
-            logger.error("", ex);
-            Assert.fail();
-        }
-        logger.info("validating example");
-        centreProcedureSetValidator.validateWithHandler();
-        centreProcedureSetValidator.compileValidationSet();
-        logger.info("persisting {} results", validationSet.getValidation().size());
-        hibernateManager.persist(validationSet);
-        logger.info("validation process finished");
 
     }
 

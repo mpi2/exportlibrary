@@ -83,7 +83,7 @@ public class IMITSBrowser extends Incarnator {
 
         PhenotypeAttempt phenotypeAttempt = null;
         if (this.liveAttempts.containsKey(colonyID)) {
-            logger.info("{} is cached", colonyID);
+            logger.trace("{} is cached", colonyID);
             return true;
         }
 
@@ -138,7 +138,7 @@ public class IMITSBrowser extends Incarnator {
             logger.error("no phenotype attempts found ", ex);
         }
         if (phenotypeAttemptsFromDB != null) {
-            logger.info(" {} phenotypeAttempt instances found in the database", phenotypeAttemptsFromDB.getPhenotypeAttempt().size());
+            logger.trace(" {} phenotypeAttempt instances found in the database", phenotypeAttemptsFromDB.getPhenotypeAttempt().size());
         }
         if (phenotypeAttemptsFromDB == null) {
             logger.info("phentoype attempts is empty.Creating a new one");

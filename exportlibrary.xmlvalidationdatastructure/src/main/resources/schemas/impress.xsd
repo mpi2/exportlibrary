@@ -53,7 +53,7 @@
         <xs:attribute name="pipeline_name" type="xs:string"  use="required"/>
         <xs:attribute name="minor_version" type="xs:integer" use="required"/>
         <xs:attribute name="pipeline_id"   type="xs:integer" use="required"/>
-        <xs:attribute name="description"   type="xs:string"  use="required"/>
+        <xs:attribute name="description"   type="xs:string"/>
         <xs:attribute name="major_version" type="xs:integer" use="required"/>
         <xs:attribute name="pipeline_key"  type="xs:string"  use="required"/>
     </xs:complexType>
@@ -69,7 +69,7 @@
         <xs:attribute name="is_deprecated"  type="xs:boolean" use="required"/> 
         <xs:attribute name="minor_version"  type="xs:integer" use="required"/>     
         <xs:attribute name="procedure_id"   type="xs:integer" use="required"/>  
-        <xs:attribute name="description"    type="xs:string"  use="required"/>
+        <xs:attribute name="description"    type="xs:string"/>
         <xs:attribute name="major_version"  type="xs:integer" use="required"/>     
         <xs:attribute name="procedure_name" type="xs:string"  use="required"/>    
         <xs:attribute name="is_mandatory"   type="xs:boolean" use="required"/> 
@@ -109,12 +109,12 @@
         <xs:attribute name="is_deprecated"                 type="xs:boolean"           use="required"/>
         <xs:attribute name="graph_type"                    type="xs:string"            use="required"/>
    <!-- <xs:attribute name="is_metadata"                   type="xs:boolean"           use="required"/>  present on version prior to type-->
-        <xs:attribute name="qc_notes"                      type="xs:string"            use="required"/>
+        <xs:attribute name="qc_notes"                      type="xs:string"/>
         <xs:attribute name="qc_check"                      type="xs:boolean"           use="required"/> <!--if true you need to check qc_min and qc_max that can be null values -->
         <xs:attribute name="qc_maximum"                    type="xs:float"             use="required"/>
         <xs:attribute name="qc_minimum"                    type="xs:float"             use="required"/>     
         <xs:attribute name="is_annotation"                 type="xs:boolean"           use="required"/>
-        <xs:attribute name="data_analysis_notes"           type="xs:string"            use="required"/>
+        <xs:attribute name="data_analysis_notes"           type="xs:string"/>
         <xs:attribute name="type"                          type="ImpressParameterType" use="required"/>
    <!-- <xs:attribute name="is_media"                      type="xs:boolean"           use="required"/> present on version prior to type-->
         <xs:attribute name="is_option"                     type="xs:boolean"           use="required"/>
@@ -122,7 +122,7 @@
         <xs:attribute name="is_required"                   type="xs:boolean"           use="required"/>
         <xs:attribute name="minor_version"                 type="xs:integer"           use="required"/>
         <xs:attribute name="derivation"                    type="xs:string"            use="required"/>
-        <xs:attribute name="description"                   type="xs:string"            use="required"/>
+        <xs:attribute name="description"                   type="xs:string"/>
         <xs:attribute name="major_version"                 type="xs:integer"           use="required"/>
         <xs:attribute name="parameter_id"                  type="xs:integer"           use="required"/>
         <xs:attribute name="is_derived"                    type="xs:boolean"           use="required"/>
@@ -151,7 +151,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:attribute name="is_active"          type="xs:boolean" use="required"/> 
-        <xs:attribute name="description"        type="xs:string"  use="required"/>
+        <xs:attribute name="description"        type="xs:string"/>
         <xs:attribute name="name"               type="xs:string"  use="required"/>
         <xs:attribute name="parent_name"        type="xs:string"  use="required"/>
         <xs:attribute name="parent_description" type="xs:string"  use="required"/>

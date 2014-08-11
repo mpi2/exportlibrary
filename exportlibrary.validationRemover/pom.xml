@@ -6,7 +6,7 @@
     <artifactId>exportlibrary.validationRemover</artifactId>
     <packaging>jar</packaging>
     <name>exportlibrary.validationRemover</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>
         
     </description>
@@ -281,7 +281,7 @@
         <dependency>
             <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
             <artifactId>exportlibrary.datastructure</artifactId>
-            <version>3.7</version>
+            <version>3.8</version>
             <type>jar</type>
         </dependency>
         <dependency>

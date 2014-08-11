@@ -145,7 +145,8 @@ public class ImitsHTTPClient {
         builder.addParameter("status_name_in[]", "Cre Excision Complete");
         builder.addParameter("status_name_in[]", "Phenotype Attempt Registered");
         builder.addParameter("status_name_in[]", "Phenotyping Started");
-        builder.addParameter("status_name_in[]", "Phenotyping Completed");
+        builder.addParameter("status_name_in[]", "Phenotyping Complete");
+        builder.addParameter("status_name_in[]", "Rederivation Complete");
         builder.addParameter("colony_name_eq", colonyID);
 
         return builder.build();
@@ -167,8 +168,9 @@ public class ImitsHTTPClient {
         builder.addParameter("status_name_in[]", "Cre Excision Complete");
         builder.addParameter("status_name_in[]", "Phenotype Attempt Registered");
         builder.addParameter("status_name_in[]", "Phenotyping Started");
-        builder.addParameter("status_name_in[]", "Phenotyping Completed");
-
+        builder.addParameter("status_name_in[]", "Rederivation Complete");
+        builder.addParameter("status_name_in[]", "Phenotyping Complete");
+        
         return builder.build();
     }
 

@@ -45,7 +45,7 @@ import org.slf4j.LoggerFactory;
  * @author julian
  */
 public class XMLValidationControl {
-
+    
     protected static final org.slf4j.Logger logger = LoggerFactory.getLogger(XMLValidationControl.class);
     //
     private final IOController ioController;
@@ -60,7 +60,7 @@ public class XMLValidationControl {
         this.entityController = new EntityController();
         this.validatorController = new ValidatorController();
     }
-
+    
     private IOParameters getDataToValidate(Map<CONNECTOR_NAMES, IOParameters> ioparametersMap) {
         if (ioparametersMap.containsKey(CONNECTOR_NAMES.centreProcedureSetIncarnator)) {
             return ioparametersMap.get(CONNECTOR_NAMES.centreProcedureSetIncarnator);
@@ -71,21 +71,29 @@ public class XMLValidationControl {
         if (ioparametersMap.containsKey(CONNECTOR_NAMES.submissionIncarnator)) {
             return ioparametersMap.get(CONNECTOR_NAMES.submissionIncarnator);
         }
-
+        
         return null;
     }
-
+    
     public void run(Map<CONNECTOR_NAMES, IOParameters> ioparametersMap, String externalConfigurationFilename) throws JAXBException, FileNotFoundException, Exception {
         this.ioController.setExternalPropertiesFilename(externalConfigurationFilename);
         logger.info("setting up i/o");
-        DOCUMENTS doc = this.getIoController().setup(ioparametersMap);
-        logger.info("loading data to validate");
-        IOParameters dataToValidate = getDataToValidate(ioparametersMap);
-        this.loadDataToValidate(doc, dataToValidate.getDoc_srcs(), dataToValidate.getHjid(), dataToValidate.getHjid(), dataToValidate.getHjid());
-
-
+        //////////
+        // THIS CREATES ALL THE DATABASES (DJS)
+        //////////
+        DOCUMENTS doc = null;
+        try {
+            doc = this.getIoController().setup(ioparametersMap);
+            logger.info("loading data to validate");
+            IOParameters dataToValidate = getDataToValidate(ioparametersMap);
+            this.loadDataToValidate(doc, dataToValidate.getDoc_srcs(), dataToValidate.getHjid(), dataToValidate.getHjid(), dataToValidate.getHjid());
+        } catch (IllegalArgumentException ias) {
+            logger.error("An IllegalArgumentException has been thrown when during execution. This may have been caused by a problem when creating or getting the data to carry out validation.", ias);
+            throw new IllegalArgumentException("An IllegalArgumentException has been thrown when during execution. This may have been caused by a problem when creating or getting the data to carry out validation.", ias);
+        }
+        
         IOParameters ipp = null;
-
+        
         if (ioparametersMap.containsKey(CONNECTOR_NAMES.centreProcedureSetIncarnator)) {
             ipp = ioparametersMap.get(CONNECTOR_NAMES.centreProcedureSetIncarnator);
         }
@@ -95,18 +103,18 @@ public class XMLValidationControl {
         if (ioparametersMap.containsKey(CONNECTOR_NAMES.submissionIncarnator)) {
             ipp = ioparametersMap.get(CONNECTOR_NAMES.submissionIncarnator);
         }
-
+        
         if (ipp.getIos().equals(IOParameters.IOS.EXTERNAL_DB_PROPERTIES)
                 || ipp.getIos().equals(IOParameters.IOS.DEFAULT_DB_PROPERTIES)) {
             logger.error("removing previous validation exceptions");
-
+            
             try {
                 this.validationRemover = new ValidationRemover(this.getIoController().getHibernateManager(ipp.getIos(), ipp.getValues()));
-                validationRemover.run(ipp.getHjid());
+                validationRemover.run(ipp.getHjid().longValue());
             } catch (Exception ex) {
-                logger.error("exception thrown on removing validations", ex.getMessage());
+                logger.error("exception thrown on removing validations", ex);
             }
-
+            
             logger.info("validating process running");
             this.validate(doc);
             logger.info("serializing results");
@@ -114,24 +122,24 @@ public class XMLValidationControl {
 
 
 
-            try {
-                traverser = new Traverser(this.getIoController().getHibernateManager(ipp.getIos(), ipp.getValues()));
-                traverser.run(dataToValidate.getHjid(), new ResourceVersion());
-            } catch (Exception ex) {
-                logger.error("exception thrown building validation reports", ex);
-            }
+//            try {
+//                traverser = new Traverser(this.getIoController().getHibernateManager(ipp.getIos(), ipp.getValues()));
+//                traverser.run(dataToValidate.getHjid(), new ResourceVersion());
+//            } catch (Exception ex) {
+//                logger.error("exception thrown building validation reports", ex);
+//            }
 
-        }else{
+        } else {
             logger.info("validating process running");
             this.validate(doc);
             logger.info("serializing results");
             this.serializeResults(doc);
         }
-
+        
         logger.info("closing infrastructure");
         this.close();
     }
-
+    
     private void loadDataToValidate(DOCUMENTS doc, DOCUMENT_SRCS dsrc, Long centreset_hijd, Long submission_trackerID, Long submissionSet_hjid) throws JAXBException, FileNotFoundException, Exception {
         switch (doc) {
             case CENTREPROCEDURESET:
@@ -148,7 +156,7 @@ public class XMLValidationControl {
                         this.getEntityController().setCentreProcedureSet(this.getIoController().getSubmissionSetIncarnator().getCentreProcedureSet());
                         return;
                 }
-
+            
             case CENTRESPECIMENSET:
                 switch (dsrc) {
                     case CENTRESPECIMENSET:
@@ -172,7 +180,7 @@ public class XMLValidationControl {
         xmlValidationResources.put(IOParameters.VALIDATIONRESOURCES_IDS.Imits, this.ioController.getIMITSBrowser());
         xmlValidationResources.put(IOParameters.VALIDATIONRESOURCES_IDS.MGIBrowser, this.ioController.getMGIBrowser());
         xmlValidationResources.put(IOParameters.VALIDATIONRESOURCES_IDS.Statuscodes, this.ioController.getStatusCodesBrowser());
-
+        
         switch (doc) {
             case CENTREPROCEDURESET:
                 CentreProcedureSetValidator centreProcedureSetValidator =
@@ -183,7 +191,7 @@ public class XMLValidationControl {
                 this.validatorController.setCentreProcedureSetValidator(centreProcedureSetValidator);
                 break;
             case CENTRESPECIMENSET:
-
+                
                 CentreSpecimenSetValidator centreSpecimenSetValidator =
                         new CentreSpecimenSetValidator(this.entityController.getCentreSpecimenSet(),
                         this.entityController.getValidationSet(),
@@ -193,7 +201,7 @@ public class XMLValidationControl {
                 break;
         }
     }
-
+    
     private void validate(DOCUMENTS doc) throws IllegalStateException, QueryTimeoutException, TransactionRequiredException, PessimisticLockException, LockTimeoutException, PersistenceException, JAXBException, FileNotFoundException, Exception {
         this.setupValidationInfrastructure(doc);
         switch (doc) {
@@ -206,12 +214,12 @@ public class XMLValidationControl {
                 this.validatorController.getCentreSpecimenSetValidator().compileValidationSet();
         }
     }
-
+    
     private void serializeResults(DOCUMENTS doc) throws JAXBException, IllegalStateException, EntityExistsException, IllegalArgumentException, TransactionRequiredException, RuntimeException, Exception {
         this.ioController.getValidationSetSerializer().serialize(this.entityController.getValidationSet(), ValidationSet.class);
         //this.ioController.getValidationReportSetSerializer().serialize(this.entityController.getValidationReportSet(), ValidationReportSet.class);
     }
-
+    
     public void close() {
         logger.info("closing {} hibernate managers", this.ioController.getHibernateManagers().size());
         for (HibernateManager hibernateManager : this.ioController.getHibernateManagers()) {
@@ -221,7 +229,7 @@ public class XMLValidationControl {
             } catch (HibernateException ex) {
                 logger.error("cannot close hibernate manager for {}", ex, hibernateManager.getPersistencename());
             }
-
+            
         }
         this.ioController.clearHibernateManagers();
     }
