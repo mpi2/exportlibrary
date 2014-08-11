@@ -9,3 +9,4 @@
 /exportlibrary.fullTraverser/target/
 /exportlibrary.xmlvalidation/target/
 /exportlibrary.impressexamplesgeneration/target/
+/exportlibrary.exporterworker/src/main/resources/updateIdahoFromLive.sh
