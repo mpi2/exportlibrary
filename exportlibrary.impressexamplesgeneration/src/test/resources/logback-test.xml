@@ -57,7 +57,7 @@
     <appender name="FILE_DEBUG" class="ch.qos.logback.core.FileAppender">
         <file>${TEST_LOGS_HOME}/debug_${bySecond}.log</file>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
+            <level>INFO</level>
             <OnMatch>ACCEPT</OnMatch>
             <OnMismatch>DENY</OnMismatch>
         </filter>
@@ -100,7 +100,7 @@
     </logger>
     
     <logger name="com.mchange.v2.c3p0"> <!--util.logger -->
-        <level value="FATAL"/>
+        <level value="SEVERE"/>
         <appender-ref ref="FILE_ERROR"/>
         <appender-ref ref="CONSOLE"/>
     </logger>

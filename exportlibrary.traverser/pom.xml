@@ -269,8 +269,8 @@
                     </execution>
                 </executions>
             </plugin>
-            
-            <plugin> <!-- run the Integration Tests -->
+            <!-- 
+            <plugin> 
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.14</version>
@@ -283,7 +283,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+            -->
         </plugins>
 
     </build>
@@ -300,7 +300,7 @@
         <dependency>
             <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
             <artifactId>exportlibrary.datastructure</artifactId>
-            <version>3.7</version>
+            <version>3.8</version>
             <type>jar</type>
         </dependency>
         

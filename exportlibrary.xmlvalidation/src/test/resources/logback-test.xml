@@ -55,7 +55,7 @@
     <appender name="FILE_DEBUG" class="ch.qos.logback.core.FileAppender">
         <file>${TEST_LOGS_HOME}/debug_${bySecond}.log</file>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
+            <level>INFO</level>
             <OnMatch>ACCEPT</OnMatch>
             <OnMismatch>DENY</OnMismatch>
         </filter>
@@ -80,7 +80,7 @@
     <appender name="FILE_WARN" class="ch.qos.logback.core.FileAppender">
         <file>${TEST_LOGS_HOME}/warn_${bySecond}.log</file>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>WARN</level>
+            <level>ERROR</level>
             <OnMatch>ACCEPT</OnMatch>
             <OnMismatch>DENY</OnMismatch>
         </filter>
@@ -103,20 +103,11 @@
     
     
     
-    <logger name="org.hibernate"> <!--slf4.Log -->
-        <!-- <level value="TRACE" /> -->
-        <level value="INFO" />
-        <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="FILE_ALL"/>
-        <appender-ref ref="FILE_INFO"/>
-        <appender-ref ref="FILE_DEBUG"/>
-        <appender-ref ref="FILE_WARN"/>
-        <appender-ref ref="FILE_ERROR"/>
-    </logger>
+   
     
     <logger name="com.mchange.v2.c3p0"> <!--util.logger -->
         <!--<level value="FINEST"/> -->
-        <level value="INFO" />
+        <level value="SEVERE" />
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE_ALL"/>
         <appender-ref ref="FILE_INFO"/>
@@ -128,7 +119,7 @@
 
 <!--TRACE DEBUG INFO WARN ERROR -->
     <!-- <root level="ALL"> -->
-    <root level="INFO">
+    <root>
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE_DEBUG" />
         <appender-ref ref="FILE_WARN" />

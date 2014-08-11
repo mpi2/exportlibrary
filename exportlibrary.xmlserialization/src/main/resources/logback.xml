@@ -21,16 +21,13 @@
     the License.
 
 -->
-<configuration debug="false"> 
+<configuration> 
     <property name="EXECUTION_LOGS_HOME" value="exec_logs" />
    
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
        
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">        
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
         <encoder>
             <pattern>%d{HH:mm:ss}  %msg%n</pattern>
         </encoder>
@@ -39,58 +36,42 @@
         
     <appender name="FILE_ERROR" class="ch.qos.logback.core.FileAppender">
         <file>${EXECUTION_LOGS_HOME}/error_${bySecond}.log</file>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <OnMatch>NEUTRAL</OnMatch>
-            <OnMismatch>DENY</OnMismatch>
-        </filter>
         <encoder>
             <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>
         </encoder>
     </appender>
        
- <appender name="FILE_INFO" class="ch.qos.logback.core.FileAppender">
-        <file>${EXECUTION_LOGS_HOME}/ALL_${bySecond}.log</file>
-        <encoder>
-            <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>
-        </encoder>
-    </appender>
+
+    
         <!--http://www.mchange.com/projects/c3p0/index.html#configuring_logging --> 
- <property name="com.mchange.v2.log.MLog"                              value="com.mchange.v2.log.log4j.Log4jMLog"/>
- <property name="com.mchange.v2.log.NameTransformer"                   value="com.mchange.v2.log.PackageNames"/>
- <property name="com.mchange.v2.log.FallbackMLog.DEFAULT_CUTOFF_LEVEL" value="ALL"/>
+    <property name="com.mchange.v2.log.MLog"                              value="com.mchange.v2.log.log4j.Log4jMLog"/>
+    <property name="com.mchange.v2.log.NameTransformer"                   value="com.mchange.v2.log.PackageNames"/>
+    <property name="com.mchange.v2.log.FallbackMLog.DEFAULT_CUTOFF_LEVEL" value="ALL"/>
  
 
-<!-- OFF SEVERE WARNING INFO CONFIG FINE FINER FINEST ALL -->
- <logger name="com.mchange.v2.c3p0"> 
-        <level value="INFO"/>
+    <!-- OFF SEVERE WARNING INFO CONFIG FINE FINER FINEST ALL -->
+    <logger name="com.mchange.v2.c3p0"> 
+        <level value="OFF"/>
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="FILE_ALL"/>
-        <appender-ref ref="FILE_DEBUG"/>
-        <appender-ref ref="FILE_TRACE"/>
+        <appender-ref ref="FILE_ERROR"/>
     </logger>
- 
- 
- 
-  
-    
+
     <logger name="org.hibernate.event.internal.AbstractFlushingEventListener">
-        <level value="INFO"/>
-        <appender-ref ref="FILE_INFO"/>
+        <level value="ERROR"/>
+        <appender-ref ref="FILE_ERROR"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
  
     <logger name="org.hibernate"> > 
-        <level value="INFO" />
-        <appender-ref ref="FILE_INFO"/>
+        <level value="ERROR" />
         <appender-ref ref="FILE_ERROR"/>
         <appender-ref ref="CONSOLE"/>
     </logger> 
-    
 
     <root>
+        <level value="INFO"></level>
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="FILE_ERROR" />    
+        <appender-ref ref="FILE_ERROR" />   
     </root>
 </configuration>
 

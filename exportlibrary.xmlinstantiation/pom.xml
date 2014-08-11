@@ -208,12 +208,18 @@
     </build>
     
     <dependencies>
-       
+        <!-- 
+        <dependency>
+            <groupId>org.mousephenotype.dcc.exportlibrary.utils</groupId>
+            <artifactId>exportlibrary.utils</artifactId>
+            <version>1.2-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency> -->
         
         <dependency>
             <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
             <artifactId>exportlibrary.datastructure</artifactId>
-            <version>3.7</version>
+            <version>3.8</version>
             <type>jar</type>
         </dependency>
         

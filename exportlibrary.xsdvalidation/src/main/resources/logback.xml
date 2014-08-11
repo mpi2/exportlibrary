@@ -32,7 +32,7 @@
             <level>INFO</level>
         </filter>
         <encoder>
-            <pattern>%d{HH:mm:ss}  %msg%n</pattern>
+            <pattern>%d %msg%n</pattern>
         </encoder>
     </appender>
     
@@ -40,7 +40,7 @@
     <appender name="FILE_ERROR" class="ch.qos.logback.core.FileAppender">
         <file>${EXECUTION_LOGS_HOME}/info_${bySecond}.log</file>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
+            <level>ERROR</level>
         </filter>
         <encoder>
             <pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>

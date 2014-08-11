@@ -50,7 +50,7 @@
     <appender name="FILE_DEBUG" class="ch.qos.logback.core.FileAppender">
         <file>${TEST_LOGS_HOME}/debug_${bySecond}.log</file>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
+            <level>INFO</level>
             <OnMatch>NEUTRAL</OnMatch>
             <OnMismatch>DENY</OnMismatch>
         </filter>

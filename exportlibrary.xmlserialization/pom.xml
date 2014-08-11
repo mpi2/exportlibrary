@@ -6,7 +6,7 @@
     <artifactId>exportlibrary.xmlserialization</artifactId>
     <packaging>jar</packaging>
     <name>exportlibrary.xmlserialization</name>
-    <version>1.2.0</version>    
+    <version>1.3.0</version>    
     <description>
 
     </description>
@@ -18,11 +18,11 @@
         <version>2.0.0</version>    
     </parent>
 
-    <url><!--@TODO add url --></url>
+    <url>http://labs.publicdevelopment1.har.mrc.ac.uk/dcc/exportlibrary/exportlibrary.xmlserialization</url>
 
     <issueManagement>
         <system>JIRA</system>
-        <url><!--@TODO add url --></url>
+        <url>http://source.har.mrc.ac.uk:8080/browse/IMPC/component/10145</url>
     </issueManagement>
 
 
@@ -58,10 +58,10 @@
 
     <scm>
         <connection>
-            <!--@TODO add url -->
+            scm:svn:svn://julian:julian@source.har.mrc.ac.uk/PhenoDCC/exportlibrary/trunk/exportlibrary/exportlibrary.xmlserialization
         </connection>
         <url>
-            <!--@TODO add url -->
+            http://source.har.mrc.ac.uk/websvn/wsvn/Pheno-DCC/
         </url>
     </scm>
  
@@ -215,7 +215,7 @@
                 </dependencies>
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
-                    <skipTests>true</skipTests>
+                    <skipTests>false</skipTests>
                     <excludes> <!-- http://ant.apache.org/manual/dirtasks.html -->
                         <exclude>**/IT*.java</exclude>
                     </excludes>
@@ -314,7 +314,7 @@
         <dependency>
             <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
             <artifactId>exportlibrary.datastructure</artifactId>
-            <version>3.7</version>
+            <version>3.8</version>
             <type>jar</type>
         </dependency>
 

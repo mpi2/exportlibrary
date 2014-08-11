@@ -23,23 +23,23 @@
 
 -->
 <xs:schema xmlns="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
-    targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" elementFormDefault="qualified"
-    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:pc="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"
+           targetNamespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/procedure" elementFormDefault="qualified"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
     <xs:import namespace="http://www.mousephenotype.org/dcc/exportlibrary/datastructure/core/common"  schemaLocation="common.xsd"/>
      
     <xs:element name="centreProcedureSet">
-    <xs:complexType>
-        <xs:annotation>
-            <xs:documentation xml:lang="en"> Top level term of the experimental data document. An
-                xml document following this xsd must have at least one centreProcedure element.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence minOccurs="1" maxOccurs="unbounded">
-            <xs:element name="centre" type="CentreProcedure"/>
-        </xs:sequence>
-    </xs:complexType>
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation xml:lang="en"> Top level term of the experimental data document. An
+                    xml document following this xsd must have at least one centreProcedure element.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="centre" type="CentreProcedure"/>
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
     
     <xs:complexType name="CentreProcedure">
@@ -48,7 +48,7 @@
                 A Centre submits at least one experiment. 
                 Attributes:
                 centreID : ILAR code of the centre this data was generated.
-                           If one centre is submitting data from other centres, centreID should be original's.
+                If one centre is submitting data from other centres, centreID should be original's.
                 pipeline : IMPReSS identifier from which this data was generated. 
                 project  : The IMPC  project under which this data was generated.
             </xs:documentation>
@@ -75,7 +75,7 @@
                 A procedure can have multiple types of parameters.
                 Attributes: 
                 sequenceID       : if a  procedure is repeated multiple times for an animal (eg. body weight), then the
-                                   indidual measurements must have different sequenceID values, (eg age of the animal)
+                indidual measurements must have different sequenceID values, (eg age of the animal)
                 experimentID     : centre's experiment identifier. 
                 dateOfExperiment : only the date the  procedure started, no time of the day, following the pattern yyyy-MM-dd eg. 2012-12-31 
                 
@@ -99,7 +99,7 @@
                 This data can be submitted by email to Natasha Karp nk3@sanger.ac.uk
                 Attributes:
                 fromLIMS    : if the data is captured actively in the LIMS it should be true. If these conditions do not change
-                              or are not captured in the LIMS then this value should be false.
+                or are not captured in the LIMS then this value should be false.
                 lastUpdated : following the pattern yyyy-MM-dd eg. 2012-12-31
             </xs:documentation>
         </xs:annotation>
@@ -121,7 +121,8 @@
             <xs:element name="procedure"    type="Procedure"     minOccurs="1" maxOccurs="1"/>
             <xs:element name="statusCode"   type="pc:StatusCode" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="colonyID" type="xs:string" use="required"/>
+        <xs:attribute name="colonyID"    type="xs:string"  use="required"/>
+        <xs:attribute name="sequenceID"  type="xs:string" use="optional"/>
     </xs:complexType>
     
 
@@ -239,6 +240,7 @@
                 uri         : location from which the dcc can download this file.
                 fileType    : find a list at
                 <a href="http://svn.apache.org/viewvc/httpd/httpd/branches/2.2.x/docs/conf/mime.types?view=annotate">list</a> 
+                link        : External url that points to a high resolution version of this media file
             </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="1">
@@ -249,6 +251,7 @@
         <xs:attribute name="parameterID" type="xs:string" use="required"/>
         <xs:attribute name="URI"         type="xs:string" use="required"/>
         <xs:attribute name="fileType"    type="xs:string" use="required"/>
+        <xs:attribute name="link"        type="xs:string" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="MediaSampleParameter">
@@ -291,7 +294,7 @@
                 A section can have multiple files derived from it. 
                 Attributes:
                 localID : identifier from wich the individual section can be found at the participating centre eg slide
-                          15 in box 32 on shelf 43 
+                15 in box 32 on shelf 43 
             </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="1">
@@ -307,10 +310,11 @@
                 section.
                 Attributes:
                 localID  : is an identifier from wich the individual section can be found at
-                           the participating centre. 
-                 URI     : the location from which the dcc can download this file.
+                the participating centre. 
+                URI     : the location from which the dcc can download this file.
                 fileType : find a list at
                 <a href="http://svn.apache.org/viewvc/httpd/httpd/branches/2.2.x/docs/conf/mime.types?view=annotate">list</a> 
+                link     : External url that points to a high resolution version of this media file
             </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="1">
@@ -320,7 +324,7 @@
         <xs:attribute name="localId"  type="xs:string"  use="required"/>
         <xs:attribute name="URI"      type="xs:string"  use="required"/>
         <xs:attribute name="fileType" type="xs:string"  use="required"/>
-        
+        <xs:attribute name="link"     type="xs:string" use="optional"/>        
     </xs:complexType>
 
     <xs:complexType name="ParameterAssociation">
@@ -330,6 +334,7 @@
                 Attributes:
                 parameterID : IMPReSS parameterKey for the biological structure present in the specified region. These are available from http://www.mousephenotype.org/impress.
                 sequenceID  : sequenceID of the result related to this image or region if present.
+                link       : External url that points to this assosiation
             </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="0" maxOccurs="1">
@@ -337,6 +342,7 @@
         </xs:sequence>
         <xs:attribute name="parameterID" type="xs:string"  use="required"/>
         <xs:attribute name="sequenceID"  type="xs:integer" use="optional"/>
+        <xs:attribute name="link"     type="xs:string" use="optional"/>        
     </xs:complexType>
 
     <xs:complexType name="Dimension">
@@ -387,6 +393,7 @@
                 URI            : the location from which the dcc can download this file. 
                 fileType       : find a list   at
                 <a href="http://svn.apache.org/viewvc/httpd/httpd/branches/2.2.x/docs/conf/mime.types?view=annotate">list</a>
+                link           : External url that points to this assosiation
             </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="1">
@@ -396,6 +403,7 @@
         <xs:attribute name="incrementValue" type="xs:string" use="required"/>
         <xs:attribute name="URI"            type="xs:string" use="required"/>
         <xs:attribute name="fileType"       type="xs:string" use="optional"/>
+        <xs:attribute name="link"           type="xs:string" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="ProcedureMetadata">
@@ -415,6 +423,4 @@
         <xs:attribute name="parameterID" type="xs:string"  use="required"/>
         <xs:attribute name="sequenceID"  type="xs:integer" use="optional"/>
     </xs:complexType>
-
-
 </xs:schema>
