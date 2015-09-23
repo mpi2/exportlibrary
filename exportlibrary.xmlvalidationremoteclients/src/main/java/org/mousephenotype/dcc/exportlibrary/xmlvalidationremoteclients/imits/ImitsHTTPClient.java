@@ -58,7 +58,7 @@ public class ImitsHTTPClient {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ImitsHTTPClient.class);
     private static final String scheme = "http";
     private static final String host = "www.i-dcc.org";
-    private static final String phenotype_attempts_path = "/imits/phenotype_attempts.json";
+    private static final String phenotype_attempts_path = "/imits/phenotyping_productions.json";
     private static final String microinjection_attempts_path = "/imits/mi_attempts.json";
     private static final String microinjection_plans_path = "/imits/mi_plans.json";
     private static final int TIMEOUT_SECS = 1000 * 60 * 4;
@@ -142,11 +142,9 @@ public class ImitsHTTPClient {
             builder.setParameter("production_centre_name_eq", imitsProductionCentre.value());
         }
         builder.setUserInfo(username, password);
-        builder.addParameter("status_name_in[]", "Cre Excision Complete");
-        builder.addParameter("status_name_in[]", "Phenotype Attempt Registered");
-        builder.addParameter("status_name_in[]", "Phenotyping Started");
-        builder.addParameter("status_name_in[]", "Phenotyping Complete");
-        builder.addParameter("status_name_in[]", "Rederivation Complete");
+        builder.setParameter("parent_colony_genotype_confirmed_eq", "true");
+        builder.setParameter("status_name_neq", "Rederivation Started");
+
         builder.addParameter("colony_name_eq", colonyID);
 
         return builder.build();
@@ -165,12 +163,9 @@ public class ImitsHTTPClient {
             builder.setParameter("per_page", attempts);
         }
 
-        builder.addParameter("status_name_in[]", "Cre Excision Complete");
-        builder.addParameter("status_name_in[]", "Phenotype Attempt Registered");
-        builder.addParameter("status_name_in[]", "Phenotyping Started");
-        builder.addParameter("status_name_in[]", "Rederivation Complete");
-        builder.addParameter("status_name_in[]", "Phenotyping Complete");
-        
+        builder.setParameter("parent_colony_genotype_confirmed_eq", "true");
+        builder.setParameter("status_name_neq", "Rederivation Started");
+
         return builder.build();
     }
 

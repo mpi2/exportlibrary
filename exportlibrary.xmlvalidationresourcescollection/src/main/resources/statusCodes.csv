@@ -14,7 +14,7 @@ IMPC_PSC_012	~   LIMS not ready yet                                  ~   LIMS is
 IMPC_PSC_013	~   Software failure                    		~   LIMS says no
 IMPC_PSC_014	~   Uncooperative mouse                                 ~   Mouse is refusing to comply to the test (e.g.: not griping the grid in Grip Strength)
 IMPC_PSC_015	~   Free Text of Issues                 		~   Info about a procedure that could not be completed for any other reason (submitted like IMPC_PSC_015:laboratory destroyed by flood)
-		
+IMPC_PSC_016    ~   Embryo lost or damaged                              ~   The embryo can not continue as it has been lost or damaged		
 
 IMPC_PARAMSC_001    ~   Parameter not measured - Equipment Failed	~    Issue with the phenotyping equipment, hardware/software (but not LIMS)
 IMPC_PARAMSC_002    ~ 	Parameter not measured - Sample Lost	

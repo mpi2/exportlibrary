@@ -61,6 +61,9 @@ public class CentreTranslator {
         if (centreILARcode.equals(CentreILARcode.WTSI)) {
             return ImitsProductionCentre.WTSI;
         }
+        if (centreILARcode.equals(CentreILARcode.CDTA)) {
+            return ImitsProductionCentre.CDTA;
+        }
 
         return null;
     }

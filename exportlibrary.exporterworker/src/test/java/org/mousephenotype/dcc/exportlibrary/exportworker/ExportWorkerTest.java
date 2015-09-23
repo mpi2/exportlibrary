@@ -9,6 +9,7 @@ import java.io.File;
 import javax.persistence.EntityManager;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mousephenotype.dcc.exportlibrary.datastructure.core.common.CentreILARcode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,5 +27,10 @@ public class ExportWorkerTest {
         File f = new File("phenodcc_raw.properties");
         ExportWorker ew = new ExportWorker();
         EntityManager em = ew.getEntityManagerFromHibernate(f);
+    }
+    
+    @Test
+    public void createCDTA(){
+        CentreILARcode c =  CentreILARcode.fromValue("CDTA");
     }
 }

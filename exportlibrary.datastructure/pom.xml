@@ -6,7 +6,7 @@
     <artifactId>exportlibrary.datastructure</artifactId>
     <packaging>jar</packaging>
     <name>exportlibrary.datastructure</name>
-    <version>3.8</version>    
+    <version>3.8.1</version>    
     <description>
        
         exportlibrary.datastructure does:
@@ -248,7 +248,7 @@
                 </dependencies>
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore> 
-                    <skipTests>true</skipTests>
+                    <skipTests>false</skipTests>
                     <excludes> <!-- http://ant.apache.org/manual/dirtasks.html -->
                         <exclude>**/IT*.java</exclude>
                     </excludes>

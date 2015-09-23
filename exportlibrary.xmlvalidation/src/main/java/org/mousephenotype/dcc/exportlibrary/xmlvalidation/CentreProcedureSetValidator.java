@@ -46,6 +46,7 @@ import org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure.*;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation.ValidationSet;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report.ValidationReportSet;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.IOParameters.VALIDATIONRESOURCES_IDS;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.imits.IMITSBrowser;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.impress.Caster;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.impress.ImpressBrowser;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.statuscodes.StatusCodesBrowser;
@@ -110,7 +111,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         this.specimenWSclient = specimenWSclient;
         this.setupXMLresources();
 
-
     }
 
     private void setupXMLresources() throws IllegalStateException, QueryTimeoutException, TransactionRequiredException, PessimisticLockException, LockTimeoutException, PersistenceException, JAXBException, FileNotFoundException, Exception {
@@ -135,8 +135,8 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         validPipelines = new boolean[this.centreset.getCentre().size()];
         int i = 0;
         for (CentreProcedure centre : this.centreset.getCentre()) {
-            validPipelines[i] =
-                    ((ImpressBrowser) this.xmlValidationResources.get(VALIDATIONRESOURCES_IDS.ImpressBrowser)).loadPipeline(centre.getPipeline());
+            validPipelines[i]
+                    = ((ImpressBrowser) this.xmlValidationResources.get(VALIDATIONRESOURCES_IDS.ImpressBrowser)).loadPipeline(centre.getPipeline());
             if (!validPipelines[i++]) {
                 this.errorHandler.fatalError(new ValidationException("Pipeline " + centre.getPipeline() + " is not valid for centreProcedure " + centre.getCentreID(), "CentreProcedureSetValidator_invalidPipelineID", centre));
             }
@@ -159,7 +159,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         if (centre.isSetLine()) {
             for (Line line : centre.getLine()) {
                 this.checkLineAttributes(line, centre);
-                this.checkColonySubmittedToDCC(line, centre);
                 if (line.isSetStatusCode()) {
                     for (StatusCode statusCode : line.getStatusCode()) {
                         if (statusCode.getValue() != null) {
@@ -172,6 +171,9 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
 
                     }
                 } else {
+                    if (line.getColonyID().isEmpty() || !this.checkColonyRegisteredInIMits(line, centre)) {
+                        this.errorHandler.error(new ValidationException("line with colonyID [" + line.getColonyID() + "] was not found in iMits  ", "CentreProcedureSetValidator_line_colony_no_found", line));
+                    }
                     if (line.isSetProcedure()) {
                         this.checkProcedure(centre, line.getProcedure());
                     } else {
@@ -248,7 +250,7 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         if (!currentParameters.containsAll(requiredParameterIDs)) {
             this.errorHandler.error(
                     new ValidationException("The required parameters "
-                    + CentreProcedureSetValidatorSupport.getListOfRequiredNotPresentParameters(requiredParameterIDs, currentParameters) + " for " + procedure.getProcedureID() + " are missing", "CentreProcedureSetValidator_requiredNonPresentParameters", procedure));
+                            + CentreProcedureSetValidatorSupport.getListOfRequiredNotPresentParameters(requiredParameterIDs, currentParameters) + " for " + procedure.getProcedureID() + " are missing", "CentreProcedureSetValidator_requiredNonPresentParameters", procedure));
         }
         if (Sets.difference(currentParameters, allParameterIDs).size() > 0) {
             this.errorHandler.error(new ValidationException("The parameters " + CentreProcedureSetValidatorSupport.getListOfParametersNotBelongingToThisProcedure(Sets.difference(currentParameters, allParameterIDs)) + " are not part of " + procedure.getProcedureID(), "CentreProcedureSetValidator_parametersNoBelongingToTheProcedure", procedure));
@@ -419,7 +421,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         Set<String> presentParameters = Sets.newHashSetWithExpectedSize(impressProcedure.getImpressParameter().size());
         Set<String> ontologyAndSimpleParameterIds = Sets.newHashSetWithExpectedSize(procedure.getSimpleParameter().size() + procedure.getOntologyParameter().size());
 
-
         for (SimpleParameter simpleParameter : procedure.getSimpleParameter()) {
             if (simpleParameter.getParameterID().length() != simpleParameter.getParameterID().trim().length()) {
                 this.errorHandler.error(new ValidationException(" parameter [" + simpleParameter.getParameterID() + "] contains blank spaces", "CentreProcedureSetValidator_checkProcedureParametersBlankSpaces", simpleParameter));
@@ -520,7 +521,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
             this.errorHandler.error(new ValidationException("Value for " + procedureMetadata.getParameterID() + " was " + procedureMetadata.getValue() + " but should be of type " + ((ImpressBrowser) this.xmlValidationResources.get(VALIDATIONRESOURCES_IDS.ImpressBrowser)).get(impressProcedure, procedureMetadata.getParameterID(), ImpressParameterType.PROCEDURE_METADATA).getValueType(), "CentreProcedureSetValidator_procedureMetadataCastOperationFailed", procedureMetadata, ex));
         }
 
-
         List<ImpressParameterOption> impressParameterOptions = impressParameter.getImpressParameterOption();
         if (impressParameterOptions == null || impressParameterOptions.size() < 1) {
             return;
@@ -551,7 +551,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
             }
             return;
         }
-
 
         if (mediaSampleParameter.getMediaSample() != null && mediaSampleParameter.getMediaSample().size() > 0) {
             //  List<String> mediaSampleLocalIDs = new ArrayList<String>(mediaSampleParameter.getMediaSample().size());
@@ -638,7 +637,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
          cast to datetime
          
          */
-
         List<ImpressParameterIncrement> impressParameterIncrements = impressParameter.getImpressParameterIncrement();
 
         if (impressParameterIncrements == null || impressParameterIncrements.size() < 1) {
@@ -736,9 +734,7 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
             return;
         }
 
-
         //
-
         try {
             CentreProcedureSetValidatorSupport.isMediaAvailable(mediaParameter.getURI());
         } catch (Exception ex) {
@@ -753,7 +749,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
                 checkParameterAssociation(parameterAssociation, ontologyAndSimpleParameterIds);
             }
         }
-
 
     }
 
@@ -771,12 +766,10 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
             return;
         }
 
-
         if (seriesParameter.getValue() == null || seriesParameter.getValue().isEmpty()) {
             this.errorHandler.error(new ValidationException("Value for " + seriesParameter.getParameterID() + " cannot be null", "CentreProcedureSetValidator_seriesParameterNullValue", seriesParameter));
             return;
         }
-
 
         for (SeriesParameterValue seriesParameterValue : seriesParameter.getValue()) {
             if (seriesParameterValue.getIncrementStatus() != null && !seriesParameterValue.getIncrementStatus().isEmpty()) { //there is increment status
@@ -786,7 +779,9 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
                 continue;
             }
 
-
+            if (seriesParameterValue.isSetIncrementValue() && seriesParameterValue.getIncrementValue().isEmpty()) {
+                this.errorHandler.error(new ValidationException("The series parameter " + seriesParameter.getParameterID() + " has an empty string for the increment value.", "CentreProcedureSetValidator_seriesParameterValueIncrementStatusEmpty", seriesParameterValue));
+            }
 
             if (seriesParameterValue.getValue() == null || seriesParameterValue.getValue().isEmpty()) {// there is no value
                 this.errorHandler.error(new ValidationException("Series parameter value for " + seriesParameter.getParameterID() + " is empty", "CentreProcedureSetValidator_seriesParameterValueEmpty", seriesParameterValue));
@@ -809,15 +804,18 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         if (impressParameterOptions != null && impressParameterOptions.size() > 0) {
             boolean isValidOption = false;
             for (SeriesParameterValue seriesParameterValue : seriesParameter.getValue()) {
-                isValidOption = false;
-                for (ImpressParameterOption impressParameterOption : impressParameterOptions) {
-                    if (seriesParameterValue.getValue().equals(impressParameterOption.getName())) {
-                        isValidOption = true;
-                        break;
+                if (seriesParameterValue.getIncrementStatus() == null || seriesParameterValue.getIncrementStatus().isEmpty()) { //there isn't increment status 
+                    isValidOption = false;
+                    for (ImpressParameterOption impressParameterOption : impressParameterOptions) {
+                        if (seriesParameterValue.getValue().equals(impressParameterOption.getName())) {
+                            isValidOption = true;
+                            break;
+                        }
                     }
-                }
-                if (!isValidOption) {
-                    this.errorHandler.error(new ValidationException(seriesParameterValue.getValue() + " is not a valid option for " + seriesParameter.getParameterID(), "CentreProcedureSetValidator_seriesParameterNoValidOption", seriesParameterValue));
+                    if (!isValidOption) {
+                        System.out.println(seriesParameterValue.getValue() + " is not a valid option for " + seriesParameter.getParameterID());
+                        this.errorHandler.error(new ValidationException(seriesParameterValue.getValue() + " is not a valid option for " + seriesParameter.getParameterID(), "CentreProcedureSetValidator_seriesParameterNoValidOption", seriesParameterValue));
+                    }
                 }
             }
         }
@@ -908,7 +906,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
             }
         }
 
-
     }
 
     private boolean checkIsEmpty(List<String> terms) {
@@ -924,6 +921,7 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         ImpressParameter impressParameter = this.impressBrowser().get(impressProcedure, ontologyParameter.getParameterID(), ImpressParameterType.ONTOLOGY_PARAMETER);
         if (impressParameter == null) {
             this.errorHandler.error(new ValidationException("Ontology Parameter [" + ontologyParameter.getParameterID() + "] does not exist for " + impressProcedure.getProcedureKey(), "CentreProcedureSetValidator_ontologyParameterUndefined", ontologyParameter));
+            return;
         }
 
         if (ontologyParameter.getParameterStatus() != null && !ontologyParameter.getParameterStatus().isEmpty()) {
@@ -971,7 +969,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
             return;
         }
 
-
         try {
             Caster.cast(simpleParameter.getValue(), this.impressBrowser().get(impressProcedure, simpleParameter.getParameterID(), ImpressParameterType.SIMPLE_PARAMETER).getValueType());
         } catch (NumberFormatException ex) {
@@ -981,7 +978,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         } catch (Exception ex) {
             this.errorHandler.error(new ValidationException("Value for " + simpleParameter.getParameterID() + " was " + simpleParameter.getValue() + " but should be of type " + ((ImpressBrowser) this.xmlValidationResources.get(VALIDATIONRESOURCES_IDS.ImpressBrowser)).get(impressProcedure, simpleParameter.getParameterID(), ImpressParameterType.SIMPLE_PARAMETER).getValueType(), "CentreProcedureSetValidator_simpleParameterCastOperationFailed", simpleParameter, ex));
         }
-
 
         List<ImpressParameterOption> impressParameterOptions = impressParameter.getImpressParameterOption();
         if (impressParameterOptions == null || impressParameterOptions.size() < 1) {
@@ -1013,8 +1009,13 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
 
     }
 
-    private void checkColonySubmittedToDCC(Line line, CentreProcedure centre) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        logger.info("reached checkColonySubmittedToDCC");
+    private boolean checkColonyRegisteredInIMits(Line line, CentreProcedure centre) {
+        try {
+            //logger.trace("check if {},{} is on imits", centreILARcode, colonyID);
+            return ((IMITSBrowser) this.xmlValidationResources.get(IOParameters.VALIDATIONRESOURCES_IDS.Imits)).isInPhenotypeAttemptColonyName(centre.getCentreID(), line.getColonyID());
+        } catch (Exception ex) {
+            logger.error("cannot access Imits", ex);
+        }
+        return false;
     }
 }

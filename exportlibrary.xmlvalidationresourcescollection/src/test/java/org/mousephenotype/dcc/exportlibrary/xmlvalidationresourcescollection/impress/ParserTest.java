@@ -119,7 +119,17 @@ public class ParserTest {
         try {
             Parser.linkOntologyParameterOptions2Parameter(IMPC_PAT_001_001);
         } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
-            logger.error("", ex);
+            logger.error("linkOntologyParameterOptions2Parameter fails for IMPC_PAT_001_001", ex);
+            Assert.fail();
+        }
+        
+        IMPC_PAT_001_001 = new ImpressParameter();
+        IMPC_PAT_001_001.setParameterKey("IMPC_HIS_232_001");
+        
+        try {
+            Parser.linkOntologyParameterOptions2Parameter(IMPC_PAT_001_001);
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException | NoSuchMethodException | InvocationTargetException ex) {
+            logger.error("linkOntologyParameterOptions2Parameter fails for IMPC_PAT_001_001", ex);
             Assert.fail();
         }
     }

@@ -47,6 +47,7 @@ import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation.Val
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report.ValidationReportSet;
 
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.IOParameters.VALIDATIONRESOURCES_IDS;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.imits.IMITSBrowser;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.impress.ImpressBrowser;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.support.SpecimenWSclient;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.utils.ValidationException;
@@ -67,13 +68,13 @@ public class CentreProcedureSetValidatorTest {
     private static final String contextPath = "org.mousephenotype.dcc.exportlibrary.datastructure.core.common:org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure:org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen:org.mousephenotype.dcc.exportlibrary.datastructure.tracker.submission:org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation";
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(CentreProcedureSetValidatorTest.class);
     private static final String EXTERNAL_RESOURCES_FOLDER = "test_databases";
-    private static SubmissionSet submissionSet;
-    private static Submission submission;
-    private static CentreProcedure centreProcedure;
-    private static CentreProcedureSet centreProcedureSet;
+   // private static SubmissionSet submissionSet;
+   // private static Submission submission;
+   // private static CentreProcedure centreProcedure;
+   // private static CentreProcedureSet centreProcedureSet;
     private static CentreProcedureSetValidator centreProcedureSetValidator;
-    private static ValidationSet validationSet;
-    private static ValidationReportSet validationReportSet;
+    //private static ValidationSet validationSet;
+    //private static ValidationReportSet validationReportSet;
     private static Map<IOParameters.VALIDATIONRESOURCES_IDS, Incarnator<?>> xmlValidationResources;
     private static HibernateManager hibernateManager;
     private static HibernateManager hibernateManagerXMLResources;
@@ -89,7 +90,6 @@ public class CentreProcedureSetValidatorTest {
             if (!(new File(EXTERNAL_RESOURCES_FOLDER).exists())) {
                 new File(EXTERNAL_RESOURCES_FOLDER).mkdir();
             }
-
 
             properties = null;
             Reader reader = null;
@@ -117,106 +117,85 @@ public class CentreProcedureSetValidatorTest {
 
             propertiesXMLResources = reader.getProperties();
 
-
             Assert.assertNotNull(propertiesXMLResources);
 
             hibernateManagerXMLResources = new HibernateManager(propertiesXMLResources, "org.mousephenotype.dcc.exportlibrary.xmlvalidation.external");
 
             Assert.assertNotNull(hibernateManagerXMLResources);
 
-            submissionSet = new SubmissionSet();
-            submission = new Submission();
-            centreProcedureSet = new CentreProcedureSet();
-            centreProcedure = new CentreProcedure();
-
-
-            submissionSet.getSubmission().add(submission);
-            submission.setCentreProcedure(centreProcedureSet.getCentre());
-
-
-
-            centreProcedure.setCentreID(CentreILARcode.J);
-            centreProcedure.setPipeline("IMPC_001");
-            centreProcedure.setProject("IMPC_001");
-            centreProcedureSet.getCentre().add(centreProcedure);
-
-            Experiment experiment = new Experiment();
-            centreProcedure.getExperiment().add(experiment);
-            Procedure procedure = new Procedure();
-            procedure.setProcedureID("IMPC_ACS_001");
-            experiment.setProcedure(procedure);
-
-            SimpleParameter simpleParameter = new SimpleParameter();
-            simpleParameter.setParameterID("IMPC_ACS_012_001");
-            simpleParameter.setValue("2013-03-01T00:00:00+0000");
-            procedure.getSimpleParameter().add(simpleParameter);
+//            submissionSet = new SubmissionSet();
+//            submission = new Submission();
+//            centreProcedureSet = new CentreProcedureSet();
+//            centreProcedure = new CentreProcedure();
+//
+//            submissionSet.getSubmission().add(submission);
+//            submission.setCentreProcedure(centreProcedureSet.getCentre());
+//
+//            centreProcedure.setCentreID(CentreILARcode.J);
+//            centreProcedure.setPipeline("IMPC_001");
+//            centreProcedure.setProject("IMPC_001");
+//            centreProcedureSet.getCentre().add(centreProcedure);
+//
+//            Experiment experiment = new Experiment();
+//            centreProcedure.getExperiment().add(experiment);
+//            Procedure procedure = new Procedure();
+//            procedure.setProcedureID("IMPC_ACS_001");
+//            experiment.setProcedure(procedure);
+//
+//            SimpleParameter simpleParameter = new SimpleParameter();
+//            simpleParameter.setParameterID("IMPC_ACS_012_001");
+//            simpleParameter.setValue("2013-03-01T00:00:00+0000");
+//            procedure.getSimpleParameter().add(simpleParameter);
 
             //
-
-            validationSet = new ValidationSet();
-            validationReportSet = new ValidationReportSet();
+            //validationSet = new ValidationSet();
+           // validationReportSet = new ValidationReportSet();
             //
             xmlValidationResources = new EnumMap<>(IOParameters.VALIDATIONRESOURCES_IDS.class);
 
-
             xmlValidationResources.put(VALIDATIONRESOURCES_IDS.ImpressBrowser, new ImpressBrowser(hibernateManagerXMLResources));
+            xmlValidationResources.put(VALIDATIONRESOURCES_IDS.Imits, getIMITSBrowser());
+            
 
             specimenWSclient = new SpecimenWSclient("http://mousephenotype.org/phenodcc-validation-ws/resources/mousesummary/byspecimenid");
 
-            try {
-                centreProcedureSetValidator = new CentreProcedureSetValidator(centreProcedureSet, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
-            } catch (IllegalStateException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (QueryTimeoutException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (TransactionRequiredException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (PessimisticLockException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (LockTimeoutException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (PersistenceException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (JAXBException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (FileNotFoundException ex) {
-                logger.error("", ex);
-                Assert.fail();
-            } catch (Exception ex) {
-                logger.error("", ex);
-                Assert.fail();
-            }
+//            try {
+//                centreProcedureSetValidator = new CentreProcedureSetValidator(centreProcedureSet, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+//            } catch (Exception ex) {
+//                logger.error("", ex);
+//                Assert.fail();
+//            }
 
-
-
-            try {
-                //hibernateManager.persist(centreProcedureSet);
-                hibernateManager.persist(submissionSet);
-            } catch (Exception ex) {
-                logger.error("", ex);
-                Assert.fail();
-            }
-            logger.info("validating example");
-            centreProcedureSetValidator.validateWithHandler();
-            centreProcedureSetValidator.compileValidationSet();
-            logger.info("persisting {} results", validationSet.getValidation().size());
-            hibernateManager.persist(validationSet);
-            logger.info("validation process finished");
+//            try {
+//                //hibernateManager.persist(centreProcedureSet);
+//                hibernateManager.persist(submissionSet);
+//            } catch (Exception ex) {
+//                logger.error("", ex);
+//                Assert.fail();
+//            }
+//            logger.info("validating example");
+//            centreProcedureSetValidator.validateWithHandler();
+//            centreProcedureSetValidator.compileValidationSet();
+//            logger.info("persisting {} results", validationSet.getValidation().size());
+//            hibernateManager.persist(validationSet);
+//            logger.info("validation process finished");
         } catch (IllegalArgumentException iae) {
             logger.error("An IllegalArgument Exception was thown! This may well have been the result of the databases not being populated");
             // do nothing! Assert.fail();
         } catch (Exception ex) {
-            logger.error("An exception was thrown!");
+            logger.error("An exception was thrown!", ex);
             Assert.fail();
         }
 
+    }
+
+    private static IMITSBrowser getIMITSBrowser() {
+        IMITSBrowser iMITSBrowser = new IMITSBrowser(hibernateManagerXMLResources);
+        Properties imitsClientProperties = new Properties();
+        imitsClientProperties.put("imits.username", "j.atienza@har.mrc.ac.uk");
+        imitsClientProperties.put("imits.password", "4geneData!");
+        iMITSBrowser.setConnectionProperties(imitsClientProperties);
+        return iMITSBrowser;
     }
 
     @AfterClass
@@ -225,13 +204,6 @@ public class CentreProcedureSetValidatorTest {
         hibernateManagerXMLResources.close();
     }
 
-    @Test
-    public void testcentreProcedureAttributes() {
-
-        boolean exceptionsFound = centreProcedureSetValidator.exceptionsFound();
-
-        Assert.assertTrue(exceptionsFound);
-    }
 
     @Ignore
     @Test
@@ -261,16 +233,152 @@ public class CentreProcedureSetValidatorTest {
         List<SimpleParameter> query6 = hibernateManager.query("from SimpleParameter", SimpleParameter.class);
         Assert.assertFalse(query6.isEmpty());
 
-
-
     }
 
+    @Test
+    public void testNoIncrementValue() {
+        CentreProcedureSet centreProcedureSetInternal = null;
+        try {
+            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/SeriesParameterNoIncrementValue.xml");
+        } catch (JAXBException | IOException ex) {
+            logger.error("", ex);
+            Assert.fail();
+        }
+        Assert.assertNotNull(centreProcedureSetInternal);
+
+        try {
+            ValidationSet validationSet = new ValidationSet();
+            ValidationReportSet validationReportSet = new ValidationReportSet();
+            CentreProcedureSetValidator validator2 = new CentreProcedureSetValidator(centreProcedureSetInternal, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+            validator2.validateWithHandler();
+            Assert.assertTrue(validator2.getErrorExceptions().size() > 1);
+            for (ValidationException errorException : validator2.getErrorExceptions()) {
+                Assert.assertTrue(errorException.getValidation().getTestID().equalsIgnoreCase("CentreProcedureSetValidator_seriesParameterValueIncrementStatusEmpty"));
+                break;
+            }
+        } catch (Exception ex) {
+            logger.error("", ex);
+            Assert.fail();
+        }
+    }
+
+    @Test
+    public void testOntologyTermTest() {
+        CentreProcedureSet centreProcedureSetInternal = null;
+        try {
+            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/J.2014-07-23.01.experiment.impc.xml");
+        } catch (JAXBException | IOException ex) {
+            logger.error("", ex);
+            Assert.fail();
+        }
+        Assert.assertNotNull(centreProcedureSetInternal);
+
+        try {
+            ValidationSet validationSet = new ValidationSet();
+            ValidationReportSet validationReportSet = new ValidationReportSet();
+            CentreProcedureSetValidator validator2  = new CentreProcedureSetValidator(centreProcedureSetInternal, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+            validator2.validateWithHandler();
+            Assert.assertTrue(validator2.getErrorExceptions().size() > 1);
+            for (ValidationException errorException : validator2.getErrorExceptions()) {
+
+                logger.info("{} {}", errorException.getValidation().getTestID(), errorException.getMessage());
+//                Assert.assertTrue(errorException.getValidation().getTestID().equalsIgnoreCase("CentreProcedureSetValidator_seriesParameterValueIncrementStatusEmpty"));
+//                break;
+            }
+        } catch (Exception ex) {
+            logger.error("", ex);
+            Assert.fail(ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testWrongColonyInLine() {
+        CentreProcedureSet centreProcedureSetInternal = null;
+        try {
+            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/Ucd.2014-03-18.308.experiment.impc.xml");
+        } catch (JAXBException | IOException ex) {
+            logger.error("", ex);
+            Assert.fail();
+        }
+        Assert.assertNotNull(centreProcedureSetInternal);
+
+        try {
+            ValidationSet validationSet = new ValidationSet();
+            ValidationReportSet validationReportSet = new ValidationReportSet();
+            CentreProcedureSetValidator validator2 =  new CentreProcedureSetValidator(centreProcedureSetInternal, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+            validator2.validateWithHandler();
+            Assert.assertTrue(validator2.getErrorExceptions().size() == 1);
+            for (ValidationException errorException : validator2.getErrorExceptions()) {
+
+                logger.info("{} {}", errorException.getValidation().getTestID(), errorException.getMessage());
+                Assert.assertTrue(errorException.getValidation().getTestID().equalsIgnoreCase("CentreProcedureSetValidator_line_colony_no_found"));
+//                break;
+            }
+        } catch (Exception ex) {
+            logger.error("", ex);
+            Assert.fail(ex.getMessage());
+        }
+    }
+
+     @Test
+    public void testEmptyColonyInLine() {
+        CentreProcedureSet centreProcedureSetInternal = null;
+        try {
+            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/Tcp.2013-10-15.50.experiment.impc.xml");
+        } catch (JAXBException | IOException ex) {
+            logger.error("", ex);
+            Assert.fail();
+        }
+        Assert.assertNotNull(centreProcedureSetInternal);
+
+        try {
+            ValidationSet validationSet = new ValidationSet();
+            ValidationReportSet validationReportSet = new ValidationReportSet();
+            CentreProcedureSetValidator validator2 =  new CentreProcedureSetValidator(centreProcedureSetInternal, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+            validator2.validateWithHandler();
+            Assert.assertTrue(validator2.getErrorExceptions().size() == 2);
+            for (ValidationException errorException : validator2.getErrorExceptions()) {
+
+                logger.info("{} {}", errorException.getValidation().getTestID(), errorException.getMessage());
+                Assert.assertTrue(errorException.getValidation().getTestID().equalsIgnoreCase("CentreProcedureSetValidator_line_colony_no_found"));
+//                break;
+            }
+        } catch (Exception ex) {
+            logger.error("", ex);
+            Assert.fail(ex.getMessage());
+        }
+    }
+    
+    @Test
+    public void testStatusCodeOfUnknownColonies(){
+                CentreProcedureSet centreProcedureSetInternal = null;
+        try {
+            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/Tcp.2015-02-17.117.experiment.impc.xml");
+        } catch (JAXBException | IOException ex) {
+            logger.error("", ex);
+            Assert.fail();
+        }
+        Assert.assertNotNull(centreProcedureSetInternal);
+
+        try {
+            ValidationSet validationSet = new ValidationSet();
+            ValidationReportSet validationReportSet = new ValidationReportSet();
+            CentreProcedureSetValidator validator2 =  new CentreProcedureSetValidator(centreProcedureSetInternal, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+            validator2.validateWithHandler();
+            Assert.assertTrue(validator2.getErrorExceptions().isEmpty());
+            
+        } catch (Exception ex) {
+            logger.error("", ex);
+            Assert.fail(ex.getMessage());
+        }
+    }
+    
     @Ignore
     @Test
     public void testFile() {
         CentreProcedureSet centreProcedureSetInternal = null;
         try {
-            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/IMPC_CAL_001_wrong_incrementID.xml");
+            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/J.2014-07-23.01.experiment.impc.xml");
         } catch (JAXBException | IOException ex) {
             logger.error("", ex);
             Assert.fail();
@@ -278,31 +386,10 @@ public class CentreProcedureSetValidatorTest {
         Assert.assertNotNull(centreProcedureSetInternal);
         CentreProcedureSetValidator validator2 = null;
         try {
+            ValidationSet validationSet = new ValidationSet();
+            ValidationReportSet validationReportSet = new ValidationReportSet();
             validator2 = new CentreProcedureSetValidator(centreProcedureSetInternal, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
-        } catch (IllegalStateException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (QueryTimeoutException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (TransactionRequiredException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (PessimisticLockException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (LockTimeoutException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (PersistenceException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (JAXBException ex) {
-            logger.error("", ex);
-            Assert.fail();
-        } catch (FileNotFoundException ex) {
-            logger.error("", ex);
-            Assert.fail();
+        
         } catch (Exception ex) {
             logger.error("", ex);
             Assert.fail();
@@ -322,4 +409,5 @@ public class CentreProcedureSetValidatorTest {
         }
 
     }
+
 }

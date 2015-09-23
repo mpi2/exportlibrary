@@ -49,6 +49,7 @@
             <xs:enumeration value="Tcp"/>    <!-- Toronto Centre for Phenogenomics -->
             <xs:enumeration value="Ucd"/>    <!-- University of California, Davis -->
             <xs:enumeration value="Wtsi"/>   <!-- Wellcome Trust Sanger Institute -->
+            <xs:enumeration value="CDTA"/>    <!-- Institut de Transgenose (CDTA Orleans) -->
         </xs:restriction>
     </xs:simpleType>
     

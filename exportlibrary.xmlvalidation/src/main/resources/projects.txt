@@ -1,1 +1,1 @@
-projects = MGP Legacy, EUCOMM-EUMODIC, UCD-KOMP,MGP, MARC, EUCOMMToolsCre, RIKEN BRC, DTCC, BaSH, Monterotondo, JAX,Helmholtz GMC, DTCC-Legacy, MRC, NorCOMM2, Phenomin
+projects = MGP Legacy, EUCOMM-EUMODIC, UCD-KOMP,MGP, MARC, EUCOMMToolsCre, RIKEN BRC, DTCC, BaSH, Monterotondo, JAX,Helmholtz GMC, DTCC-Legacy, MRC, NorCOMM2, Phenomin, KMPC

@@ -26,11 +26,14 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.xml.bind.JAXBException;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.common.CentreILARcode;
+import org.mousephenotype.dcc.exportlibrary.datastructure.core.common.StageUnit;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen.*;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation.ValidationSet;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report.ValidationReportSet;
@@ -47,7 +50,8 @@ import org.slf4j.LoggerFactory;
  */
 public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
 
-    private static final double MAX_STAGE = 20.0;
+    private static final double MAX_STAGE_DPC = 20.0;
+    private static final int MAX_STAGE_TC = 26;
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(CentreSpecimenSetValidator.class);
     private static final String PROJECTS_FILENAME = "projects.txt";
     private static List<String> projects = null;
@@ -85,15 +89,12 @@ public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
             }
         }
     }
-    
+
     private void checkValidProject(Specimen specimen) {
         if (projects != null && projects.size() > 0 && !projects.contains(specimen.getProject())) {
             this.errorHandler.warning(new ValidationException("Project " + specimen.getProject() + " does not exist", "CentreSpecimenSetValidator_SpecimenAttributes_ProjectNotFound", specimen));
         }
     }
-
-    
-    
 
     public void testSpecimenStatusCode(Specimen specimen) {
         if (specimen.getStatusCode() != null && !specimen.getStatusCode().getValue().isEmpty()) {
@@ -116,7 +117,7 @@ public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
              }*/
         } else {//if a knockout mouse 
 
-            if (specimen.getColonyID() == null) {
+            if (specimen.getColonyID() == null || specimen.getColonyID().isEmpty()) {
                 this.errorHandler.error(new ValidationException("The colonyID for specimen " + specimen.getSpecimenID() + "has to be provided ", "CentreSpecimenSetValidator_testSpecimenBackground", specimen));
             }
             if (specimen.getColonyID() != null
@@ -132,7 +133,7 @@ public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
             Calendar dateFromImits = getDateFromImits(specimen.getColonyID());
 
             if (dateFromImits != null && mouse.getDOB().before(dateFromImits)) {
-                this.errorHandler.error(new ValidationException("Mouse " + mouse.getStrainID() + " date of birth is before the date specified in imits", "CentreSpecimenSetValidator_testSpecimenDatesWithinLimits", specimen));
+                this.errorHandler.error(new ValidationException("Mouse " + mouse.getSpecimenID()+ " date of birth is before the date specified in imits", "CentreSpecimenSetValidator_testSpecimenDatesWithinLimits", specimen));
             }
             Calendar now = DatatypeConverter.now();
             if (mouse.getDOB() == null) {
@@ -144,21 +145,38 @@ public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
 
         } else {//is embryo
             Embryo embryo = (Embryo) specimen;
-            double numericalStage = -1;
-            try {
-                numericalStage = this.getNumericalStage(embryo.getStage());
-            } catch (NumberFormatException ex) {
-                this.errorHandler.error(new ValidationException("Embryo " + embryo.getSpecimenID() + " stage " + embryo.getStage() + "cannot be cast to numerical", "CentreSpecimenSetValidator_testSpecimenDatesWithinLimits", specimen));
-                return;
-            }
-            if (numericalStage > MAX_STAGE) {
-                this.errorHandler.error(new ValidationException("Embryo " + embryo.getSpecimenID() + " stage " + embryo.getStage() + " is greater than " + Double.toString(MAX_STAGE), "CentreSpecimenSetValidator_testSpecimenDatesWithinLimits", specimen));
+            if (embryo.getStageUnit() == StageUnit.DPC) {
+                String DPCPattern = "^(E)?(\\d+\\.*\\d*)";
+                Pattern p = Pattern.compile(DPCPattern);
+                Matcher m = p.matcher(embryo.getStage());
+                if (!m.matches()) {
+                    this.errorHandler.error(new ValidationException("The stage " + embryo.getStage() + " was not recognised as a DPC stage for specimen " + embryo.getSpecimenID(), "Embryo_DPCStageNotParsed", specimen));
+                } else {
+                    if (m.groupCount() == 2) {
+                        Double stageNum = Double.valueOf(m.group(2));
+                        if (stageNum < 0 || stageNum >= MAX_STAGE_DPC) {
+                            this.errorHandler.error(new ValidationException("The stage number of " + stageNum + " was out of bounds (should be between 0 and 20) for specimen " + embryo.getSpecimenID(), "Embryo_DPCStageOutOfBounds", specimen));
+                        }
+                    }
+                }
+            } else if (embryo.getStageUnit() == StageUnit.THEILER) {
+                String TCPattern = "^(TS)?(\\d+)([abcd]?)";
+                Pattern p = Pattern.compile(TCPattern);
+                Matcher m = p.matcher(embryo.getStage());
+                if (!m.matches()) {
+                    this.errorHandler.error(new ValidationException("The stage " + embryo.getStage() + " was not recognised as a Theiler Stage for specimen " + embryo.getSpecimenID(), "Embryo_DPCStageNotParsed", specimen));
+                } else {
+                    if (m.groupCount() == 3) {
+                        Integer stageNum = Integer.valueOf(m.group(2));
+                        if (stageNum < 1 || stageNum >= MAX_STAGE_TC) {
+                            this.errorHandler.error(new ValidationException("The stage number of " + stageNum + " was out of bounds (should be between 0 and 20) for specimen " + embryo.getSpecimenID(), "Embryo_DPCStageOutOfBounds", specimen));
+                        }
+                    }
+                }
+            } else {
+                this.errorHandler.error(new ValidationException("The Stage unit" + embryo.getStageUnit().value() + " was not recognised for Specimen " + embryo.getSpecimenID(), "Embryo_stageNotRecognised", specimen));
             }
         }
-    }
-
-    public double getNumericalStage(String stage) throws NumberFormatException {
-        return Double.valueOf(stage.substring(1));//removes the first E
     }
 
     public Calendar getDateFromImits(String colonyID) {

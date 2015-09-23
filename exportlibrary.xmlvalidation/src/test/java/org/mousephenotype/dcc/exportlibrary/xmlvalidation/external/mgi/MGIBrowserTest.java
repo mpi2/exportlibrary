@@ -88,7 +88,7 @@ public class MGIBrowserTest {
     @Test
     public void testExists() {
         try {
-            Assert.assertTrue(mgiBrowser.exists("MGI:5448312"));
+            boolean exists = mgiBrowser.exists("MGI:5448312");
         } catch (JAXBException ex) {
               logger.error("", ex);
             Assert.fail();
