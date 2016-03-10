@@ -105,7 +105,7 @@ public class IMITSBrowser extends Incarnator {
 
     }
 
-    private PhenotypeAttempt getPhenotypeAttemptColonyNameOnline(CentreILARcode centreILARcode, String colonyID) throws URISyntaxException, IOException, ClientProtocolException, NoSuchAlgorithmException, KeyManagementException, KeyManagementException, KeyStoreException, UnrecoverableKeyException, FileNotFoundException, ParseException {
+    public PhenotypeAttempt getPhenotypeAttemptColonyNameOnline(CentreILARcode centreILARcode, String colonyID) throws URISyntaxException, IOException, ClientProtocolException, NoSuchAlgorithmException, KeyManagementException, KeyManagementException, KeyStoreException, UnrecoverableKeyException, FileNotFoundException, ParseException {
         if (this.connectionProperties == null
                 || this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsUsername.getPropertyName()) == null
                 || this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsPassword.getPropertyName()) == null) {
@@ -113,6 +113,38 @@ public class IMITSBrowser extends Incarnator {
         } else {
             ImitsOracle imitsOracle = new ImitsOracle(this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsUsername.getPropertyName()), this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsPassword.getPropertyName()));
             PhenotypeAttempt inPhenotypeAttemptColonyName = imitsOracle.isInPhenotypeAttemptColonyName(CentreTranslator.get(centreILARcode), colonyID);
+            if (inPhenotypeAttemptColonyName != null) {
+                this.liveAttempts.put(colonyID, inPhenotypeAttemptColonyName);
+            }
+            return inPhenotypeAttemptColonyName;
+        }
+        return null;
+    }
+
+    public PhenotypeAttempt getPhenotypeAttemptForColonyNameAndStatus(String colonyID) throws URISyntaxException, IOException, ClientProtocolException, NoSuchAlgorithmException, KeyManagementException, KeyManagementException, KeyStoreException, UnrecoverableKeyException, FileNotFoundException, ParseException {
+        if (this.connectionProperties == null
+                || this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsUsername.getPropertyName()) == null
+                || this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsPassword.getPropertyName()) == null) {
+            logger.error("credentials for imits not submitted");
+        } else {
+            ImitsOracle imitsOracle = new ImitsOracle(this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsUsername.getPropertyName()), this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsPassword.getPropertyName()));
+            PhenotypeAttempt inPhenotypeAttemptColonyName = imitsOracle.isInPhenotypeAttemptColonyName(null, colonyID);
+            if (inPhenotypeAttemptColonyName != null) {
+                this.liveAttempts.put(colonyID, inPhenotypeAttemptColonyName);
+            }
+            return inPhenotypeAttemptColonyName;
+        }
+        return null;
+    }
+
+    public PhenotypeAttempt getPhenotypeAttemptForColonyNameOnly(String colonyID) throws URISyntaxException, IOException, ClientProtocolException, NoSuchAlgorithmException, KeyManagementException, KeyManagementException, KeyStoreException, UnrecoverableKeyException, FileNotFoundException, ParseException {
+        if (this.connectionProperties == null
+                || this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsUsername.getPropertyName()) == null
+                || this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsPassword.getPropertyName()) == null) {
+            logger.error("credentials for imits not submitted");
+        } else {
+            ImitsOracle imitsOracle = new ImitsOracle(this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsUsername.getPropertyName()), this.connectionProperties.getProperty(IOParameters.IMITS_PROPERTIES.imitsPassword.getPropertyName()));
+            PhenotypeAttempt inPhenotypeAttemptColonyName = imitsOracle.isInPhenotypeAttemptColonyNameOnly(colonyID);
             if (inPhenotypeAttemptColonyName != null) {
                 this.liveAttempts.put(colonyID, inPhenotypeAttemptColonyName);
             }

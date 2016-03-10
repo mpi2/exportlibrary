@@ -54,6 +54,7 @@ import org.mousephenotype.dcc.exportlibrary.xmlvalidation.support.CentreProcedur
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.support.RepeatedParameterInfo;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.support.SpecimenWSclient;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.utils.ValidationException;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.PhenotypeAttempt;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressOntologyParameterOption;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameter;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.impress.ImpressParameterIncrement;
@@ -804,7 +805,7 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
         if (impressParameterOptions != null && impressParameterOptions.size() > 0) {
             boolean isValidOption = false;
             for (SeriesParameterValue seriesParameterValue : seriesParameter.getValue()) {
-                if (seriesParameterValue.getIncrementStatus() == null || seriesParameterValue.getIncrementStatus().isEmpty()) { //there isn't increment status 
+                if (seriesParameterValue.getIncrementStatus() == null || seriesParameterValue.getIncrementStatus().isEmpty()) { //there isn't increment status
                     isValidOption = false;
                     for (ImpressParameterOption impressParameterOption : impressParameterOptions) {
                         if (seriesParameterValue.getValue().equals(impressParameterOption.getName())) {
@@ -813,7 +814,6 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
                         }
                     }
                     if (!isValidOption) {
-                        System.out.println(seriesParameterValue.getValue() + " is not a valid option for " + seriesParameter.getParameterID());
                         this.errorHandler.error(new ValidationException(seriesParameterValue.getValue() + " is not a valid option for " + seriesParameter.getParameterID(), "CentreProcedureSetValidator_seriesParameterNoValidOption", seriesParameterValue));
                     }
                 }
@@ -1012,7 +1012,12 @@ public class CentreProcedureSetValidator extends Validator<CentreProcedureSet> {
     private boolean checkColonyRegisteredInIMits(Line line, CentreProcedure centre) {
         try {
             //logger.trace("check if {},{} is on imits", centreILARcode, colonyID);
-            return ((IMITSBrowser) this.xmlValidationResources.get(IOParameters.VALIDATIONRESOURCES_IDS.Imits)).isInPhenotypeAttemptColonyName(centre.getCentreID(), line.getColonyID());
+            boolean isColonyIdInImits = false;
+            PhenotypeAttempt attempt = ((IMITSBrowser) this.xmlValidationResources.get(IOParameters.VALIDATIONRESOURCES_IDS.Imits)).getPhenotypeAttemptForColonyNameOnly(line.getColonyID());
+            if (attempt != null) {
+                isColonyIdInImits = true;
+            }
+            return isColonyIdInImits;
         } catch (Exception ex) {
             logger.error("cannot access Imits", ex);
         }

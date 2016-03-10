@@ -96,11 +96,41 @@ public class ImitsOracle {
     }
     
     public PhenotypeAttempt isInPhenotypeAttemptColonyName(ImitsProductionCentre imitsProductionCentre, String colonyID) throws URISyntaxException, IOException, ClientProtocolException, NoSuchAlgorithmException, KeyManagementException, KeyManagementException, KeyStoreException, UnrecoverableKeyException, FileNotFoundException, ParseException {
-        URI centreUri = imitsHTTPClient.getPhenotypeAttemptURIForProducionCentreAndColonyID(imitsProductionCentre, colonyID);
-        logger.trace("contacting imits for phenotype on {} {}", imitsProductionCentre, colonyID);
-        imitsHTTPClient.getData(centreUri, getPhenotypeAttemptFilename(imitsProductionCentre, colonyID), false);
-        logger.trace("parsing response stored in {}", getPhenotypeAttemptFilename(imitsProductionCentre, colonyID));
-        PhenotypeAttempts phenotypeAttempts = imitsParser.getPhenotypeAttempts(getPhenotypeAttemptFilename(imitsProductionCentre, colonyID));
+        URI centreUri = imitsHTTPClient.getPhenotypeAttemptURIForProducionCentreAndColonyID(null, colonyID);
+        logger.warn("uri = " + centreUri.toString());
+        logger.trace("contacting imits for phenotype on {} {}", null, colonyID);
+        imitsHTTPClient.getData(centreUri, getPhenotypeAttemptFilename(null, colonyID), false);
+        logger.trace("parsing response stored in {}", getPhenotypeAttemptFilename(null, colonyID));
+        String phenotypeAttemptFilename = getPhenotypeAttemptFilename(null, colonyID);
+        PhenotypeAttempts phenotypeAttempts = imitsParser.getPhenotypeAttempts(phenotypeAttemptFilename);
+        
+        logger.trace("{} phenotype attempts found", phenotypeAttempts.getPhenotypeAttempt().size());
+        if (phenotypeAttempts.getPhenotypeAttempt().size() > 1) {
+            logger.warn("It should only return one attempt.");
+        }
+
+        PhenotypeAttempt phenotypeAttempt = null;
+
+        if (phenotypeAttempts.getPhenotypeAttempt() != null && phenotypeAttempts.getPhenotypeAttempt().size() > 0) {
+            phenotypeAttempt = phenotypeAttempts.getPhenotypeAttempt().get(0);
+            MIPlan miPlan = this.getMIPlan(phenotypeAttempt.getMiPlanID().toString());
+            if (miPlan != null && miPlan.getMarkerMGIaccessionID() != null) {
+                phenotypeAttempt.getGenotypicInformation().setGeneMGIID(miPlan.getMarkerMGIaccessionID());
+            }
+        }
+        return phenotypeAttempt;
+    }
+        
+    public PhenotypeAttempt isInPhenotypeAttemptColonyNameOnly(String colonyID) throws URISyntaxException, IOException, ClientProtocolException, NoSuchAlgorithmException, KeyManagementException, KeyManagementException, KeyStoreException, UnrecoverableKeyException, FileNotFoundException, ParseException {
+        URI centreUri = imitsHTTPClient.getPhenotypeAttemptURIForColonyIDOnly(colonyID);
+        System.out.println("uri = " + centreUri.toString());
+        logger.trace("contacting imits for phenotype on {} {}", null, colonyID);
+        imitsHTTPClient.getData(centreUri, getPhenotypeAttemptFilename(null, colonyID), false);
+        logger.trace("parsing response stored in {}", getPhenotypeAttemptFilename(null, colonyID));
+        System.out.println("file = " + getPhenotypeAttemptFilename(null, colonyID));
+        PhenotypeAttempts phenotypeAttempts = imitsParser.getPhenotypeAttempts(getPhenotypeAttemptFilename(null, colonyID));
+       
+        
         logger.trace("{} phenotype attempts found", phenotypeAttempts.getPhenotypeAttempt().size());
         if (phenotypeAttempts.getPhenotypeAttempt().size() > 1) {
             logger.warn("It should only return one attempt.");

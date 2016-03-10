@@ -22,6 +22,12 @@
 package org.mousephenotype.dcc.exportlibrary.xmlvalidation;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -31,17 +37,21 @@ import java.util.regex.Pattern;
 import javax.xml.bind.JAXBException;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.json.simple.parser.ParseException;
 import org.mousephenotype.dcc.exportlibrary.datastructure.converters.DatatypeConverter;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.common.CentreILARcode;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.common.StageUnit;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen.*;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation.ValidationSet;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.validation_report.ValidationReportSet;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.imits.CentreTranslator;
 
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.imits.IMITSBrowser;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.mgi.MGIBrowser;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.external.statuscodes.StatusCodesBrowser;
 import org.mousephenotype.dcc.exportlibrary.xmlvalidation.utils.ValidationException;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.ImitsProductionCentre;
+import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.imits.PhenotypeAttempt;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -108,7 +118,7 @@ public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
         logger.info("checking specimenbackground {}", specimen.getSpecimenID());
         if (specimen.isIsBaseline()) {
             if (specimen.getStrainID() == null) {
-                this.errorHandler.error(new ValidationException("Specimen " + specimen.getSpecimenID() + " marked as baseline but has no strainID", "CentreSpecimenSetValidator_testSpecimenBackground", specimen));
+                this.errorHandler.error(new ValidationException("Specimen " + specimen.getSpecimenID() + " marked as baseline but has no strainID", "CentreSpecimenSetValidator_testNoStrainSpecified", specimen));
             }
             if (specimen.getStrainID() != null && !isInMGI(specimen.getStrainID())) {
                 this.errorHandler.error(new ValidationException("Specimen " + specimen.getSpecimenID() + " marked as baseline but has no strainID and is not in MGI", "CentreSpecimenSetValidator_testSpecimenBackground", specimen));
@@ -118,11 +128,34 @@ public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
         } else {//if a knockout mouse 
 
             if (specimen.getColonyID() == null || specimen.getColonyID().isEmpty()) {
-                this.errorHandler.error(new ValidationException("The colonyID for specimen " + specimen.getSpecimenID() + "has to be provided ", "CentreSpecimenSetValidator_testSpecimenBackground", specimen));
+                this.errorHandler.error(new ValidationException("The colonyID for specimen " + specimen.getSpecimenID() + "has to be provided ", "CentreSpecimenSetValidator_testNoColonyIDSpecified", specimen));
             }
+            if (specimen.getColonyID() != null) {
+                try {
+                    PhenotypeAttempt attempt = ((IMITSBrowser) this.xmlValidationResources.get(IOParameters.VALIDATIONRESOURCES_IDS.Imits)).getPhenotypeAttemptForColonyNameAndStatus(specimen.getColonyID());
+                    if (attempt == null) {
+                        attempt = ((IMITSBrowser) this.xmlValidationResources.get(IOParameters.VALIDATIONRESOURCES_IDS.Imits)).getPhenotypeAttemptForColonyNameOnly(specimen.getColonyID());
+                        if (attempt == null) {
+                            this.errorHandler.error(new ValidationException("The colonyID " + specimen.getColonyID() + " of specimen " + specimen.getSpecimenID() + " is not in iMits", "CentreSpecimenSetValidator_testSpecimenBackgroundNotInImits", specimen));
+                        } else {
+                            this.errorHandler.error(new ValidationException("The colonyID " + specimen.getColonyID() + " of specimen " + specimen.getSpecimenID() + " does not have status of 'Cre excision Complete' in iMits", "CentreSpecimenSetValidator_testColonyIncorrectState", specimen));
+                        }
+                    } else {
+                        ImitsProductionCentre imitsCentre = attempt.getProductionCentre();
+                        CentreILARcode xmlCentre = specimen.getProductionCentre() != null ? specimen.getProductionCentre() : specimen.getPhenotypingCentre();
+                        ImitsProductionCentre xmlCentreAsImitsCentre = CentreTranslator.get(xmlCentre);
+                        if (!xmlCentreAsImitsCentre.equals(imitsCentre)) {
+                            this.errorHandler.error(new ValidationException("The colonyID " + specimen.getColonyID() + " of specimen " + specimen.getSpecimenID() + " has a centre of '" + imitsCentre + "' in iMits and " + xmlCentreAsImitsCentre + " in the xml", "CentreSpecimenSetValidator_testIncorrectProduictionCentre", specimen));
+                        }
+                    }
+                } catch (URISyntaxException | IOException | NoSuchAlgorithmException | KeyManagementException | KeyStoreException | UnrecoverableKeyException | ParseException ex) {
+                    this.errorHandler.error(new ValidationException("The colony id of the specimen could not be validated, no inofrmation from iMits ", "CentreSpecimenSetValidator_testImitsServiceFail", specimen));
+                }
+            }
+
             if (specimen.getColonyID() != null
                     && !isInPhenotypeAttemptColonyName(specimen.getProductionCentre() != null ? specimen.getProductionCentre() : specimen.getPhenotypingCentre(), specimen.getColonyID())) {
-                this.errorHandler.error(new ValidationException("The colonyID " + specimen.getColonyID() + " of specimen " + specimen.getSpecimenID() + " is not in iMITS on any of these statuses Cre Excision Complete, Phenotype Attempt Registered, Phenotyping Started, Phenotyping Completed", "CentreSpecimenSetValidator_testSpecimenBackground", specimen));
+                this.errorHandler.error(new ValidationException("The colonyID " + specimen.getColonyID() + " of specimen " + specimen.getSpecimenID() + " is not in iMITS on any of these statuses Cre Excision Complete, Phenotype Attempt Registered, Phenotyping Started, Phenotyping Completed", "CentreSpecimenSetValidator_testiMitsButWrongState", specimen));
             }
         }
     }
@@ -133,7 +166,7 @@ public class CentreSpecimenSetValidator extends Validator<CentreSpecimenSet> {
             Calendar dateFromImits = getDateFromImits(specimen.getColonyID());
 
             if (dateFromImits != null && mouse.getDOB().before(dateFromImits)) {
-                this.errorHandler.error(new ValidationException("Mouse " + mouse.getSpecimenID()+ " date of birth is before the date specified in imits", "CentreSpecimenSetValidator_testSpecimenDatesWithinLimits", specimen));
+                this.errorHandler.error(new ValidationException("Mouse " + mouse.getSpecimenID() + " date of birth is before the date specified in imits", "CentreSpecimenSetValidator_testSpecimenDatesWithinLimits", specimen));
             }
             Calendar now = DatatypeConverter.now();
             if (mouse.getDOB() == null) {

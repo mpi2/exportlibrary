@@ -287,7 +287,7 @@
         <dependency>
             <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
             <artifactId>exportlibrary.datastructure</artifactId>
-            <version>3.8</version>
+            <version>3.8.1</version>
         </dependency>
     </dependencies>
        

@@ -150,6 +150,18 @@ public class ImitsHTTPClient {
         return builder.build();
     }
 
+    protected URI getPhenotypeAttemptURIForColonyIDOnly(String colonyID) throws URISyntaxException {
+        URIBuilder builder = new URIBuilder();
+        builder.setScheme(scheme);
+        builder.setHost(host);
+        builder.setPath(phenotype_attempts_path);
+        builder.setUserInfo(username, password);
+
+        builder.addParameter("colony_name_eq", colonyID);
+
+        return builder.build();
+    }
+
     private URI getImitsURI_forPhenotypeAttemptsForProductionCentre(ImitsProductionCentre imitsProductionCentre, boolean isSecondAttempt) throws URISyntaxException {
         URIBuilder builder = new URIBuilder();
         builder.setScheme(scheme);

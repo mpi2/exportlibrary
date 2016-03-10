@@ -26,12 +26,13 @@ import org.mousephenotype.dcc.exportlibrary.xmlvalidationdatastructure.external.
 
  
 public class CentreTranslator {
- public static ImitsProductionCentre get(CentreILARcode centreILARcode) {
-        
+
+    public static ImitsProductionCentre get(CentreILARcode centreILARcode) {
+
         if (centreILARcode.equals(CentreILARcode.BCM)) {
             return ImitsProductionCentre.BCM;
         }
-      
+
         if (centreILARcode.equals(CentreILARcode.GMC)) {
             return ImitsProductionCentre.HMGU;
         }
@@ -50,10 +51,10 @@ public class CentreTranslator {
             return ImitsProductionCentre.TCP;
         }
         if (centreILARcode.equals(CentreILARcode.NING)) {
-            return null;
+            return ImitsProductionCentre.MARC;
         }
         if (centreILARcode.equals(CentreILARcode.RBRC)) {
-            return null;
+            return ImitsProductionCentre.RIKEN_BRC;
         }
         if (centreILARcode.equals(CentreILARcode.UCD)) {
             return ImitsProductionCentre.UCD;
@@ -64,7 +65,9 @@ public class CentreTranslator {
         if (centreILARcode.equals(CentreILARcode.CDTA)) {
             return ImitsProductionCentre.CDTA;
         }
-
+        if (centreILARcode.equals(CentreILARcode.CRL)) {
+            return ImitsProductionCentre.CRL;
+        }
         return null;
     }
 }

@@ -343,7 +343,7 @@ public class ExportWorker {
         try {
             CentreProcedureSetTraverser traverser = new CentreProcedureSetTraverser();
             traverser.run(hjidRemover, cps);
-            String fN = downloadInstructions.getCentreILAR()+"."+formatter.format(downloadInstructions.getCreationTimestamp()) + ".experiment." + filecount + ".xml";
+            String fN = downloadInstructions.getCentreILAR()+"."+formatter.format(downloadInstructions.getCreationTimestamp()) +"."+ filecount + ".experiment.xml";
             g.serialize(cps, fN);
             // All CentreProcedures containing Experiment, Line and Housing lists
             for (CentreProcedure c : cps.getCentre()) {
@@ -370,7 +370,7 @@ public class ExportWorker {
         try {
             CentreSpecimenSetTraverser traverser = new CentreSpecimenSetTraverser();
             traverser.run(hjidRemover, css);
-            String fn = downloadInstructions.getCentreILAR()+"."+formatter.format(downloadInstructions.getCreationTimestamp()) + ".specimen." + filecount + ".xml";
+            String fn = downloadInstructions.getCentreILAR()+"."+formatter.format(downloadInstructions.getCreationTimestamp()) +"."+filecount + ".specimen.xml";
             g.serialize(css, fn);
         } catch (JAXBException ex) {
             logger.error("Could not write XML file");

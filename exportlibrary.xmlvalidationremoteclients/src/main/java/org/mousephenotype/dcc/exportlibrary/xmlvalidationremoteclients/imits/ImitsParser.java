@@ -99,7 +99,7 @@ public class ImitsParser {
             phenotypeAttempt.setImitsID(BigInteger.valueOf((Long) jsonDoc.get("id")));
             phenotypeAttempt.setPhenotypeColonyName((String) jsonDoc.get("colony_name"));
             phenotypeAttempt.setPhenotypeStatus(ImitsPhenotypeStatus.fromValue((String) jsonDoc.get("status_name")));
-            phenotypeAttempt.setProductionCentre(ImitsProductionCentre.fromValue((String) jsonDoc.get("production_centre_name")));
+            phenotypeAttempt.setProductionCentre(ImitsProductionCentre.fromValue((String) jsonDoc.get("cohort_production_centre_name")));
             phenotypeAttempt.setMiPlanID(BigInteger.valueOf((Long) jsonDoc.get("mi_plan_id")));
 
             //

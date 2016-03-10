@@ -59,7 +59,8 @@
             <xs:enumeration value="UCL"/>   
             <xs:enumeration value="EMBL-Rome"/>   
             <xs:enumeration value="CIPHE"/>   
-            <xs:enumeration value="CDTA"/>   
+            <xs:enumeration value="CDTA"/> 
+            <xs:enumeration value="CRL"/> 
         </xs:restriction> 
     </xs:simpleType>
     
