@@ -67,6 +67,7 @@ public class ExportWorker {
     private static final String OPT_CONNECTION_PROPERTIES = "p";
     private static final String OPT_EXPORT_PROP_FILE = "c";
     private static final String OPT_BATCH_SIZE = "s";
+    private static final String OPT_EMBRYO_ONLY = "e";
     private static final Options OPTIONS = new Options();
     // used when showing usage information, or help message
     private static final int NUM_CHARS_PER_ROW = 120;
@@ -81,6 +82,7 @@ public class ExportWorker {
         OPTIONS.addOption(OPT_CONNECTION_PROPERTIES, true, "The properties files controlling the connection");
         OPTIONS.addOption(OPT_EXPORT_PROP_FILE, true, "The JSON file contining the information that will control the export.");
         OPTIONS.addOption(OPT_BATCH_SIZE, true, "The maximum number of enteries in a single file");
+        OPTIONS.addOption(OPT_EMBRYO_ONLY, false, "Select if embryo only export");
     }
     private HibernateManager hm;
     private final HJIDRemover hjidRemover;
@@ -120,7 +122,7 @@ public class ExportWorker {
                 if (configFile == null || instructionFile == null) {
                     close(1);
                 }
-                generateExportFromData(configFile, instructionFile);
+                generateExportFromData(configFile, instructionFile,cmd.hasOption(OPT_EMBRYO_ONLY));
             } else {
                 logger.error("There must be a connection file and a data file specified");
                 close(1);
@@ -140,14 +142,14 @@ public class ExportWorker {
      * @param configFile
      * @param instructionFile
      */
-    private void generateExportFromData(File configFile, File instructionFile) {
+    private void generateExportFromData(File configFile, File instructionFile,boolean embryoOnly) {
         // Set up the hibernate code
         rawEM = getEntityManagerFromHibernate(configFile);
         CentreContainer downloadInstructions = parseInstructionsFromFile(instructionFile);
         
         if (!downloadInstructions.getSpecimenReference().isEmpty()) {
             logger.info("Writing Specimen Files");
-            processSpecimens(rawEM, downloadInstructions);
+            processSpecimens(rawEM, downloadInstructions, embryoOnly);
         }
         if (!downloadInstructions.getDataReference().isEmpty()) {
             logger.info("Writing Experiment Files");
@@ -226,7 +228,7 @@ public class ExportWorker {
         return newCP;
     }
     
-    private void processSpecimens(EntityManager rawEM, CentreContainer downloadInstructions) {
+    private void processSpecimens(EntityManager rawEM, CentreContainer downloadInstructions, boolean embryoOnly) {
         XMLGenerator g = new XMLGenerator();
         
         TypedQuery<Mouse> mouseQuery = rawEM.createQuery("Select s from Mouse s where s.hjid=:hjid", Mouse.class);
@@ -252,10 +254,10 @@ public class ExportWorker {
                 cs.unsetMouseOrEmbryo(); // empty list
                 specimenList.clear();
             }
-            if (sp.isIsMouse()) {
+            if (sp.isIsMouse() && !embryoOnly) { // miss out the adults
                 Mouse s = mouseQuery.setParameter("hjid", sp.getSpecimenID()).getSingleResult();
                 specimenList.add(s);
-            } else {
+            } else if (!sp.isIsMouse()){ // only embryo
                 Embryo s = embryoQuery.setParameter("hjid", sp.getSpecimenID()).getSingleResult();
                 specimenList.add(s);
             }

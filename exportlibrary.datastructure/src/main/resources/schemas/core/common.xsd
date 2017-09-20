@@ -51,6 +51,9 @@
             <xs:enumeration value="Wtsi"/>   <!-- Wellcome Trust Sanger Institute -->
             <xs:enumeration value="CDTA"/>   <!-- Institut de Transgenose (CDTA Orleans) -->
             <xs:enumeration value="Crl"/>    <!-- Charles River Laboratories -->
+            <xs:enumeration value="Kmpc"/>   <!-- Korea Mouse Phenotyping Center -->
+            <xs:enumeration value="Ph"/>     <!-- Academy of Sciences of the Czeck Republik -->
+            <xs:enumeration value="Biat"/>   <!-- University of Veterinary Medicine Vienna -->
         </xs:restriction>
     </xs:simpleType>
     

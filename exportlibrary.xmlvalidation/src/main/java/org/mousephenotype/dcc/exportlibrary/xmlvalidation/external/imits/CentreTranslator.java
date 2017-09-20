@@ -68,6 +68,12 @@ public class CentreTranslator {
         if (centreILARcode.equals(CentreILARcode.CRL)) {
             return ImitsProductionCentre.CRL;
         }
+        if (centreILARcode.equals(CentreILARcode.KRB)) {
+            return ImitsProductionCentre.KMPC;
+        }
+        if (centreILARcode.equals(CentreILARcode.KMPC)) {
+            return ImitsProductionCentre.KMPC;
+        }
         return null;
     }
 }

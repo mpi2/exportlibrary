@@ -24,7 +24,11 @@ package org.mousephenotype.dcc.exportlibrary.xmlvalidationresourcescollection.mg
 import com.google.common.collect.ImmutableMap;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 import java.util.Calendar;
 import java.util.List;
@@ -108,10 +112,10 @@ public class MGIResource {
             fallbackOnDefaults();
         }
         logger.info("Downloading from {} to be written to file {}", ftpProperties.getProperty("url"), ftpProperties.getProperty("fromFile"));
-        ftpUtils = new FTPUtils(ftpProperties.getProperty("url"), Integer.valueOf(ftpProperties.getProperty("port")),
-                ftpProperties.getProperty("username"), ftpProperties.getProperty("password"), FTPUtils.fileTypes.BINARY_FILE_TYPE, FTPUtils.fileTransferModes.STREAM_TRANSFER_MODE);
-        ftpUtils.download(ftpProperties.getProperty("fromFile"), filename);
-        ftpUtils.close();
+        URL website = new URL(ftpProperties.getProperty("url"));
+        ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+        FileOutputStream fos = new FileOutputStream(filename);
+        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
     }
     
     private void work(Calendar now) throws FileNotFoundException {
@@ -166,7 +170,7 @@ public class MGIResource {
     private void fallbackOnDefaults() {
         // Reseting to defaults. 
         logger.info("Resetting the MGI credentials to default probably as the result of the file containing the alternative could not be found.");
-        ftpProperties.put("url", "ftp.informatics.jax.org");
+        ftpProperties.put("url", "http://www.informatics.jax.org/downloads/reports/MGI_Strain.rpt");
         ftpProperties.put("port", "21");
         ftpProperties.put("username", "anonymous");
         ftpProperties.put("password", "");

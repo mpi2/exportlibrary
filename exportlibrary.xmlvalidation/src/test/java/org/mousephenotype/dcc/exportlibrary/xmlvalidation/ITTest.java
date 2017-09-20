@@ -33,7 +33,7 @@ import org.junit.Test;
 public class ITTest {
 
     private int execute(String[] args) throws Exception {
-        String  __EXECUTABLE__= "target/exportlibrary.xmlvalidation-1.3.10-jar-with-dependencies.jar";
+        String  __EXECUTABLE__= "target/exportlibrary.xmlvalidation-1.3.14-jar-with-dependencies.jar";
         File jar = new File(__EXECUTABLE__);
         String[] execArgs = new String[args.length + 3];
         System.arraycopy(args, 0, execArgs, 3, args.length);

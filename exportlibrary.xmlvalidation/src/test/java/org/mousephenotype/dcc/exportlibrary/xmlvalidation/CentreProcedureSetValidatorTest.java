@@ -291,6 +291,30 @@ public class CentreProcedureSetValidatorTest {
         }
     }
 
+    
+    @Test
+    public void testKoreaILAR() {
+        CentreProcedureSet centreProcedureSetInternal = null;
+        try {
+            centreProcedureSetInternal = XMLUtils.unmarshal(contextPath, CentreProcedureSet.class, "src/test/resources/data/Krb.2016-04-15.1.specimen.impc.xml");
+        } catch (JAXBException | IOException ex) {
+            logger.error("", ex);
+            Assert.fail();
+        }
+        Assert.assertNotNull(centreProcedureSetInternal);
+
+        try {
+            ValidationSet validationSet = new ValidationSet();
+            ValidationReportSet validationReportSet = new ValidationReportSet();
+            CentreProcedureSetValidator validator2 =  new CentreProcedureSetValidator(centreProcedureSetInternal, validationSet, validationReportSet, xmlValidationResources, specimenWSclient);
+            validator2.validateWithHandler();
+            Assert.assertTrue(validator2.getErrorExceptions().size() == 0);
+        } catch (Exception ex) {
+            logger.error("", ex);
+            Assert.fail(ex.getMessage());
+        }
+    }
+    
     @Test
     public void testWrongColonyInLine() {
         CentreProcedureSet centreProcedureSetInternal = null;

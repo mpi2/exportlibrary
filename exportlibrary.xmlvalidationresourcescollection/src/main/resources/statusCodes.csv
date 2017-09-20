@@ -1,39 +1,40 @@
 
-IMPC_PSC_001	~   Mouse died                                          ~   Found dead
-IMPC_PSC_002	~   Mouse culled	                                ~   	Culled for welfare reasons
-IMPC_PSC_003	~   Single procedure not performed - welfare		~   Because of animal welfare
-IMPC_PSC_004	~   Single procedure not performed - schedule		~   Mouse missed test date, e.g. no phenotyper available
-IMPC_PSC_005	~   Pipeline stopped - welfare                          ~   Because of animal welfare
-IMPC_PSC_006	~   Pipeline stopped - scheduling                       ~   Mouse missed more than one test so pipeline stopped
-IMPC_PSC_007	~   Procedure Failed - Equipment Failed                 ~   Issue with the phenotyping equipment, hardware/software (but not LIMS)
-IMPC_PSC_008	~   Procedure Failed - Sample Lost
-IMPC_PSC_009	~   Procedure Failed - Insufficient Sample		~   Blood sample was enough for one Clinical chemistry but no Hematology
-IMPC_PSC_010	~   Procedure Failed - Process Failed   		~   Error/failure in any step of the procedure (e.g.: glucose injection in IPGTT gone wrong)
-IMPC_PSC_011	~   Procedure QC Failed	
-IMPC_PSC_012	~   LIMS not ready yet                                  ~   LIMS is undergoing updates and is unable to collect the data, for the moment; e.g.: manage a mandatory procedure still not yet added to the LIMS
-IMPC_PSC_013	~   Software failure                    		~   LIMS says no
-IMPC_PSC_014	~   Uncooperative mouse                                 ~   Mouse is refusing to comply to the test (e.g.: not griping the grid in Grip Strength)
-IMPC_PSC_015	~   Free Text of Issues                 		~   Info about a procedure that could not be completed for any other reason (submitted like IMPC_PSC_015:laboratory destroyed by flood)
-IMPC_PSC_016    ~   Embryo lost or damaged                              ~   The embryo can not continue as it has been lost or damaged		
+IMPC_PSC_001 ~   Mouse died                                          ~   Found dead
+IMPC_PSC_002 ~   Mouse culled                                ~   Culled for welfare reasons
+IMPC_PSC_003 ~   Single procedure not performed - welfare ~   Because of animal welfare
+IMPC_PSC_004 ~   Single procedure not performed - schedule ~   Mouse missed test date, e.g. no phenotyper available
+IMPC_PSC_005 ~   Pipeline stopped - welfare                          ~   Because of animal welfare
+IMPC_PSC_006 ~   Pipeline stopped - scheduling                       ~   Mouse missed more than one test so pipeline stopped
+IMPC_PSC_007 ~   Procedure Failed - Equipment Failed                 ~   Issue with the phenotyping equipment, hardware/software (but not LIMS)
+IMPC_PSC_008 ~   Procedure Failed - Sample Lost
+IMPC_PSC_009 ~   Procedure Failed - Insufficient Sample ~   Blood sample was enough for one Clinical chemistry but no Hematology
+IMPC_PSC_010 ~   Procedure Failed - Process Failed   ~   Error/failure in any step of the procedure (e.g.: glucose injection in IPGTT gone wrong)
+IMPC_PSC_011 ~   Procedure QC Failed 
+IMPC_PSC_012 ~   LIMS not ready yet                                  ~   LIMS is undergoing updates and is unable to collect the data, for the moment; e.g.: manage a mandatory procedure still not yet added to the LIMS
+IMPC_PSC_013 ~   Software failure                     ~   LIMS says no
+IMPC_PSC_014 ~   Uncooperative mouse                                 ~   Mouse is refusing to comply to the test (e.g.: not griping the grid in Grip Strength)
+IMPC_PSC_015 ~   Free Text of Issues                 ~   Info about a procedure that could not be completed for any other reason (submitted like IMPC_PSC_015:laboratory destroyed by flood)
+IMPC_PSC_016    ~   Embryo lost or damaged                              ~   The embryo can not continue as it has been lost or damaged 
+IMPC_PSC_017    ~   LIMS error                                          ~   LIMS error resulted in erroneous data submission
 
-IMPC_PARAMSC_001    ~   Parameter not measured - Equipment Failed	~    Issue with the phenotyping equipment, hardware/software (but not LIMS)
-IMPC_PARAMSC_002    ~ 	Parameter not measured - Sample Lost	
-IMPC_PARAMSC_003    ~  	Parameter not measured - Insufficient sample	~   Blood sample was enough for one Clinical chemistry but not for Hematology
-IMPC_PARAMSC_004    ~  	Parameter not recorded - welfare issue          ~   Single parameter not recorded because of mouse welfare reasons
-IMPC_PARAMSC_005    ~  	Free Text of Issues                             ~   Info about a parameter e.g the mouse moved, the power went off (submitted like IMPC_PARAMSC_004:the mouse moved)
-IMPC_PARAMSC_006    ~  	Extra Information                               ~   e.g. For media parameters a link to the parameter associated with the picture (submitted like IMPC_PARAMSC_006: IMPC_013_001_014)
-IMPC_PARAMSC_007    ~  	Parameter not measured - not in SOP 		~   Not in center specific SOP at time of measurement
-IMPC_PARAMSC_008    ~  	Above upper limit of quantitation	
-IMPC_PARAMSC_009    ~  	Below lower limit of quantitation	
-IMPC_PARAMSC_010    ~  	Parameter QC Failed	
-IMPC_PARAMSC_011    ~  	LIMS not ready yet               		~   LIMS is undergoing updates and is unable to collect the data, for the moment; e.g.: manage mandatory parameters added to procedure after experiment performed but before data exported
-IMPC_PARAMSC_012    ~  	Software failure                                ~   LIMS says no
-IMPC_PARAMSC_013    ~  	Uncooperative mouse                     	~   Mouse is refusing to comply to the test (e.g.: not griping the grid in Grip Strength)
-IMPC_PARAMSC_014    ~  	Parameter not measured - Equipment Incompatible ~   The phenotyping equipment can not be used to measure a mandatory parameter
-IMPC_PARAMSC_015    ~   Bypassing primary fertility screen	~  Due to operational reasons we are bypassing the primary fertility screen
-		
+IMPC_PARAMSC_001    ~   Parameter not measured - Equipment Failed ~    Issue with the phenotyping equipment, hardware/software (but not LIMS)
+IMPC_PARAMSC_002    ~ Parameter not measured - Sample Lost 
+IMPC_PARAMSC_003    ~   Parameter not measured - Insufficient sample ~   Blood sample was enough for one Clinical chemistry but not for Hematology
+IMPC_PARAMSC_004    ~   Parameter not recorded - welfare issue          ~   Single parameter not recorded because of mouse welfare reasons
+IMPC_PARAMSC_005    ~   Free Text of Issues                             ~   Info about a parameter e.g the mouse moved, the power went off (submitted like IMPC_PARAMSC_004:the mouse moved)
+IMPC_PARAMSC_006    ~   Extra Information                               ~   e.g. For media parameters a link to the parameter associated with the picture (submitted like IMPC_PARAMSC_006: IMPC_013_001_014)
+IMPC_PARAMSC_007    ~   Parameter not measured - not in SOP ~   Not in center specific SOP at time of measurement
+IMPC_PARAMSC_008    ~   Above upper limit of quantitation 
+IMPC_PARAMSC_009    ~   Below lower limit of quantitation 
+IMPC_PARAMSC_010    ~   Parameter QC Failed 
+IMPC_PARAMSC_011    ~   LIMS not ready yet               ~   LIMS is undergoing updates and is unable to collect the data, for the moment; e.g.: manage mandatory parameters added to procedure after experiment performed but before data exported
+IMPC_PARAMSC_012    ~   Software failure                                ~   LIMS says no
+IMPC_PARAMSC_013    ~   Uncooperative mouse                     ~   Mouse is refusing to comply to the test (e.g.: not griping the grid in Grip Strength)
+IMPC_PARAMSC_014    ~   Parameter not measured - Equipment Incompatible ~   The phenotyping equipment can not be used to measure a mandatory parameter
+IMPC_PARAMSC_015    ~   Bypassing primary fertility screen        ~   Due to operational reasons we are bypassing the primary fertility screen
+IMPC_PARAMSC_016    ~   LIMS error                                      ~   LIMS error resulted in erroneous data submission 
 
-IMPC_SSC_001    ~   Genotyping failed	
-IMPC_SSC_002    ~   Health Issue	~   	Mouse withdrawn because of health issue not related to the targeted mutation; all data to be removed; (ex: health issue discovered during gross pathology, justifying rare values throughout the pipeline)
+IMPC_SSC_001    ~   Genotyping failed 
+IMPC_SSC_002    ~   Health Issue ~   Mouse withdrawn because of health issue not related to the targeted mutation; all data to be removed; (ex: health issue discovered during gross pathology, justifying rare values throughout the pipeline)
 IMPC_SSC_003    ~   Free Text of Issues ~   Info about a specimen that was removed, not covered by the other specimen status codes; e.g.: duplicated specimen entries (submitted like IMPC_SSC_003:duplicated specimen entry)
-
+IMPC_SSC_004    ~   LIMS error          ~   LIMS error resulted in erroneous data submission
