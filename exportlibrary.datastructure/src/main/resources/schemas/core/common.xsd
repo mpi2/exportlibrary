@@ -54,6 +54,7 @@
             <xs:enumeration value="Kmpc"/>   <!-- Korea Mouse Phenotyping Center -->
             <xs:enumeration value="Ph"/>     <!-- Academy of Sciences of the Czeck Republik -->
             <xs:enumeration value="Biat"/>   <!-- University of Veterinary Medicine Vienna -->
+            <xs:enumeration value="Ccpcz"/>   <!-- Institute of Molecular Genetics AS CR -->
         </xs:restriction>
     </xs:simpleType>
     

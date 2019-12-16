@@ -62,22 +62,26 @@ public class XMLSerializer extends ConsoleReader {
     private static final String DCC_MASTER_KEYWORD = "dcc";
     private static final String DCC_DERBY_KEYWORD = "local";
     //
-    
+
     //
     private TrackerSerializer trackerSerializer;
     //
     private CoreSerializer coreSerializer;
     //
+    private static final int SUCCESS = 0;
     private static final int PARSE_ARGS_FAIL = 100;
     private static final int DB_PROPERTIES_FILE_NOT_FOUND = 101;
     private static final int MISSING_XML_FILE_PATH = 102;
     private static final int DB_ERROR_CONNECTION = 103;
     private static final int DB_ERROR_SERIALIZING = 104;
+    
+    public static final int XML_ERROR_MAX_ENTRIES = 105;
+    public static int maxEntries = 0;
+
     /*
      * private static final int private static final int private static final
      * int
      */
-
     private void closeTrackerQuietly() {
         try {
             this.trackerSerializer.fullClose();
@@ -94,34 +98,41 @@ public class XMLSerializer extends ConsoleReader {
         }
     }
 
-    private boolean trakerRun4procedures(String procedureResultsFilename, Long trackingID, Calendar submissionDate, Boolean closeTracker) {
-        boolean success = true;
+    private int trakerRun4procedures(String procedureResultsFilename, Long trackingID, Calendar submissionDate, Boolean closeTracker) {
+        int success = 0;
         try {
             this.trackerSerializer.serializeProcedureSubmissionSet(trackingID, submissionDate, procedureResultsFilename);
         } catch (JAXBException ex) {
             logger.error("error processing the xml file ", procedureResultsFilename, ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (FileNotFoundException ex) {
             logger.error("{} not found ", procedureResultsFilename, ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (IllegalStateException ex) {
             logger.error("transaction is active", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (EntityExistsException ex) {
             logger.error("specimen set already exists in the db", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (IllegalArgumentException ex) {
             logger.error("illegal state persisting specimens", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (TransactionRequiredException ex) {
             logger.error("no transaction available", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (XMLloadingException ex) {
             logger.error("", ex);
-            success = false;
+            switch (ex.getErrorCode()) {
+                case XML_ERROR_MAX_ENTRIES:
+                    success = XML_ERROR_MAX_ENTRIES;
+                    break;
+                default:
+                    success = DB_ERROR_SERIALIZING;
+                    break;
+            }
         } catch (IOException ex) {
             logger.error("", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } finally {
             if (closeTracker) {
                 this.closeTrackerQuietly();
@@ -130,34 +141,41 @@ public class XMLSerializer extends ConsoleReader {
         return success;
     }
 
-    private boolean trakerRun4specimens(String specimenResultsFilename, Long trackingID, Calendar submissionDate, Boolean closeTracker) {
-        boolean success = true;
+    private int trakerRun4specimens(String specimenResultsFilename, Long trackingID, Calendar submissionDate, Boolean closeTracker) {
+        int success = 0;
         try {
             this.trackerSerializer.serializeSpecimenSubmissionSet(trackingID, submissionDate, specimenResultsFilename);
         } catch (JAXBException ex) {
             logger.error("error processing the xml file ", specimenResultsFilename, ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (FileNotFoundException ex) {
             logger.error("{} not found ", specimenResultsFilename, ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (IllegalStateException ex) {
             logger.error("transaction is active", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (EntityExistsException ex) {
             logger.error("specimen set already exists in the db", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (IllegalArgumentException ex) {
             logger.error("illegal state persisting specimens", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (TransactionRequiredException ex) {
             logger.error("no transaction available", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } catch (XMLloadingException ex) {
             logger.error("", ex);
-            success = false;
+            switch (ex.getErrorCode()) {
+                case XML_ERROR_MAX_ENTRIES:
+                    success = XML_ERROR_MAX_ENTRIES;
+                    break;
+                default:
+                    success = DB_ERROR_SERIALIZING;
+                    break;
+            }
         } catch (IOException ex) {
             logger.error("", ex);
-            success = false;
+            success = DB_ERROR_SERIALIZING;
         } finally {
             if (closeTracker) {
                 this.closeTrackerQuietly();
@@ -259,6 +277,7 @@ public class XMLSerializer extends ConsoleReader {
         //
         Argument<String> ListOfProceduresArgument = new Argument<>(String.class, "q", "listOfProcedureFilenames", "listOfProcedureFilenames", true, "wildcard to match names of xml procedures");
         Argument<String> ListOfSpecimentsArgument = new Argument<>(String.class, "u", "listOfSpecimenFilenames", "listOfSpecimenFilenames", true, "wildcard to match names of xml specimens");
+        Argument<Integer> maxEntriesArg = new Argument<>(Integer.class, "m", "maxAllowedEntries", "maxAllowedEntries", true, "defines the maximum allowed number of entries (experiments/specimens) within an xml");
         //
         List<Argument<?>> arguments = new ArrayList<>();
         arguments.add(specimenResultsFilenameArgument);
@@ -271,6 +290,7 @@ public class XMLSerializer extends ConsoleReader {
         arguments.add(createDatabaseArgument);
         arguments.add(ListOfProceduresArgument);
         arguments.add(ListOfSpecimentsArgument);
+        arguments.add(maxEntriesArg);
         //
         XMLSerializer xMLSerializer = new XMLSerializer(arguments);
         xMLSerializer.setValues(args);
@@ -289,8 +309,10 @@ public class XMLSerializer extends ConsoleReader {
             System.exit(PARSE_ARGS_FAIL);
         }
         logger.info("parameters parsed correctly");
-
-
+        //
+        if(maxEntriesArg.getRawValue() != null){
+            maxEntries = maxEntriesArg.getValue();
+        }
 
         if (isCoreArgument.getRawValue() != null && isCoreArgument.getValue()) {
             boolean serializeProcedures = false;
@@ -312,7 +334,6 @@ public class XMLSerializer extends ConsoleReader {
                 Properties persistenceProperties = null;
                 try {
                     persistenceProperties = XMLSerializer.persistTo(persistencePropertiesFileNameArgument,
-                            
                             createDatabaseArgument.getRawValue() != null ? createDatabaseArgument.getValue() : false);
                 } catch (FileNotFoundException | ConfigurationException ex) {
                     logger.error("could not find file corresponding to {}", persistencePropertiesFileNameArgument.getRawValue(), ex);
@@ -355,7 +376,6 @@ public class XMLSerializer extends ConsoleReader {
                 Properties persistenceProperties = null;
                 try {
                     persistenceProperties = XMLSerializer.persistTo(persistencePropertiesFileNameArgument,
-                             
                             createDatabaseArgument.getRawValue() != null ? createDatabaseArgument.getValue() : false);
                 } catch (FileNotFoundException ex) {
                     logger.error("could not find file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
@@ -375,9 +395,10 @@ public class XMLSerializer extends ConsoleReader {
                     System.exit(DB_PROPERTIES_FILE_NOT_FOUND);
                 }
                 //
-                if (!xMLSerializer.trakerRun4procedures(procedureResultsFilenameArgument.getValue(),
-                        trackingIDArgument.getValue(), submissionDateArgument.getValue(), true)) {
-                    System.exit(DB_ERROR_SERIALIZING);
+                int returnCode = xMLSerializer.trakerRun4procedures(procedureResultsFilenameArgument.getValue(), 
+                        trackingIDArgument.getValue(), submissionDateArgument.getValue(), true);
+                if (returnCode != SUCCESS) {
+                    System.exit(returnCode);
                 }
                 //
                 if (test2dbSuccessfulArgument.getRawValue() != null && test2dbSuccessfulArgument.getValue() == true) {
@@ -399,7 +420,6 @@ public class XMLSerializer extends ConsoleReader {
                 Properties persistenceProperties = null;
                 try {
                     persistenceProperties = XMLSerializer.persistTo(persistencePropertiesFileNameArgument,
-                            
                             createDatabaseArgument.getRawValue() != null ? createDatabaseArgument.getValue() : false);
                 } catch (FileNotFoundException ex) {
                     logger.error("could not find file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
@@ -417,13 +437,15 @@ public class XMLSerializer extends ConsoleReader {
                     logger.error("error setting up database connections", ex);
                     System.exit(DB_PROPERTIES_FILE_NOT_FOUND);
                 }
-
-                if (!xMLSerializer.trakerRun4specimens(specimenResultsFilenameArgument.getValue(),
+                //
+                int returnCode = xMLSerializer.trakerRun4specimens(specimenResultsFilenameArgument.getValue(),
                         trackingIDArgument.getValue(),
                         submissionDateArgument.getValue(),
-                        true)) {
-                    System.exit(DB_ERROR_SERIALIZING);
+                        true);
+                if (returnCode != SUCCESS) {
+                    System.exit(returnCode);
                 }
+                //
                 if (test2dbSuccessfulArgument.getRawValue() != null && test2dbSuccessfulArgument.getValue() == true) {
                     xMLSerializer.test2dbSuccessful(false, true, false);
                 }
@@ -440,7 +462,6 @@ public class XMLSerializer extends ConsoleReader {
             Properties persistenceProperties = null;
             try {
                 persistenceProperties = XMLSerializer.persistTo(persistencePropertiesFileNameArgument,
-                       
                         createDatabaseArgument.getRawValue() != null ? createDatabaseArgument.getValue() : false);
             } catch (FileNotFoundException ex) {
                 logger.error("could not find file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
@@ -479,7 +500,6 @@ public class XMLSerializer extends ConsoleReader {
             Properties persistenceProperties = null;
             try {
                 persistenceProperties = XMLSerializer.persistTo(persistencePropertiesFileNameArgument,
-                        
                         createDatabaseArgument.getRawValue() != null ? createDatabaseArgument.getValue() : false);
             } catch (FileNotFoundException ex) {
                 logger.error("could not find file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
@@ -522,7 +542,6 @@ public class XMLSerializer extends ConsoleReader {
             Properties persistenceProperties = null;
             try {
                 persistenceProperties = XMLSerializer.persistTo(persistencePropertiesFileNameArgument,
-                       
                         true);
             } catch (FileNotFoundException ex) {
                 logger.error("could not find file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
@@ -531,7 +550,7 @@ public class XMLSerializer extends ConsoleReader {
                 logger.error("could not read file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
                 System.exit(DB_PROPERTIES_FILE_NOT_FOUND);
             } catch (ConfigurationException ex) {
-             logger.error("could not read file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
+                logger.error("could not read file corresponding to{}", persistencePropertiesFileNameArgument.getRawValue(), ex);
                 System.exit(DB_PROPERTIES_FILE_NOT_FOUND);
             }
             try {
@@ -545,9 +564,6 @@ public class XMLSerializer extends ConsoleReader {
             return;
         }
 
-
-
-
         logger.error("parameter combination not understood {}", xMLSerializer.usage());
 
     }
@@ -556,9 +572,7 @@ public class XMLSerializer extends ConsoleReader {
         return DatatypeConverter.printDateTimeForFilename(DatatypeConverter.now());
     }
 
-    
-
-    private static Properties persistTo(Argument<String> persistencePropertiesFileName,  Boolean create) throws FileNotFoundException, IOException, ConfigurationException {
+    private static Properties persistTo(Argument<String> persistencePropertiesFileName, Boolean create) throws FileNotFoundException, IOException, ConfigurationException {
         Properties properties = null;
         Reader reader = null;
         switch (persistencePropertiesFileName.getValue()) {
@@ -572,7 +586,7 @@ public class XMLSerializer extends ConsoleReader {
                 reader = new Reader(DCC_DERBY_DB_CONNECTION_PROPERTIES_FILENAME);
                 properties = reader.getProperties();
                 String derbyfilename = getDerbyFilename();
-                
+
                 properties.setProperty("hibernate.hbm2ddl.auto", "create");
                 properties.setProperty("hibernate.ejb.entitymanager_factory_name", derbyfilename);
 
@@ -591,7 +605,6 @@ public class XMLSerializer extends ConsoleReader {
         if (create) {
             properties.setProperty("hibernate.hbm2ddl.auto", "create");
         }
-
 
         return properties;
     }

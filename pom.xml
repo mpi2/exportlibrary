@@ -80,14 +80,6 @@
         <module>exportlibrary.exporterworker</module>
         <module>exportlibrary.xmlinstantiation</module>
         <module>exportlibrary.xmlserialization</module>
-        <module>exportlibrary.xmlvalidationdatastructure</module>
-        <module>exportlibrary.xmlvalidationresourcescollection</module>
-        <module>exportlibrary.xmlvalidationremoteclients</module>
-        <module>exportlibrary.xmlvalidation</module>
-        <module>exportlibrary.traverser</module>
-        <module>exportlibrary.validationRemover</module>
-        <module>exportlibrary.fullTraverser</module>
-        <module>exportlibrary.impressexamplesgeneration</module>     
     </modules>
     
  

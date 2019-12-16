@@ -6,7 +6,7 @@
     <artifactId>exportlibrary.xmlserialization</artifactId>
     <packaging>jar</packaging>
     <name>exportlibrary.xmlserialization</name>
-    <version>1.3.4</version>    
+    <version>1.3.6</version>    
     <description>
 
     </description>
@@ -314,7 +314,7 @@
         <dependency>
             <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
             <artifactId>exportlibrary.datastructure</artifactId>
-            <version>3.8.2</version>
+            <version>3.8.4</version>
             <type>jar</type>
         </dependency>
 

@@ -31,7 +31,7 @@ import org.junit.Test;
 public class XSDValidatorTestIT {
 
     private int execute(String[] args) throws Exception {
-        String  __EXECUTABLE__= "target/exportlibrary.xsdvalidation-1.3.4-jar-with-dependencies.jar";
+        String  __EXECUTABLE__= "target/exportlibrary.xsdvalidation-1.3.7-jar-with-dependencies.jar";
         File jar = new File(__EXECUTABLE__);
         String[] execArgs = new String[args.length + 3];
         System.arraycopy(args, 0, execArgs, 3, args.length);

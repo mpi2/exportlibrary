@@ -29,10 +29,13 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.PersistenceException;
 import javax.persistence.TransactionRequiredException;
 import javax.xml.bind.JAXBException;
+import org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure.CentreProcedure;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.procedure.CentreProcedureSet;
+import org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen.CentreSpecimen;
 import org.mousephenotype.dcc.exportlibrary.datastructure.core.specimen.CentreSpecimenSet;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.submission.Submission;
 import org.mousephenotype.dcc.exportlibrary.datastructure.tracker.submission.SubmissionSet;
+import org.mousephenotype.dcc.exportlibrary.xmlserialization.consoleapps.XMLSerializer;
 
 import org.mousephenotype.dcc.exportlibrary.xmlserialization.exceptions.XMLloadingException;
 import org.mousephenotype.dcc.utils.persistence.HibernateManager;
@@ -119,6 +122,15 @@ public class TrackerSerializer {
         logger.info("loading specimens file {}", filename);
         this.submission.setCentreSpecimen(XMLUtils.unmarshal(TrackerSerializer.CONTEXT_PATH, CentreSpecimenSet.class, filename).getCentre());
         if (this.submission.getCentreSpecimen().size() > 0) {
+             if (XMLSerializer.maxEntries > 0) {
+                int count = 0;
+                for (CentreSpecimen c : this.submission.getCentreSpecimen()) {
+                    count += c.getMouseOrEmbryo().size();
+                }
+                if (count > XMLSerializer.maxEntries) {
+                    throw new XMLloadingException(filename + " contains more than " + XMLSerializer.maxEntries + " entries.", XMLSerializer.XML_ERROR_MAX_ENTRIES);
+                }
+            }
             logger.info("{} loaded successfully", filename);
         } else {
             throw new XMLloadingException(filename + " is probably not a specimens file.");
@@ -129,6 +141,16 @@ public class TrackerSerializer {
         logger.info("loading procedures file {}", filename);
         this.submission.setCentreProcedure(XMLUtils.unmarshal(TrackerSerializer.CONTEXT_PATH, CentreProcedureSet.class, filename).getCentre());
         if (this.submission.getCentreProcedure().size() > 0) {
+            if (XMLSerializer.maxEntries > 0) {
+                int count = 0;
+                for (CentreProcedure c : this.submission.getCentreProcedure()) {
+                    count += c.getExperiment().size();
+                    count += c.getLine().size();
+                }
+                if (count > XMLSerializer.maxEntries) {
+                    throw new XMLloadingException(filename + " contains more than " + XMLSerializer.maxEntries + " entries.", XMLSerializer.XML_ERROR_MAX_ENTRIES);
+                }
+            }
             logger.info("{} loaded successfully", filename);
         } else {
             throw new XMLloadingException(filename + " is probably not a procedure file.");

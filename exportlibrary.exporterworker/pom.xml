@@ -10,7 +10,7 @@
     <artifactId>exportlibrary.exporterworker</artifactId>
     <packaging>jar</packaging>
     <name>exportlibrary.exporterworker</name>
-    <version>1.0.4</version>
+    <version>2019.11.11</version>
     
     <url>http://www.mousephenotype.org/dcc/exportlibrary.exporterworker</url>
     
@@ -318,7 +318,7 @@
         <dependency>
             <groupId>org.mousephenotype.dcc.exportlibrary.datastructure</groupId>
             <artifactId>exportlibrary.datastructure</artifactId>
-            <version>3.8.2</version>
+            <version>3.8.4</version>
         </dependency>
          
         <dependency>

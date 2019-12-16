@@ -27,6 +27,8 @@ package org.mousephenotype.dcc.exportlibrary.xmlserialization.exceptions;
  */
 public class XMLloadingException extends Exception {
 
+    private int errorCode = -1;
+
     public XMLloadingException() {
         super();
     }
@@ -34,4 +36,14 @@ public class XMLloadingException extends Exception {
     public XMLloadingException(String message) {
         super(message);
     }
+
+    public XMLloadingException(String message, int errorCode) {
+        super(message);
+        this.errorCode = errorCode;
+    }
+
+    public int getErrorCode() {
+        return errorCode;
+    }
+
 }
