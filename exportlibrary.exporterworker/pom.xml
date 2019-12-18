@@ -380,7 +380,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <org.hibernate.version>4.1.10.Final</org.hibernate.version>
         <hibernate.jpa>1.0.1.Final</hibernate.jpa>  
-        <com.mchange.c3p0.version>0.9.2</com.mchange.c3p0.version>
+        <com.mchange.c3p0.version>0.9.5.4</com.mchange.c3p0.version>
     </properties>
     
 </project>
