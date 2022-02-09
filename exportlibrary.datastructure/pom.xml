@@ -346,7 +346,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        <org.hibernate.version>4.1.10.Final</org.hibernate.version>
+        <org.hibernate.version>5.4.24.Final</org.hibernate.version>
         <hibernate.jpa.version>1.0.1.Final</hibernate.jpa.version>
    
     </properties>
